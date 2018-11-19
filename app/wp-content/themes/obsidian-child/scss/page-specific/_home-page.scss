@@ -1,0 +1,46 @@
+.home {
+
+  &__subtitle-container {
+    border-bottom: 1px solid rgba($pure-white, 0.2);
+
+    & .home__subtitle {
+      text-align: left;
+    }
+  }
+  &__subtitle {
+    text-align: center;
+  }
+
+  & .recent-posts-archive-link {
+    text-decoration: none;
+  }
+}
+
+.featured-message {
+  margin-bottom: $xl-size;
+  
+  & blockquote {
+    text-shadow: 0 0 40px rgba($pure-white, 0.3);
+  }
+}
+
+.featured {
+  display: flex;
+
+  @include breakpoint(phablet) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__col {
+    width: 50%;
+    margin: $xl-size;
+
+    @include breakpoint(tablet) {
+      margin: $m-size;
+    }
+    @include breakpoint(phablet) {
+      width: 100%;
+    }
+  }
+}

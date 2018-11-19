@@ -1,0 +1,33 @@
+@mixin background-color-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+/*********************
+BREAKPOINTS
+*********************/
+
+ @mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (max-width: 70em) { @content ; }
+  }
+   @else if $point == laptop {
+     @media (max-width: 64em) { @content ; }
+  }
+    @else if $point == tablet {
+     @media (max-width: 50em) { @content ; }
+  }
+   @else if $point == phablet {
+     @media (max-width: 37.5em)  { @content ; }
+  }
+  @else if $point == mobileonly {
+     @media (min-width: 37.5em)  { @content ; }
+
+  }
+}
+
+ @mixin pixel-breakpoint($point) {
+    @if $point == cue-tablet {
+     @media (max-width: 768px) { @content ; }
+  }
+}

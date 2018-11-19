@@ -1,0 +1,6 @@
+[2018-10-03 12:59:03 UTC] NOTICE: Registered the client with a subscription token. Client ID: pk_yh6Rly9hymECHyhC7APTBYDmx761W. Token: st_kuv1w7ePHHUfqwECXpNQSy5zsqNpE.
+[2018-10-03 12:59:03 UTC] NOTICE: Authorized the client with a subscription token. Token: st_kuv1w7ePHHUfqwECXpNQSy5zsqNpE.
+[2018-10-03 12:59:04 UTC] NOTICE: Flushing the package caches.
+[2018-10-18 04:42:35 UTC] ERROR: Refreshing the access token failed: cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received
+[2018-10-18 04:42:35 UTC] ERROR: Error adding Authorization header token: cURL error 28: Operation timed out after 10000 milliseconds with 0 bytes received
+[2018-10-18 04:42:35 UTC] NOTICE: Deauthorized the client.

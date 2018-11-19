@@ -1,0 +1,19 @@
+.info-message {
+  &__info {
+    color: $white-60;
+    display: block;
+    font-size: $xs-size-r;
+    font-style: italic;
+    letter-spacing: 0.15em;
+
+  }
+  & a&__info:hover,
+  & a&__info:focus, {
+    color: $white-60;
+  }
+
+  // Helper Classes
+  &.brighter {
+    filter: brightness(125%);
+  }
+}

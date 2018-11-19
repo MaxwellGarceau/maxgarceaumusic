@@ -1,0 +1,28 @@
+@include pixel-breakpoint(cue-tablet) {
+  .wp-block-columns {
+    flex-direction: column;
+  }
+  .wp-block-column {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+
+    & iframe {
+      width: 60% !important;
+    }
+    & .fluid-width-video-wrapper iframe {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@include breakpoint(phablet) {
+  .wp-block-columns {
+
+    & iframe {
+      width: 100% !important;
+    }
+  }
+}

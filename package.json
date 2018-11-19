@@ -1,0 +1,42 @@
+{
+  "name": "maxgarceau.me",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Max's personal music website.",
+  "author": "Max Garceau",
+  "scripts": {
+    "gulpwatch": "gulp watch",
+    "gulpstyles": "gulp styles",
+    "gulpscripts": "gulp scripts",
+    "webpack-watch": "webpack --watch",
+    "compile-scss": "sass --watch app/wp-content/themes/obsidian-child/scss/style.scss:app/wp-content/themes/obsidian-child/style.css",
+    "dev": "concurrently --kill-others \"yarn run webpack-watch\" \"yarn run compile-scss\""
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "autoprefixer": "9.1.5",
+    "babel-loader": "8.0.4",
+    "browser-sync": "2.24.7",
+    "concurrently": "^4.0.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "gulp": "3.9.1",
+    "gulp-postcss": "8.0.0",
+    "postcss-color-function": "4.0.1",
+    "postcss-hexrgba": "1.0.1",
+    "postcss-import": "12.0.0",
+    "postcss-mixins": "6.2.0",
+    "postcss-nested": "4.1.0",
+    "postcss-simple-vars": "5.0.1",
+    "webpack": "4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "jquery": "3.3.1",
+    "normalize.css": "8.0.0",
+    "slick-carousel": "1.8.1"
+  },
+  "repository": "https://github.com/MaxwellGarceau/maxgarceaumusic"
+}

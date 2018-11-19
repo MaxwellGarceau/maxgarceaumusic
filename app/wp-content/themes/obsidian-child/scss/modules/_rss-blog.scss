@@ -1,0 +1,50 @@
+.rss-blog-container {
+
+  & .rss-blog {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.rss-blog {
+  margin-bottom: $l-size;
+
+  &__title {
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+  &__post {
+
+    &-title {
+      display: inline-block;
+
+      & a {
+        text-decoration: none;
+      }
+    }
+    &-date {
+      font-size: $s-size;
+      font-style: italic;
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: rgba($pure-white, 0.7);
+      text-transform: none;
+      letter-spacing: -.01em;
+    }
+  }
+}
+
+.main-sidebar,
+.site-footer {
+
+  & .rss-blog {
+
+    &__post-title {
+      margin-bottom: $m-size;
+      font-weight: 400;
+    }
+  }
+}

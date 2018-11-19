@@ -1,0 +1,77 @@
+// Current Video Playing (Main Video)
+.fluid-width-video-wrapper {
+  box-shadow: 2px 6px 85px #232323;
+}
+
+.youtube {
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint(laptop) {
+      flex-direction: column;
+    }
+  }
+  &__video {
+    // Thought I would need to subtract the length of the margins in between videos
+    // width: (100% / $youtube-homepage-columns) - (2% * ($youtube-homepage-columns - 1));
+    width: (100% / $youtube-homepage-columns);
+    padding: 1%;
+    border: solid rgba($pure-white, 0.2);
+    border-width: 0 1px 1px 0;
+    flex: 1 1 50%;
+
+    // Make first video entire column (featured video)
+    &:first-child {
+      flex: 1 1 100%;
+    }
+
+    // If last video and also only one video in column make it entire column
+    &:nth-child(even):last-child {
+      flex: 1 1 100%;
+      border-right: none;
+    }
+
+    & .fluid-width-video-wrapper {
+      box-shadow: none;
+    }
+    
+    @include breakpoint(laptop) {
+      flex: 1 1 50%;
+      width: 100%;
+      border-right: none;
+    }
+
+    @include breakpoint(phablet) {
+      width: 100%;
+      flex: unset;
+
+      &:nth-child(even) {
+        border-right: solid rgba($pure-white, 0.2);
+        border-width: 0 1px 1px 0;
+      }
+    }
+
+    &:nth-child(odd) {
+      border-right: none;
+
+      @include breakpoint(phablet) {
+        border-right: solid rgba($pure-white, 0.2);
+        border-width: 0 1px 1px 0;
+      }
+    }
+  }
+}
+
+.epyt-gallery-list {
+
+  & .epyt-gallery-allthumbs.epyt-cols-5 {
+
+    @include breakpoint(laptop) {
+      & .epyt-gallery-thumb {
+        width: 50%;
+      }
+    }
+  }
+}

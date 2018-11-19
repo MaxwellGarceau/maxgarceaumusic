@@ -1,0 +1,76 @@
+.cue-playlist-container {
+
+  .mejs-container {
+    font-family: inherit;
+  }
+  .cue-playlist {
+    & .cue-tracks {
+      border: none;
+      box-shadow: none;
+
+    }
+    & .cue-track {
+      background-color: $off-black;
+      border: none;
+      transition: all .1s ease-in;
+
+      &:first-child {
+        border-top: 1px solid $pure-white !important;
+      }
+
+      &:hover,
+      &:focus,
+      &.is-current {
+        background-color: $pure-white;
+
+        & .cue-track-details,
+        & .cue-track-length {
+          color: grey;
+
+          & .cue-track-title {
+            color: $pure-black;
+          }
+        }
+      }
+
+      & .cue-track-length {
+        color: $pure-white;
+      }
+      & .cue-track-details {
+        color: $off-white;
+
+        & .cue-track-title {
+          color: $pure-white;
+        }
+      }
+    }
+  }
+}
+
+// Cuebar Modifications
+.cuebar {
+  & .mejs-featured-track {
+    margin-top: 1px;
+
+    @include pixel-breakpoint(cue-tablet) {
+      display: inline;
+      margin-top: 0;
+    }
+  }
+}
+
+// Spotify
+iframe.spotify-playlist {
+  height: 100%;
+
+  & #main {
+    & .e.s.d.t {
+      height: 325px
+    }
+    & .a2.d.cf.cg.ch.ci {
+      background-size: cover;
+      height: 325px;
+      width: 300px;
+    }
+  }
+}

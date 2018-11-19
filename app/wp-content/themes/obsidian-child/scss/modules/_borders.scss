@@ -1,0 +1,22 @@
+.border {
+  &__light-feathered {
+    // border: solid 1px rgba($pure-white, 0.5);
+    box-shadow: 0px 0px 15px inset rgba($pure-white, 0.5);
+
+
+    &--image {
+      position: relative;
+
+      &:after {
+        box-shadow: 0px 0px 2px inset rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}

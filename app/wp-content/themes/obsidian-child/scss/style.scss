@@ -1,0 +1,38 @@
+/*
+Theme Name: Obsidian Child
+Description: Child theme for Obsidian theme
+Author: Max Garceau
+Author URI: http://maxgarceau.me
+Template: obsidian
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: child theme
+Text Domain: obsidian-child
+*/
+
+// Base Styles
+@import './base/settings';
+@import './base/base';
+@import './base/mixins';
+@import './base/functions';
+
+// Modules
+@import './modules/youtube-embeds';
+@import './modules/flow-flow';
+@import './modules/gear-gallery';
+@import './modules/search';
+@import './modules/audio-player';
+@import './modules/info-messages';
+@import './modules/layout';
+@import './modules/borders';
+@import './modules/side-bar';
+@import './modules/page';
+@import './modules/navigation';
+@import './modules/rss-blog';
+
+// Page Specific
+@import './page-specific/home-page';
+@import './page-specific/bio';
+@import './page-specific/no-sidebar';
+@import './page-specific/metal';

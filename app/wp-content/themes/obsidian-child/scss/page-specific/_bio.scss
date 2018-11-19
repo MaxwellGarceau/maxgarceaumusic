@@ -1,0 +1,21 @@
+.page-id-33,
+.page-id-254 {
+
+  & .wp-block-column {
+    padding: $xs-size;
+  }
+
+  & .entry-content {
+
+    & figure {
+      margin: 0 35px 15px 35px;
+    }
+    & img {
+      border-radius: 10px;
+      box-shadow: 5px 5px 25px rgba($pure-white, 0.18);
+    }
+    & p {
+      line-height: 1.8;
+    }
+  }
+}

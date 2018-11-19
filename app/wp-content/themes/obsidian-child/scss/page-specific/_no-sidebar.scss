@@ -1,0 +1,17 @@
+// Add page ID for pages with no sidebar
+.page-id-68,
+.page-id-269 {
+
+  & header.page-header {
+    margin-right: 0;
+
+    & h1.entry-title {
+      width: 100%;
+    }
+  }
+  & #primary {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

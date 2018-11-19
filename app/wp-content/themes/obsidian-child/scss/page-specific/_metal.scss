@@ -1,0 +1,12 @@
+body.metal {
+
+  // Background image for metal pages
+  &.background-cover .obsidian-background-overlay {
+    background-image: url('/wp-content/themes/obsidian/images/meditator.jpg');
+    // background-position: top left !important;
+  }
+
+  // .cuebar {
+  //   display: none;
+  // }
+}

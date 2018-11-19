@@ -1,0 +1,60 @@
+.main-sidebar {
+    max-width: 33%;
+
+  & .widget-title {
+    text-align: center;
+  }
+}
+
+#content {
+
+  & .ff-stream,
+  & #ff-stream-1 {
+    @include background-color-opacity($pure-black, 0.2);
+    border-radius: $xxs-size;
+    padding: 20px 11px 30px;
+
+    & .picture-item__inner {
+      background-color: $off-black;
+      color: $pure-white;
+    }
+    & .ff-name {
+      color: $pure-white !important;
+    }
+    & .ff-nickname {
+      color: $off-white !important;
+    }
+    & .ff-timestamp {
+      color: $off-white !important;
+    }
+    & .ff-instagram {
+
+      & .ff-icon-inner {
+        background-color: $pure-black;
+      }
+    }
+    & .ff-stream-wrapper {
+      margin-top: 0;
+    }
+    & .ff-header {
+      display: none;
+    }
+    & .ff-item-bar,
+    & .ff-item-bar a {
+      color: $pure-white !important;
+    }
+    & .ff-item-meta {
+
+      & h6 {
+        display: inline;
+      }
+    }
+    & a {
+      text-decoration: none;
+    }
+    & h6 {
+      text-transform: capitalize;
+      letter-spacing: 0;
+    }
+  }
+}
