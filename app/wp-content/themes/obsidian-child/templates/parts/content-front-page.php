@@ -55,9 +55,9 @@ $songwriting_page_id = 23;
     </section>
 
     <div class="youtube__container">
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=L6Izm84YOMs[/embedyt]' ); ?></div>
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=MwH-tcvTTXk[/embedyt]' ); ?></div>
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=dk20WMiI3pk[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('regular_featured_video_1') . '[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('regular_featured_video_2') . '[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('regular_featured_video_3') . '[/embedyt]' ); ?></div>
     </div>
   </div>
 

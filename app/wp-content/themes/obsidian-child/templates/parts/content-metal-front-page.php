@@ -55,9 +55,9 @@ $songwriting_page_id = 23;
     </section>
 
     <div class="youtube__container">
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=iWEV_HXeIhM[/embedyt]' ); ?></div>
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=MwH-tcvTTXk[/embedyt]' ); ?></div>
-      <div class="youtube__video"><?php echo do_shortcode( '[embedyt] https://www.youtube.com/watch?v=dk20WMiI3pk[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('metal_featured_video_1') . '[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('metal_featured_video_2') . '[/embedyt]' ); ?></div>
+      <div class="youtube__video"><?php echo do_shortcode( '[embedyt]' . get_field('metal_featured_video_3') . '[/embedyt]' ); ?></div>
     </div>
   </div>
 
@@ -73,7 +73,7 @@ $songwriting_page_id = 23;
     <!-- Embed Cue Player here -->
     <?php echo do_shortcode('[cue id="112"]'); ?>
     <a class="recent-posts-archive-link info-message info-message__info brighter" target="_blank" href="https://www.mercilessmetalrecordings.com/">Click Here To Visit My Music Production Website</a>
-    
+
   </div>
 
 </div>
