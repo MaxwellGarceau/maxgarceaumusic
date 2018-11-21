@@ -5,8 +5,16 @@
  * @package Obsidian
  * @since 1.0.0
  */
-$video_page_id = 29;
-$songwriting_page_id = 23;
+ 
+ // If it's the metal website
+ $metal_home_page = 243;
+ if ( is_page( $metal_home_page ) ) {
+   $video_page_id = 257;
+   $songwriting_page_id = 259;
+ } else {
+   $video_page_id = 29;
+   $songwriting_page_id = 23;
+ }
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/CreativeWork">

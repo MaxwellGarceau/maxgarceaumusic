@@ -71,7 +71,7 @@ $songwriting_page_id = 23;
     </section>
 
     <!-- Embed Cue Player here -->
-    <?php echo do_shortcode('[cue id="224"]'); ?>
+    <?php echo do_shortcode('[cue id="307"]'); ?>
     <a class="recent-posts-archive-link info-message info-message__info brighter" target="_blank" href="https://songwritershelterstudios.com/">Click Here To Visit My Music Production Website</a>
 
   </div>
