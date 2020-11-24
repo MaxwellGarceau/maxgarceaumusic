@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rock Star\n"
 "Report-Msgid-Bugs-To: https://catchthemes.com/contact-us/\n"
-"POT-Creation-Date: 2018-05-24 17:59+0545\n"
+"POT-Creation-Date: 2020-09-01 17:11-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;"
@@ -65,14 +65,14 @@ msgstr "Commentaire fermé."
 msgid "Nothing Found"
 msgstr "Rien n'a été trouvé"
 
-#: ../content-none.php:21 ../no-results.php:20
+#: ../content-none.php:25 ../no-results.php:20
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 "Prêt à publier votre premier article? <a href=\"%1$s\">Commencer ici</a>."
 
-#: ../content-none.php:25 ../no-results.php:24
+#: ../content-none.php:38 ../no-results.php:24
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -80,7 +80,7 @@ msgstr ""
 "Désolé, mais votre recherche n'a pas été touver. Merci d’essayer avec d' "
 "autre mots de recherche."
 
-#: ../content-none.php:30 ../no-results.php:29
+#: ../content-none.php:43 ../no-results.php:29
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -92,8 +92,8 @@ msgstr ""
 msgid "Pages:"
 msgstr "Pages:"
 
-#: ../content-page.php:37 ../inc/core.php:681 ../inc/core.php:700
-#: ../inc/core.php:826
+#: ../content-page.php:37 ../inc/core.php:670 ../inc/core.php:689
+#: ../inc/core.php:815
 msgid "Edit"
 msgstr "Editer"
 
@@ -101,7 +101,7 @@ msgstr "Editer"
 msgid "Featured"
 msgstr "Sélectioné"
 
-#: ../inc/breadcrumb.php:44
+#: ../inc/breadcrumb.php:44 ../inc/json-ld-schema.php:25
 msgid "Home"
 msgstr "Accueil"
 
@@ -125,7 +125,7 @@ msgstr "%1$smessages  marqués %2$s"
 msgid "%1$sView all posts by %2$s"
 msgstr "%1$sVoir tous les messages de %2$s"
 
-#: ../inc/breadcrumb.php:49
+#: ../inc/breadcrumb.php:49 ../inc/json-ld-schema.php:30
 msgid "Error 404"
 msgstr "Erreur 404"
 
@@ -138,136 +138,139 @@ msgstr "Page %s"
 msgid "Primary Menu"
 msgstr "Premier menu"
 
-#: ../inc/core.php:293
+#: ../inc/core.php:289
 msgid "expand child menu"
 msgstr "développer menu enfant"
 
-#: ../inc/core.php:294
+#: ../inc/core.php:290
 msgid "collapse child menu"
 msgstr "fermer le menu enfant"
 
-#: ../inc/core.php:311
+#: ../inc/core.php:307
 msgctxt "Courgette font: on or off"
 msgid "on"
 msgstr "ouvert"
 
-#: ../inc/core.php:639
+#: ../inc/core.php:628
 msgid "Post navigation"
 msgstr "Navigation article"
 
-#: ../inc/core.php:650
+#: ../inc/core.php:639
 msgid "Previous page"
 msgstr "Article précédent"
 
-#: ../inc/core.php:651
+#: ../inc/core.php:640
 msgid "Next page"
 msgstr "Article suivant"
 
-#: ../inc/core.php:652 ../inc/customizer-includes/news-ticker.php:129
+#: ../inc/core.php:641 ../inc/customizer-includes/news-ticker.php:129
+#: ../inc/default-options.php:197 ../inc/default-options.php:227
 #: ../inc/default-options.php:318
 msgid "Page"
 msgstr "Page"
 
-#: ../inc/core.php:657
+#: ../inc/core.php:646
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Anciens articles"
 
-#: ../inc/core.php:658
+#: ../inc/core.php:647
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Récents articles <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../inc/core.php:681
+#: ../inc/core.php:670
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: ../inc/core.php:691
+#: ../inc/core.php:680
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"citations dites\">citations dites:</span>"
 
-#: ../inc/core.php:697
+#: ../inc/core.php:686
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: ../inc/core.php:704
+#: ../inc/core.php:693
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: ../inc/core.php:807 ../inc/core.php:917
+#: ../inc/core.php:796 ../inc/core.php:906
 msgctxt "Used before publish date."
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Posté le </ span>"
 
-#: ../inc/core.php:814 ../inc/core.php:926
+#: ../inc/core.php:803 ../inc/core.php:915
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Auteur </ span>"
 
-#: ../inc/core.php:822
+#: ../inc/core.php:811
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
 
-#: ../inc/core.php:822
+#: ../inc/core.php:811
 msgid "1 Comment"
 msgstr "1 commentaire"
 
-#: ../inc/core.php:822
+#: ../inc/core.php:811
 msgid "% Comments"
 msgstr "% Commentaires"
 
-#: ../inc/core.php:843 ../inc/core.php:851 ../inc/core.php:883
-#: ../inc/core.php:893
+#: ../inc/core.php:832 ../inc/core.php:840 ../inc/core.php:872
+#: ../inc/core.php:882
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ", "
 
-#: ../inc/core.php:846 ../inc/core.php:886
+#: ../inc/core.php:835 ../inc/core.php:875
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Catégories </ span>"
 
-#: ../inc/core.php:854 ../inc/core.php:896
+#: ../inc/core.php:843 ../inc/core.php:885
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Balises </ span>"
 
-#: ../inc/core.php:1407
+#: ../inc/core.php:1396
 msgid "Y"
 msgstr "Y"
 
-#: ../inc/core.php:1413
-#, php-format
-msgctxt "1: Year, 2: Site Title with home URL"
-msgid "Copyright &copy; %1$s %2$s. All Rights Reserved"
-msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés"
+#: ../inc/core.php:1403
+#, fuzzy, php-format
+#| msgctxt "1: Year, 2: Site Title with home URL"
+#| msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
+msgctxt "1: Year, 2: Site Title with home URL, 3: Privacy Policy Link"
+msgid "Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s"
+msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés."
 
-#: ../inc/core.php:1413
+#: ../inc/core.php:1403
 msgid "by"
 msgstr "par"
 
-#: ../inc/core.php:1474
+#: ../inc/core.php:1464
 msgid "Scroll Up"
 msgstr "Faire remonter"
 
-#: ../inc/core.php:1489
+#: ../inc/core.php:1479
 msgid "Posted on"
 msgstr "Posté le"
 
-#: ../inc/core.php:1494
+#: ../inc/core.php:1484
 msgid "By"
 msgstr "Par"
 
-#: ../inc/core.php:1594
+#: ../inc/core.php:1584
 msgid "Next post:"
 msgstr "Article suivant&nbsp;:"
 
-#: ../inc/core.php:1597
+#: ../inc/core.php:1587
 msgid "Previous post:"
 msgstr "Article précédent&nbsp;:"
 
-#: ../inc/core.php:1638 ../inc/customizer-includes/custom-controls.php:36
+#: ../inc/core.php:1628 ../inc/customizer-includes/custom-controls.php:36
 msgid ""
 "Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
 "options."
@@ -604,7 +607,7 @@ msgstr "Page d'accueil / Options première page"
 msgid "Select Categories"
 msgstr "Sélectionner Catégories"
 
-#: ../inc/customizer-includes/theme-options.php:167 ../inc/metabox.php:88
+#: ../inc/customizer-includes/theme-options.php:167 ../inc/metabox.php:83
 msgid "Layout Options"
 msgstr "Options de présentation"
 
@@ -690,15 +693,15 @@ msgstr "Lire la suite . . ."
 msgid "Search..."
 msgstr "Recherche…"
 
-#: ../inc/default-options.php:114 ../inc/default-options.php:557
+#: ../inc/default-options.php:114 ../inc/default-options.php:556
 msgid "Primary Sidebar, Content"
 msgstr "Première barre latéral, contenu"
 
-#: ../inc/default-options.php:115 ../inc/default-options.php:562
+#: ../inc/default-options.php:115 ../inc/default-options.php:561
 msgid "Content, Primary Sidebar"
 msgstr "Contenu, première barre latérale"
 
-#: ../inc/default-options.php:116 ../inc/default-options.php:567
+#: ../inc/default-options.php:116 ../inc/default-options.php:566
 msgid "No Sidebar ( Full Width )"
 msgstr "Pas de barre latérale (largeur totale)"
 
@@ -735,11 +738,11 @@ msgid "Pages and Posts"
 msgstr "Pages et messages"
 
 #: ../inc/default-options.php:150 ../inc/default-options.php:182
-#: ../inc/default-options.php:391
+#: ../inc/default-options.php:390
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: ../inc/default-options.php:164 ../inc/default-options.php:620
+#: ../inc/default-options.php:164 ../inc/default-options.php:619
 msgid "Full Image"
 msgstr "Pleine image"
 
@@ -747,17 +750,14 @@ msgstr "Pleine image"
 msgid "Large Image"
 msgstr "Grande image"
 
-#: ../inc/default-options.php:166 ../inc/default-options.php:625
+#: ../inc/default-options.php:166 ../inc/default-options.php:624
 msgid "Slider Image"
 msgstr "Curseur de l'image"
 
-#: ../inc/default-options.php:196
-msgid "Demo Content"
-msgstr "Contenu de démonstration"
-
-#: ../inc/default-options.php:197
-msgid "Page News Ticker"
-msgstr "Page nouveauTicket"
+#: ../inc/default-options.php:196 ../inc/default-options.php:226
+#: ../inc/default-options.php:317
+msgid "Demo"
+msgstr "Démo"
 
 #: ../inc/default-options.php:211
 msgid "Below Slider / Header Image"
@@ -766,14 +766,6 @@ msgstr "Sous le curseur / Image en-tête"
 #: ../inc/default-options.php:212
 msgid "Above Content"
 msgstr "Au-dessus du contenu"
-
-#: ../inc/default-options.php:226
-msgid "Demo Featured Content"
-msgstr "Contenu vedette démo"
-
-#: ../inc/default-options.php:227
-msgid "Featured Page Content"
-msgstr "Contenu vedette de la page"
 
 #: ../inc/default-options.php:241
 msgid "1 column"
@@ -831,10 +823,6 @@ msgstr "Glisser (rouler)"
 msgid "Fixed"
 msgstr "Fixé"
 
-#: ../inc/default-options.php:317
-msgid "Demo"
-msgstr "Démo"
-
 #: ../inc/default-options.php:332
 msgid "Fade"
 msgstr "Fondu"
@@ -871,213 +859,209 @@ msgstr "Titre diapositive"
 msgid "Tile Blind"
 msgstr "Titre aveugle"
 
-#: ../inc/default-options.php:341
-msgid "Shuffle"
-msgstr "Shuffle"
-
-#: ../inc/default-options.php:354
+#: ../inc/default-options.php:353
 msgid "True"
 msgstr "Vrai"
 
-#: ../inc/default-options.php:355
+#: ../inc/default-options.php:354
 msgid "Wait"
 msgstr "Attendez"
 
-#: ../inc/default-options.php:356
+#: ../inc/default-options.php:355
 msgid "False"
 msgstr "Faux"
 
-#: ../inc/default-options.php:370
+#: ../inc/default-options.php:369
 msgid "Default(Older Posts/Newer Posts)"
 msgstr "Par défaut (messages âgées / plus récents messages)"
 
-#: ../inc/default-options.php:371
+#: ../inc/default-options.php:370
 msgid "Numeric"
 msgstr "Numérique"
 
-#: ../inc/default-options.php:372
+#: ../inc/default-options.php:371
 msgid "Infinite Scroll (Click)"
 msgstr "Infini Scroll (Cliquez)"
 
-#: ../inc/default-options.php:373
+#: ../inc/default-options.php:372
 msgid "Infinite Scroll (Scroll)"
 msgstr "Infini Scroll (défilement)"
 
-#: ../inc/default-options.php:387 ../inc/widgets/instagram.php:79
+#: ../inc/default-options.php:386 ../inc/widgets/instagram.php:79
 msgid "Large"
 msgstr "Large"
 
-#: ../inc/default-options.php:388
+#: ../inc/default-options.php:387
 msgid "Full size"
 msgstr "Taille réelle"
 
-#: ../inc/default-options.php:389
+#: ../inc/default-options.php:388
 msgid "Slider Image Size"
 msgstr "Taille de l'image glisser"
 
-#: ../inc/default-options.php:390
+#: ../inc/default-options.php:389
 msgid "Featured Image Size"
 msgstr "Taille de l'image en vedette"
 
-#: ../inc/default-options.php:406
+#: ../inc/default-options.php:405
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../inc/default-options.php:410
+#: ../inc/default-options.php:409
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../inc/default-options.php:414
+#: ../inc/default-options.php:413
 msgid "Googleplus"
 msgstr "Googleplus"
 
-#: ../inc/default-options.php:418 ../inc/social-icons.php:32
+#: ../inc/default-options.php:417 ../inc/social-icons.php:32
 #: ../inc/social-icons.php:34
 msgid "Email"
 msgstr "Email"
 
-#: ../inc/default-options.php:422
+#: ../inc/default-options.php:421
 msgid "Feed"
 msgstr "Feed"
 
-#: ../inc/default-options.php:426
+#: ../inc/default-options.php:425
 msgid "WordPress"
 msgstr "Wordpress"
 
-#: ../inc/default-options.php:430
+#: ../inc/default-options.php:429
 msgid "GitHub"
 msgstr "GitHub"
 
-#: ../inc/default-options.php:434
+#: ../inc/default-options.php:433
 msgid "LinkedIn"
 msgstr "Linkedln"
 
-#: ../inc/default-options.php:438
+#: ../inc/default-options.php:437
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../inc/default-options.php:442
+#: ../inc/default-options.php:441
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../inc/default-options.php:446
+#: ../inc/default-options.php:445
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: ../inc/default-options.php:450
+#: ../inc/default-options.php:449
 msgid "YouTube"
 msgstr "Youtube"
 
-#: ../inc/default-options.php:454
+#: ../inc/default-options.php:453
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: ../inc/default-options.php:458 ../inc/widgets/instagram.php:26
+#: ../inc/default-options.php:457 ../inc/widgets/instagram.php:26
 msgid "Instagram"
 msgstr "Instagram"
 
-#: ../inc/default-options.php:462
+#: ../inc/default-options.php:461
 msgid "PollDaddy"
 msgstr "PollDaddy"
 
-#: ../inc/default-options.php:466
+#: ../inc/default-options.php:465
 msgid "CodePen"
 msgstr "CodePen"
 
-#: ../inc/default-options.php:470
+#: ../inc/default-options.php:469
 msgid "Path"
 msgstr "Path"
 
-#: ../inc/default-options.php:474
+#: ../inc/default-options.php:473
 msgid "Dribbble"
 msgstr "Dribbble"
 
-#: ../inc/default-options.php:478
+#: ../inc/default-options.php:477
 msgid "Skype"
 msgstr "Skype"
 
-#: ../inc/default-options.php:482
+#: ../inc/default-options.php:481
 msgid "Digg"
 msgstr "Digg"
 
-#: ../inc/default-options.php:486
+#: ../inc/default-options.php:485
 msgid "Reddit"
 msgstr "Reddit"
 
-#: ../inc/default-options.php:490
+#: ../inc/default-options.php:489
 msgid "Stumbleupon"
 msgstr "Stumbleupon"
 
-#: ../inc/default-options.php:494
+#: ../inc/default-options.php:493
 msgid "Pocket"
 msgstr "Pocket"
 
-#: ../inc/default-options.php:498
+#: ../inc/default-options.php:497
 msgid "DropBox"
 msgstr "DropBox"
 
-#: ../inc/default-options.php:502
+#: ../inc/default-options.php:501
 msgid "Spotify"
 msgstr "Spotify"
 
-#: ../inc/default-options.php:506
+#: ../inc/default-options.php:505
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: ../inc/default-options.php:510
+#: ../inc/default-options.php:509
 msgid "Twitch"
 msgstr "Twitch"
 
-#: ../inc/default-options.php:514
+#: ../inc/default-options.php:513
 msgid "Website"
 msgstr "Site web"
 
-#: ../inc/default-options.php:518
+#: ../inc/default-options.php:517
 msgid "Phone"
 msgstr "Tél"
 
-#: ../inc/default-options.php:522
+#: ../inc/default-options.php:521
 msgid "Handset"
 msgstr "Handset"
 
-#: ../inc/default-options.php:526
+#: ../inc/default-options.php:525
 msgid "Cart"
 msgstr "Panier"
 
-#: ../inc/default-options.php:530
+#: ../inc/default-options.php:529
 msgid "Cloud"
 msgstr "Cloud"
 
-#: ../inc/default-options.php:534 ../inc/widgets/tours.php:217
+#: ../inc/default-options.php:533 ../inc/widgets/tours.php:224
 msgid "Link"
 msgstr "Lien"
 
-#: ../inc/default-options.php:552 ../inc/default-options.php:583
-#: ../inc/default-options.php:610 ../inc/widgets/tag-cloud.php:76
+#: ../inc/default-options.php:551 ../inc/default-options.php:582
+#: ../inc/default-options.php:609 ../inc/widgets/tag-cloud.php:76
 msgid "Default"
 msgstr "Par défaut"
 
-#: ../inc/default-options.php:588
+#: ../inc/default-options.php:587
 msgid "Enable"
 msgstr "Permettre"
 
-#: ../inc/default-options.php:593
+#: ../inc/default-options.php:592
 msgid "Disable"
 msgstr "Désactiver"
 
-#: ../inc/default-options.php:615
+#: ../inc/default-options.php:614
 msgid "Featured Image"
 msgstr "Image séléctionnée"
 
-#: ../inc/default-options.php:630
+#: ../inc/default-options.php:629
 msgid "Disable Image"
 msgstr "Désactiver image"
 
-#: ../inc/default-options.php:643
+#: ../inc/default-options.php:642
 msgid "Light"
 msgstr "Lumière"
 
-#: ../inc/default-options.php:644
+#: ../inc/default-options.php:643
 msgid "Dark"
 msgstr "Sombre"
 
@@ -1104,19 +1088,45 @@ msgstr "Glisser précédent"
 msgid "Next Slide"
 msgstr "Glisser suivant"
 
+#: ../inc/json-ld-schema.php:26
+#, fuzzy
+#| msgid "Archive for %s"
+msgid "Archive for "
+msgstr "Archives pour %s"
+
+#: ../inc/json-ld-schema.php:27
+#, fuzzy
+#| msgid "Search results for: %s"
+msgid "Search results for: "
+msgstr "Résultat pour votre recherche: %s"
+
+#: ../inc/json-ld-schema.php:28
+#, fuzzy
+#| msgid "%1$sPosts tagged %2$s"
+msgid "Posts tagged "
+msgstr "%1$smessages  marqués %2$s"
+
+#: ../inc/json-ld-schema.php:29
+#, fuzzy
+#| msgid "View all posts by %s"
+msgid "View all posts by "
+msgstr "Voir tout les articles de %s"
+
 #: ../inc/menus.php:18
 msgid "Menu"
 msgstr "Menu"
 
-#: ../inc/metabox.php:89
+#: ../inc/metabox.php:100
 msgid "Header Featured Image Options"
 msgstr "Option d'image de tête"
 
-#: ../inc/metabox.php:90
-msgid "Single Page/Post Image Layout "
+#: ../inc/metabox.php:117
+#, fuzzy
+#| msgid "Single Page/Post Image Layout "
+msgid "Single Page/Post Image Layout"
 msgstr "Mise en page de la page unique / image "
 
-#: ../inc/metabox.php:216
+#: ../inc/metabox.php:180
 msgid "Rock Star Options"
 msgstr "Rock Star Options"
 
@@ -1142,7 +1152,7 @@ msgstr "CT: A propos de"
 
 #: ../inc/widgets/about.php:69 ../inc/widgets/featured-posts.php:69
 #: ../inc/widgets/instagram.php:58 ../inc/widgets/tag-cloud.php:62
-#: ../inc/widgets/tours.php:65 ../inc/widgets/tours.php:102
+#: ../inc/widgets/tours.php:65 ../inc/widgets/tours.php:103
 #: ../inc/widgets/video-embed.php:66
 msgid "Title"
 msgstr "Titre"
@@ -1375,24 +1385,24 @@ msgstr "8 colonnes"
 msgid "Link text"
 msgstr "Texte de lien"
 
-#: ../inc/widgets/instagram.php:237
+#: ../inc/widgets/instagram.php:231
 msgid "Unable to communicate with Instagram."
 msgstr "Impossible de communiquer avec Instagram."
 
-#: ../inc/widgets/instagram.php:241
+#: ../inc/widgets/instagram.php:235
 msgid "Instagram did not return a 200."
 msgstr "Instagram n'a pas renvoyé un 200."
 
-#: ../inc/widgets/instagram.php:249 ../inc/widgets/instagram.php:255
-#: ../inc/widgets/instagram.php:259
+#: ../inc/widgets/instagram.php:243 ../inc/widgets/instagram.php:249
+#: ../inc/widgets/instagram.php:253
 msgid "Instagram has returned invalid data."
 msgstr "Instagram a renvoyé des données non valides."
 
-#: ../inc/widgets/instagram.php:292
+#: ../inc/widgets/instagram.php:285
 msgid "Instagram Image"
 msgstr "Image Instagram"
 
-#: ../inc/widgets/instagram.php:316
+#: ../inc/widgets/instagram.php:309
 msgid "Instagram did not return any images."
 msgstr "Instagram n'a pas renvoyé d'images."
 
@@ -1544,58 +1554,59 @@ msgstr ""
 "S'il vous plaît enregistrer le widget, une fois le nombre d'éléments modifié "
 "pour tenir compte des changements"
 
-#: ../inc/widgets/tours.php:99
+#: ../inc/widgets/tours.php:100
 #, php-format
 msgid "%1s. Tour Details"
 msgstr "% 1s. Détails de la visite"
 
-#: ../inc/widgets/tours.php:112
+#: ../inc/widgets/tours.php:113
 msgid "Date"
 msgstr "Date"
 
-#: ../inc/widgets/tours.php:122
+#: ../inc/widgets/tours.php:123
 msgid "Address"
 msgstr "Adresse"
 
-#: ../inc/widgets/tours.php:132
+#: ../inc/widgets/tours.php:133
 msgid "Link 1"
 msgstr "Lien 1"
 
-#: ../inc/widgets/tours.php:142
+#: ../inc/widgets/tours.php:143
 msgid "Link Text 1"
 msgstr "Lien text 1"
 
-#: ../inc/widgets/tours.php:152
+#: ../inc/widgets/tours.php:153
 msgid "Link 2"
 msgstr "Lien 2"
 
-#: ../inc/widgets/tours.php:162
+#: ../inc/widgets/tours.php:163
 msgid "Link Text 2"
 msgstr "Lien texte 2"
 
-#: ../inc/widgets/tours.php:172
+#: ../inc/widgets/tours.php:173
 msgid "Link 3"
 msgstr "Lien 3"
 
-#: ../inc/widgets/tours.php:182
+#: ../inc/widgets/tours.php:183
 msgid "Link Text 3"
 msgstr "Lien texte 3"
 
-#: ../inc/widgets/tours.php:192
+#: ../inc/widgets/tours.php:193
 msgid "Link 4"
 msgstr "Lien 4"
 
-#: ../inc/widgets/tours.php:202
+#: ../inc/widgets/tours.php:203
 msgid "Link Text 4"
 msgstr "Lien texte 4"
 
-#: ../inc/widgets/tours.php:227
-msgid "Link Text"
-msgstr "Lien Texte"
-
-#: ../inc/widgets/tours.php:237 ../inc/widgets/video-embed.php:120
+#: ../inc/widgets/tours.php:213 ../inc/widgets/tours.php:244
+#: ../inc/widgets/video-embed.php:120
 msgid "Check to open link in new tab/window"
 msgstr "Cochez pour ouvrir le lien dans un nouvel onglet / fenêtre"
+
+#: ../inc/widgets/tours.php:234
+msgid "Link Text"
+msgstr "Lien Texte"
 
 #: ../inc/widgets/video-embed.php:42
 msgid "Use this widget to add Video Embed Codes"
@@ -1716,6 +1727,25 @@ msgstr "Recherche"
 #: ../sidebar.php:93
 msgid "Archives"
 msgstr "Archives"
+
+#~ msgid "Shuffle"
+#~ msgstr "Shuffle"
+
+#~ msgctxt "1: Year, 2: Site Title with home URL"
+#~ msgid "Copyright &copy; %1$s %2$s. All Rights Reserved"
+#~ msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés"
+
+#~ msgid "Demo Content"
+#~ msgstr "Contenu de démonstration"
+
+#~ msgid "Page News Ticker"
+#~ msgstr "Page nouveauTicket"
+
+#~ msgid "Demo Featured Content"
+#~ msgstr "Contenu vedette démo"
+
+#~ msgid "Featured Page Content"
+#~ msgstr "Contenu vedette de la page"
 
 #~ msgid "<span class=\"screen-reader-text\">Posted on</span>"
 #~ msgstr "<span class=\"screen-reader-text\">Posté le</span>"
@@ -1902,8 +1932,8 @@ msgstr "Archives"
 
 #~ msgid ""
 #~ "You can add custom shortcodes, which will be automatically inserted into "
-#~ "your theme. Some shorcodes: [the-year] and [site-link] for current year "
-#~ "and site link respectively."
+#~ "your theme. Some shorcodes: [the-year], [site-link] and [privacy-policy-"
+#~ "link] for current year and site link respectively."
 #~ msgstr ""
 #~ "Vous pouvez ajouter des shortcodes personnalisés, qui sera "
 #~ "automatiquement insérés dans votre thème. Quelques shorcodes : [l’année] "
@@ -2692,15 +2722,6 @@ msgstr "Archives"
 #~ msgid "Chats"
 #~ msgstr "Discutions"
 
-#~ msgid "Archive for %s"
-#~ msgstr "Archives pour %s"
-
-#~ msgid "Search results for: %s"
-#~ msgstr "Résultat pour votre recherche: %s"
-
-#~ msgid "View all posts by %s"
-#~ msgstr "Voir tout les articles de %s"
-
 #~ msgid "Featured Content Type"
 #~ msgstr "Type de contenu vedette"
 
@@ -2727,10 +2748,6 @@ msgstr "Archives"
 
 #~ msgid "StumbleUpon"
 #~ msgstr "StumbleUpon "
-
-#~ msgctxt "1: Year, 2: Site Title with home URL"
-#~ msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
-#~ msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés."
 
 #~ msgid ""
 #~ "This is the primary sidebar if you are using a two or three column site "

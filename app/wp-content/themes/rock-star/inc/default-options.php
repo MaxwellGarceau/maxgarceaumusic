@@ -73,7 +73,7 @@ function rock_star_get_default_theme_options() {
 		'featured_content_number'                      => '3',
 		'featured_content_show'                        => 'excerpt',
 
-		'featured_content_background_image'            => trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/background-dark-1920x1080.jpg',
+		'featured_content_background_image'            => trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/background-dark-1920x1080.jpg',
 		'featured_content_background_display_position' => 'bottom',
 		'featured_content_background_repeat'           => 'repeat',
 		'featured_content_background_attachment'       => 'fixed',
@@ -193,8 +193,8 @@ function rock_star_featured_slider_content_options() {
  */
 function rock_star_news_ticker_types() {
 	$options = array(
-		'demo-news-ticker' => esc_html__( 'Demo Content', 'rock-star' ),
-		'page-news-ticker' => esc_html__( 'Page News Ticker', 'rock-star' ),
+		'demo-news-ticker' => esc_html__( 'Demo', 'rock-star' ),
+		'page-news-ticker' => esc_html__( 'Page', 'rock-star' ),
 	);
 
 	return apply_filters( 'rock_star_news_ticker_types', $options );
@@ -223,8 +223,8 @@ function rock_star_news_ticker_positions() {
  */
 function rock_star_featured_content_types() {
 	$featured_content_types = array(
-		'demo-featured-content' => esc_html__( 'Demo Featured Content', 'rock-star' ),
-		'featured-page-content' => esc_html__( 'Featured Page Content', 'rock-star' ),
+		'demo-featured-content' => esc_html__( 'Demo', 'rock-star' ),
+		'featured-page-content' => esc_html__( 'Page', 'rock-star' ),
 	);
 
 	return apply_filters( 'rock_star_featured_content_types', $featured_content_types );
@@ -338,7 +338,6 @@ function rock_star_featured_slide_transition_effects() {
 		'flipVert'	=> esc_html__( 'Flip Vertical', 'rock-star' ),
 		'tileSlide'	=> esc_html__( 'Tile Slide', 'rock-star' ),
 		'tileBlind'	=> esc_html__( 'Tile Blind', 'rock-star' ),
-		'shuffle'	=> esc_html__( 'Shuffle', 'rock-star' ),
 	);
 
 	return apply_filters( 'rock_star_featured_slide_transition_effects', $options );

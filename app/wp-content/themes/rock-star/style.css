@@ -3,8 +3,11 @@ Theme Name: Rock Star
 Theme URI: https://catchthemes.com/themes/rock-star/
 Author: Catch Themes
 Author URI: https://catchthemes.com/
-Description: Rock Star is an incredibly sleek and Responsive Music WordPress Theme, built for artists and bands aiming to promote their music and events. Created using HTML5 and CSS3, this aesthetically engaging theme is very easy to use. Simple modules and features are available so you can build a complete and custom website right away. Knowing the importance of the vast potential of social media, Rock Star allows you to update your followers regarding any activity, track release or event using the integrated social media support option. Its homepage is dominated by your logo, tagline, and a full-screen background image. With features like layouts, news ticker, featured content, featured slider, tours, breadcrumb, videos, social icons and instagram images gives you plenty of customizing power. This theme is translation ready. Check out Theme Instructions at https://catchthemes.com/theme-instructions/rock-star/, Support at https://catchthemes.com/support/ and Demo at https://catchthemes.com/demo/rock-star/
-Version: 1.5.1
+Description: Rock Star is an incredibly sleek and Responsive Music WordPress Theme, built for artists, musician and bands aiming to promote their music and events. Created using HTML5 and CSS3, this aesthetically engaging theme is very easy to use. Simple modules and features are available so you can build a complete and custom website right away. Knowing the importance of the vast potential of social media, Rock Star allows you to update your followers regarding any activity, track release or event using the integrated social media support option. Its homepage is dominated by your logo, tagline, and a full-screen background image. With features like layouts, news ticker, featured content, featured slider, tours, breadcrumb, videos, social icons and instagram images gives you plenty of customizing power. This theme is translation ready. Check out Theme Instructions at https://catchthemes.com/theme-instructions/rock-star/, Support at https://catchthemes.com/support/ and Demo at https://catchthemes.com/demo/rock-star/
+Version: 1.7.2
+Requires at least: 5.1
+Tested up to: 5.5
+Requires PHP: 5.6
 License: GNU General Public License, version 3 (GPLv3)
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 Text Domain: rock-star
@@ -2641,6 +2644,10 @@ body.header-bg {
 
 #header-featured-image {
     text-align: center;
+}
+
+#header-featured-image img {
+	width: 100%;
 }
 
 /**

@@ -1,6 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   -webkit-transition: color .1s ease-in, opacity .1s ease-in;
      -moz-transition: color .1s ease-in, opacity .1s ease-in;
        -o-transition: color .1s ease-in, opacity .1s ease-in;
           transition: color .1s ease-in, opacity .1s ease-in;
 }
+
+// /* Base content width */
+// body.home .entry-content {
+//   width: 100%; // Enables full page banners
+//
+//   // Children width defaults
+//   & > * {
+//     max-width: 1200px;
+//     padding: 0 50px;
+//   }
+// }

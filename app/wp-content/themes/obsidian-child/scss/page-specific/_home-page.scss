@@ -7,20 +7,12 @@
       text-align: left;
     }
   }
-  &__subtitle {
-    text-align: center;
-  }
+  // &__subtitle {
+  //   text-align: center;
+  // }
 
   & .recent-posts-archive-link {
     text-decoration: none;
-  }
-}
-
-.featured-message {
-  margin-bottom: $xl-size;
-  
-  & blockquote {
-    text-shadow: 0 0 40px rgba($pure-white, 0.3);
   }
 }
 

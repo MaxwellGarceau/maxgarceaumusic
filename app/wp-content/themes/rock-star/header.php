@@ -29,6 +29,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php do_action( 'wp_body_open' );  ?>
+
 <?php
 	/**
      * rock_star_before_header hook

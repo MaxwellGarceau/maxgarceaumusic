@@ -1,0 +1,13 @@
+.featured {
+  &__videos {
+    display: none; // Hiding until I have new videos
+  }
+  &__songs {
+    width: 100%; // Making full width until videos are back
+    // margin-left: 26px; // Match social media feed
+    // margin-right: 26px; // Match social media feed
+    margin-left: auto; // Match social media feed
+    margin-right: auto; // Match social media feed
+    max-width: 750px;
+  }
+}

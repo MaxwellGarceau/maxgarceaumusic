@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+ ## Return to top
+ ## https://codepen.io/rdallaire/pen/apoyx
+ --------------------------------------------------------------*/
+ #return-to-top {
+   position: fixed;
+   bottom: 65px;
+   right: 20px;
+   background-color: transparent;
+   width: 50px;
+   height: 50px;
+   border: 1px solid $pure-white;
+   text-decoration: none;
+   -webkit-border-radius: 35px;
+   -moz-border-radius: 35px;
+   border-radius: 35px;
+   display: none;
+   -webkit-transition: all 0.3s linear;
+   -moz-transition: all 0.3s ease;
+   -ms-transition: all 0.3s ease;
+   -o-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+   z-index: 99999;
+
+   i {
+     color: $pure-white;
+     margin: 0;
+     position: relative;
+     left: 13px;
+     top: 12px;
+     font-size: 25px;
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -ms-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     transition: all 0.3s ease;
+   }
+
+   &:hover {
+     background-color: $pure-white;
+
+     i {
+       color: $pure-black;
+       top: 6px;
+     }
+   }
+ }

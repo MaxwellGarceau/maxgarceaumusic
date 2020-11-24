@@ -123,9 +123,9 @@ class rock_star_background_image_widget extends WP_Widget {
 
 		if ( '' != $image ) {
 			echo $args['before_widget'];
-			echo '<span class="divider"><img src=" ' . trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/divider-1920x156.png" alt="divider"></span>
+			echo '<span class="divider"><img src=" ' . trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/divider-1920x156.png" alt="divider"></span>
                 <span class="background-image" style="background-image: url('. esc_url( $image ) .'); '. $height . $padding . '"></span>
-				<span class="divider"><img src=" ' . trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/divider-1920x156.png" alt="divider"></span>';
+				<span class="divider"><img src=" ' . trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/divider-1920x156.png" alt="divider"></span>';
             echo $args['after_widget'];
 		}
 	}

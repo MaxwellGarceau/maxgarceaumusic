@@ -5,10 +5,12 @@
  * This includes the header, options, and other information that should provide
  * The User Interface to the end user.
  *
+ * @var array $context
+ *
  * @package   FlowFlow
  * @author    Looks Awesome <email@looks-awesome.com>
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
 
 $dbm = $context['db_manager'];

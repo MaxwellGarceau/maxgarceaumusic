@@ -121,6 +121,7 @@ if ( ! function_exists( 'rock_star_setup' ) ) :
 		 * Setup the WordPress core custom background feature.
 		 */
 		$bg_defaults = array(
+			'default-preset'     => 'fit',
 			'default-repeat'     => 'no-repeat',
 			'default-position-x' => 'center',
 			'default-attachment' => 'fixed',
@@ -129,12 +130,12 @@ if ( ! function_exists( 'rock_star_setup' ) ) :
 		if ( 'dark' == $options['color_scheme'] ) {
 			$default_bg_color = rock_star_get_default_theme_options();
 
-			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/background-dark-1920x1080.jpg';
+			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/background-dark-1920x1080.jpg';
 		}
 		elseif ( 'light' == $options['color_scheme'] ) {
 			$default_bg_color = rock_star_default_light_color_options();
 
-			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/background-light-1920x1080.jpg';
+			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/background-light-1920x1080.jpg';
 
 		}
 
@@ -266,13 +267,8 @@ function rock_star_scripts() {
 			wp_enqueue_script( 'jquery-cycle2-tile', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.tile.min.js', array( 'jquery-cycle2' ), '20140128', true );
 		}
 
-		// Shuffle transition plugin addition
-		if ( in_array( 'shuffle', $transition_effects ) ){
-			wp_enqueue_script( 'jquery-cycle2-shuffle', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.shuffle.min.js', array( 'jquery-cycle2' ), '20140128 ', true );
-		}
-
 		//Load jquery cycle alone if no plugin is required
-		if ( !( in_array( 'scrollVert', $transition_effects ) || in_array( 'flipHorz', $transition_effects ) || in_array( 'flipVert', $transition_effects ) || in_array( 'tileSlide', $transition_effects ) || in_array( 'tileBlind', $transition_effects ) || in_array( 'shuffle', $transition_effects ) ) ){
+		if ( !( in_array( 'scrollVert', $transition_effects ) || in_array( 'flipHorz', $transition_effects ) || in_array( 'flipVert', $transition_effects ) || in_array( 'tileSlide', $transition_effects ) || in_array( 'tileBlind', $transition_effects ) ) ){
 			wp_enqueue_script( 'jquery-cycle2' );
 		}
 	}
@@ -326,18 +322,6 @@ function rock_star_fonts_url() {
  *
  * @since Rock Star 0.3
  */
-function rock_star_enqueue_metabox_scripts() {
-    //Scripts
-	wp_enqueue_script( 'rock-star-metabox', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/metabox.min.js', array( 'jquery', 'jquery-ui-tabs' ), '2013-10-05' );
-
-	//CSS Styles
-	wp_enqueue_style( 'rock-star-metabox-tabs', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'css/metabox-tabs.css' );
-}
-add_action( 'admin_print_scripts-post-new.php', 'rock_star_enqueue_metabox_scripts', 11 );
-add_action( 'admin_print_scripts-post.php', 'rock_star_enqueue_metabox_scripts', 11 );
-add_action( 'admin_print_scripts-page-new.php', 'rock_star_enqueue_metabox_scripts', 11 );
-add_action( 'admin_print_scripts-page.php', 'rock_star_enqueue_metabox_scripts', 11 );
-
 
 /**
  * Default Options.
@@ -408,6 +392,11 @@ require trailingslashit( get_template_directory() ) . 'inc/social-icons.php';
  * Load Metaboxes
  */
 require trailingslashit( get_template_directory() ) . 'inc/metabox.php';
+
+/**
+ * Load JSON_LD Breadcrumb file.
+ */
+require trailingslashit( get_template_directory() ) . 'inc/json-ld-schema.php';
 
 
 /**
@@ -1319,9 +1308,9 @@ if ( ! function_exists( 'rock_star_single_content_image' ) ) :
 		if ( $post ) {
 	 		if ( is_attachment() ) {
 				$parent = $post->post_parent;
-				$individual_featured_image = get_post_meta( $parent,'rock-star-featured', true );
+				$individual_featured_image = get_post_meta( $parent,'rock-star-featured-image', true );
 			} else {
-				$individual_featured_image = get_post_meta( $page_id,'rock-star-featured', true );
+				$individual_featured_image = get_post_meta( $page_id,'rock-star-featured-image', true );
 			}
 		}
 
@@ -1406,11 +1395,12 @@ function rock_star_footer_content() {
 		$theme_data = wp_get_theme();
 		$year       =  esc_attr( date_i18n( __( 'Y', 'rock-star' ) ) );
 		$site_link  = '<a href="'. esc_url( home_url( '/' ) ) .'">'. esc_attr( get_bloginfo( 'name', 'display' ) ) . '</a>';
+		$privacy_policy = get_the_privacy_policy_link();
 
 		$footer_content =  '
 			<div id="site-generator" class="site-info" role="contentinfo">
 				<div class="wrapper">
-					<span>' . sprintf( _x( 'Copyright &copy; %1$s %2$s. All Rights Reserved', '1: Year, 2: Site Title with home URL', 'rock-star' ), $year, $site_link ) . ' &#124; ' . $theme_data->get( 'Name' ) . '&nbsp;' . esc_html__( 'by', 'rock-star' ). '&nbsp;<a target="_blank" href="'. esc_url( $theme_data->get( 'AuthorURI' ) ) .'">'. esc_html( $theme_data->get( 'Author' ) ) .'</a>' . '</span>
+					<span>' . sprintf( _x( 'Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s', '1: Year, 2: Site Title with home URL, 3: Privacy Policy Link', 'rock-star' ), $year, $site_link, $privacy_policy ) . ' &#124; ' . $theme_data->get( 'Name' ) . '&nbsp;' . esc_html__( 'by', 'rock-star' ). '&nbsp;<a target="_blank" href="'. esc_url( $theme_data->get( 'AuthorURI' ) ) .'">'. esc_html( $theme_data->get( 'Author' ) ) .'</a>' . '</span>
 				</div><!-- .wrapper -->
 			</div><!-- .site-info -->
 	    	';

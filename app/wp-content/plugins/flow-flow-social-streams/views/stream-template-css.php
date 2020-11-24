@@ -1,8 +1,19 @@
 <?php
+/** @var object $stream */
 $id = $stream->id;
 if (!isset($stream->filtercolor)) $stream->filtercolor = 'rgb(205, 205, 205)';
-$prefix = $stream->layout === 'grid' ? '' : ( $stream->layout === 'masonry' ? 'm-' : 'j-' )
+$bradius = ( isset( $stream->bradius ) ) ? intval( $stream->bradius ) : 4;
 ?>
+<?php if( $stream->layout === 'list' && !empty($stream->wallwidth) ):?>
+#ff-stream-<?php echo $id;?> {
+    width: <?php echo $stream->wallwidth;?>px;
+}
+<?php endif;?>
+<?php if( $stream->layout === 'list' ):?>
+#ff-stream-<?php echo $id;?> .ff-stream-wrapper.ff-infinite > li {
+margin: <?php echo $stream->wallvm;?>px <?php echo $stream->wallhm;?>px 0;
+}
+<?php endif;?>
 #ff-stream-<?php echo $id;?> .ff-header h1,#ff-stream-<?php echo $id;?> .ff-controls-wrapper > span:hover { color: <?php echo $stream->headingcolor;?>; }
 #ff-stream-<?php echo $id;?> .ff-controls-wrapper > span:hover { border-color: <?php echo $stream->headingcolor;?> !important; }
 #ff-stream-<?php echo $id;?> .ff-header h2 { color: <?php echo $stream->subheadingcolor;?>; }
@@ -86,12 +97,7 @@ border-color: <?php echo $stream->headingcolor;?>;
 #ff-stream-<?php echo $id;?> .ff-controls-wrapper, #ff-stream-<?php echo $id;?> .ff-controls-wrapper > span {
 	color: <?php echo $stream->filtercolor;?>;
 }
-#ff-stream-<?php echo $id;?> .shuffle__sizer{
-<!--	width:  --><?php //echo $stream->width;?><!--px;-->
-}
-#ff-stream-<?php echo $id;?> .ff-item {
-<!--	margin-bottom: --><?php //echo $stream->margin;?><!--px !important;-->
-}
+
 #ff-stream-<?php echo $id;?> .shuffle__sizer {
 	margin-left: <?php echo $stream->margin;?>px !important;
 }
@@ -100,6 +106,10 @@ border-color: <?php echo $stream->headingcolor;?>;
 	background: <?php echo $stream->cardcolor;?>;
 	color: <?php echo $stream->textcolor;?>;
 	box-shadow: 0 1px 4px 0 <?php echo $stream->shadow;?>;
+}
+
+#ff-stream-<?php echo $id;?> .ff-content a {
+	color: <?php echo $stream->linkscolor;?>;
 }
 
 #ff-stream-<?php echo $id;?>-slideshow .ff-share-popup, #ff-stream-<?php echo $id;?>-slideshow .ff-share-popup:after,
@@ -116,12 +126,15 @@ border-color: <?php echo $stream->headingcolor;?>;
 	color: <?php echo $stream->cardcolor;?>;
 }
 #ff-stream-<?php echo $id;?>,
-#ff-stream-<?php echo $id;?>-slideshow {
+#ff-stream-<?php echo $id;?>-slideshow,
+#ff-stream-<?php echo $id;?> .ff-infinite .ff-content {
 	color: <?php echo $stream->textcolor;?>;
 }
-#ff-stream-<?php echo $id;?> li,
-#ff-stream-<?php echo $id;?> .ff-square {
+#ff-stream-<?php echo $id;?> .ff-infinite > li {
 	background: <?php echo $stream->cardcolor;?>;
+}
+#ff-stream-<?php echo $id;?> .ff-square {
+background: <?php echo ( ( $stream->bgcolor == 'rgb(255, 255, 255)' &&  $stream->cardcolor == 'rgb(255, 255, 255)' ) || strpos( $stream->bgcolor, ', 0)') !== false  ? 'rgb(205, 205, 205)' : $stream->cardcolor ) ;?>;
 }
 #ff-stream-<?php echo $id;?> .ff-icon, #ff-stream-<?php echo $id;?>-slideshow .ff-icon {
 	border-color: <?php echo $stream->cardcolor;?>;
@@ -130,7 +143,7 @@ border-color: <?php echo $stream->headingcolor;?>;
 	text-shadow: -1px 0 <?php echo $stream->cardcolor;?>, 0 1px <?php echo $stream->cardcolor;?>, 1px 0 <?php echo $stream->cardcolor;?>, 0 -1px <?php echo $stream->cardcolor;?>;
 }
 
-#ff-stream-<?php echo $id;?> .ff-item h1, #ff-stream-<?php echo $id;?> .ff-item h4, #ff-stream-<?php echo $id;?>-slideshow h4,#ff-stream-<?php echo $id;?>-slideshow h4 a,
+#ff-stream-<?php echo $id;?> .ff-item h1, #ff-stream-<?php echo $id;?> .ff-stream-wrapper.ff-infinite .ff-nickname, #ff-stream-<?php echo $id;?> h4, #ff-stream-<?php echo $id;?>-slideshow h4,#ff-stream-<?php echo $id;?>-slideshow h4 a,
 #ff-stream-<?php echo $id;?> .ff-name, #ff-stream-<?php echo $id;?>-slideshow .ff-name {
 	color: <?php echo $stream->namecolor;?> !important;
 }
@@ -147,11 +160,41 @@ border-color: <?php echo $stream->headingcolor;?>;
 #ff-stream-<?php echo $id;?>-slideshow .ff-item-meta:before {
 	background-color: <?php echo $stream->textcolor;?> !important;
 }
-#ff-stream-<?php echo $id;?> .ff-item {
+#ff-stream-<?php echo $id;?> .ff-item, #ff-stream-<?php echo $id;?> .ff-stream-wrapper.ff-infinite .ff-content {
 	text-align: <?php echo $stream->talign;?>;
 }
 #ff-stream-<?php echo $id;?> .ff-overlay {
 	background-color: <?php echo $stream->bcolor;?>;
+}
+
+.ff-upic-round .ff-img-holder.ff-img-loaded {
+background-color: <?php echo $stream->bgcolor;?>;
+}
+
+.ff-upic-round .picture-item__inner,
+.ff-upic-round .picture-item__inner:before {
+border-radius: <?php echo $bradius + 2;?>px;
+}
+
+.ff-upic-round.ff-infinite > li {
+border-radius: <?php echo $bradius;?>px;
+overflow: hidden
+}
+
+.ff-upic-round .ff-img-holder:first-child,
+.ff-upic-round .ff-img-holder:first-child img {
+border-radius: <?php echo $bradius;?>px <?php echo $bradius;?>px 0 0;
+}
+
+.ff-upic-round.ff-infinite .ff-img-holder:first-child,
+.ff-upic-round.ff-infinite .ff-img-holder:first-child img {
+border-radius: <?php echo $bradius - 2;?>px <?php echo $bradius - 2;?>px 0 0;
+}
+
+.ff-upic-round .ff-has-overlay .ff-img-holder,
+.ff-upic-round .ff-has-overlay .ff-overlay,
+.ff-upic-round .ff-has-overlay .ff-img-holder img {
+border-radius: <?php echo $bradius;?>px !important;
 }
 
 <?php if(isset($stream->mborder) && $stream->mborder == 'yep'):?>

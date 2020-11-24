@@ -1,7 +1,7 @@
 <div class="ff-opacity"></div>
 <div class="ff-deactivate-popup">
     <div class="ff-deactivate-popup-opacity">
-        <img src="<?php echo $this->context['plugin_url'] . $this->context['slug'] . '-social-streams' . '/assets/spinner.gif'; ?>"
+        <img src="<?php echo $this->context['plugin_url'] . $this->context['plugin_dir_name'] . '/' . 'assets/spinner.gif'; ?>"
              class="ff-img-loader">
     </div>
     <div class="ff-deactivate-popup-header">
@@ -19,13 +19,13 @@
     </div>
     <div class="ff-btns">
         <a href="<?php echo $deactivate_url; ?>" data-val="1"
-           class="button button-secondary button-close ff-deactivate"
+           class="button button-primary button-close ff-deactivate"
            id="ff-deactivate"><?php _e("Deactivate", $this->context['slug']); ?></a>
         <a href="<?php echo $deactivate_url; ?>" data-val="2"
-           class="button button-secondary button-close ff-deactivate" id="ff-submit-and-deactivate"
+           class="button button-primary button-close ff-deactivate" id="ff-submit-and-deactivate"
            style="display:none;"><?php _e("Submit and deactivate", $this->context['slug']); ?></a>
         <a href="<?php echo admin_url('plugins.php'); ?>"
-           class="button button-primary ff-cancel"><?php _e("Cancel", $this->context['slug']); ?></a>
+           class="button button-secondary ff-cancel"><?php _e("Cancel", $this->context['slug']); ?></a>
     </div>
 
 </div>

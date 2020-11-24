@@ -321,18 +321,10 @@ class Favicon_By_RealFaviconGenerator_Common {
 
 	// See http://webcheatsheet.com/php/get_current_page_url.php
 	public function current_page_url() {
-		$pageURL = 'http';
-		if ( isset($_SERVER["HTTPS"] ) && ( $_SERVER["HTTPS"] == "on" ) ) {
-			$pageURL .= "s";
-		}
-		$pageURL .= "://";
-		if ( $_SERVER["SERVER_PORT"] != "80" ) {
-			$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-		}
-		else {
-			$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-		}
-		return $pageURL;
+    // See https://mekshq.com/get-current-page-url-wordpress/
+    global $wp;
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+    return $current_url;
 	}
 
 	public function add_parameter_to_current_url( $param_and_value ) {

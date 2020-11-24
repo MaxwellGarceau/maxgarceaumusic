@@ -137,7 +137,7 @@ function rock_star_demo_content( $options ) {
 	return '
 		<article id="featured-post-1" class="hentry post post-demo">
 			<figure class="featured-content-image">
-				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/blog-01-420x280.jpg" />
+				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/no-thumb-420x280.jpg" />
 			</figure>
 			<div class="entry-container">
 				<header class="entry-header">
@@ -155,7 +155,7 @@ function rock_star_demo_content( $options ) {
 
 		<article id="featured-post-2" class="post hentry post-demo">
 			<figure class="featured-content-image">
-				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/blog-02-420x280.jpg" />
+				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/no-thumb-420x280.jpg" />
 			</figure>
 			<div class="entry-container">
 				<header class="entry-header">
@@ -173,7 +173,7 @@ function rock_star_demo_content( $options ) {
 
 		<article id="featured-post-3" class="post hentry post-demo">
 			<figure class="featured-content-image">
-				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/gallery/blog-03-420x280.jpg" />
+				<img class="wp-post-image" src="'.trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/no-thumb-420x280.jpg" />
 			</figure>
 			<div class="entry-container">
 				<header class="entry-header">
@@ -265,7 +265,7 @@ function rock_star_post_page_category_content( $options ) {
 		$output .= '
 		<article id="featured-post-' . $i . '" class="featured-page-post hentry">';
 
-			$image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/gallery/no-featured-image-1920x800.jpg" >';
+			$image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x800.jpg" >';
 
 			if ( has_post_thumbnail() ) {
 				$image = get_the_post_thumbnail( $post->ID, 'post-thumbnail', array( 'title' => $title_attribute, 'alt' => $title_attribute ) );
@@ -298,7 +298,7 @@ function rock_star_post_page_category_content( $options ) {
 				elseif ( 'full-content' == $show_content ) {
 					$content = apply_filters( 'the_content', get_the_content() );
 					$content = str_replace( ']]>', ']]&gt;', $content );
-					$output .= '<div class="entry-content">' . $content . '</div><!-- .entry-content -->';
+					$output .= '<div class="entry-content">' . wp_kses_post( $content ) . '</div><!-- .entry-content -->';
 				}
 			$output .= '
 			</div><!-- .entry-container -->

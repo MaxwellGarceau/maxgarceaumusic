@@ -55,9 +55,9 @@ if ( !function_exists( 'rock_star_custom_breadcrumbs' ) ) :
 
 		global $post, $paged, $page;
 		$homeLink   = home_url( '/' );
-		$linkBefore = '<span class="breadcrumb" typeof="v:Breadcrumb">';
+		$linkBefore = '<span class="breadcrumb">';
 		$linkAfter  = '</span>';
-		$linkAttr   = ' rel="v:url" property="v:title"';
+		$linkAttr   = '';
 		$link       = $linkBefore . '<a' . $linkAttr . ' href="%1$s">%2$s ' . $delimiter . '</a>' . $linkAfter;
 
 

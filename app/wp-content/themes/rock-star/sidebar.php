@@ -78,7 +78,7 @@ do_action( 'rock_star_before_primary_sidebar' );
 			<section class="widget widget_widget_rock_star_adspace_widget" id="header-right-ads">
 				<div class="widget-wrap">
 					<a class="ads-image" href="#">
-						<img src="<?php echo trailingslashit( esc_url( get_template_directory_uri() ) ); ?>images/gallery/ads-300x250.jpg">
+						<img src="<?php echo trailingslashit( esc_url( get_template_directory_uri() ) ); ?>images/no-thumb-300x250.jpg">
 					</a>
 				</div><!-- .widget-wrap -->
 			</section><!-- .widget-wrap -->

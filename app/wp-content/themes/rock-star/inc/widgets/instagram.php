@@ -80,10 +80,10 @@ class rock_star_instagram_widget extends WP_Widget {
 						'original'  => esc_html__( 'Original', 'rock-star' ),
 					);
 
-				foreach ( $post_type_choices as $key => $value ) {
-					echo '<option value="' . $key . '" '. selected( $key, $instance['size'], false ) .'>' . $value .'</option>';
-				}
-				?>
+					foreach ( $post_type_choices as $key => $value ) {
+						echo '<option value="' . $key . '" ' . selected( $key, $instance['size'], false ) . '>' . $value . '</option>';
+					}
+					?>
 			</select>
 		</p>
 
@@ -92,34 +92,34 @@ class rock_star_instagram_widget extends WP_Widget {
 			<select id="<?php echo $this->get_field_id( 'layout' ); ?>" name="<?php echo $this->get_field_name( 'layout' ); ?>" class="widefat">
 				<?php
 					$post_type_choices = array(
-						'one-column'	=> esc_html__( '1 Column', 'rock-star' ),
-						'two-columns'	=> esc_html__( '2 Columns', 'rock-star' ),
-						'three-columns'	=> esc_html__( '3 Columns', 'rock-star' ),
-						'four-columns'	=> esc_html__( '4 Columns', 'rock-star' ),
-						'five-columns'	=> esc_html__( '5 Columns', 'rock-star' ),
+						'one-column'    => esc_html__( '1 Column', 'rock-star' ),
+						'two-columns'   => esc_html__( '2 Columns', 'rock-star' ),
+						'three-columns' => esc_html__( '3 Columns', 'rock-star' ),
+						'four-columns'  => esc_html__( '4 Columns', 'rock-star' ),
+						'five-columns'  => esc_html__( '5 Columns', 'rock-star' ),
 						'six-columns'   => esc_html__( '6 Columns', 'rock-star' ),
-						'seven-columns'	=> esc_html__( '7 Columns', 'rock-star' ),
-						'eight-columns'	=> esc_html__( '8 Columns', 'rock-star' ),
+						'seven-columns' => esc_html__( '7 Columns', 'rock-star' ),
+						'eight-columns' => esc_html__( '8 Columns', 'rock-star' ),
 					);
 
-				foreach ( $post_type_choices as $key => $value ) {
-					echo '<option value="' . $key . '" '. selected( $key, $instance['layout'], false ) .'>' . $value .'</option>';
-				}
-				?>
+					foreach ( $post_type_choices as $key => $value ) {
+						echo '<option value="' . $key . '" ' . selected( $key, $instance['layout'], false ) . '>' . $value . '</option>';
+					}
+					?>
 			</select>
 		</p>
 
 		<p>
-            <label for="<?php echo $this->get_field_id( 'background-image' ); ?>"><?php esc_html_e( 'Background Image Url:','rock-star'); ?></label>
-            <br>
-        	<input type="text" class="ct-upload" name="<?php echo $this->get_field_name( 'background-image' ); ?>" value="<?php echo esc_attr( $instance['background-image'] ); ?>" id="<?php echo $this->get_field_id( 'background-image' ); ?>" />
-        	<button class="upload-media-button button button-primary"><?php esc_html_e( 'Upload', 'rock-star' ); ?></button>
-        </p>
+			<label for="<?php echo $this->get_field_id( 'background-image' ); ?>"><?php esc_html_e( 'Background Image Url:', 'rock-star' ); ?></label>
+			<br>
+			<input type="text" class="ct-upload" name="<?php echo $this->get_field_name( 'background-image' ); ?>" value="<?php echo esc_attr( $instance['background-image'] ); ?>" id="<?php echo $this->get_field_id( 'background-image' ); ?>" />
+			<button class="upload-media-button button button-primary"><?php esc_html_e( 'Upload', 'rock-star' ); ?></button>
+		</p>
 
 		<p>
-        	<input class="checkbox" type="checkbox" <?php checked( $instance['target'], true ) ?> id="<?php echo $this->get_field_id( 'target' ); ?>" name="<?php echo $this->get_field_name( 'target' ); ?>" />
-        	<label for="<?php echo $this->get_field_id('target' ); ?>"><?php esc_html_e( 'Check to Open Link in new Tab/Window', 'rock-star' ); ?></label><br />
-        </p>
+			<input class="checkbox" type="checkbox" <?php checked( $instance['target'], true ); ?> id="<?php echo $this->get_field_id( 'target' ); ?>" name="<?php echo $this->get_field_name( 'target' ); ?>" />
+			<label for="<?php echo $this->get_field_id( 'target' ); ?>"><?php esc_html_e( 'Check to Open Link in new Tab/Window', 'rock-star' ); ?></label><br />
+		</p>
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'link' ) ); ?>"><?php esc_html_e( 'Link text', 'rock-star' ); ?>:
@@ -129,7 +129,7 @@ class rock_star_instagram_widget extends WP_Widget {
 	}
 
 	function update( $new_instance, $old_instance ) {
-		delete_transient( 'instagram-a3-'.sanitize_title_with_dashes( $new_instance['username'] ) );
+		delete_transient( 'instagram-a3-' . sanitize_title_with_dashes( $new_instance['username'] ) );
 		$instance = $old_instance;
 
 		$instance['title']            = sanitize_text_field( $new_instance['title'] );
@@ -138,7 +138,7 @@ class rock_star_instagram_widget extends WP_Widget {
 		$instance['size']             = sanitize_key( $new_instance['size'] );
 		$instance['layout']           = sanitize_key( $new_instance['layout'] );
 		$instance['background-image'] = esc_url_raw( $new_instance['background-image'] );
-		$instance['target']           = rock_star_sanitize_checkbox( $new_instance['target'] );
+		$instance['target']           = isset( $new_instance['target'] ) ? rock_star_sanitize_checkbox( $new_instance['target'] ) : 0;
 		$instance['link']             = sanitize_text_field( $new_instance['link'] );
 
 		return $instance;
@@ -160,12 +160,7 @@ class rock_star_instagram_widget extends WP_Widget {
 		$size     = empty( $instance['size'] ) ? 'large' : $instance['size'];
 		$link     = empty( $instance['link'] ) ? '' : $instance['link'];
 		$layout   = empty( $instance['layout'] ) ? '' : $instance['layout'];
-
-		$target = '_self';
-
-		if ( $instance['target'] ) {
-			$target = '_blank';
-		}
+		$target   = ( isset( $instance['target'] ) && '1' == $instance['target'] ) ? '_blank' : '_self';
 
 		if ( '' != $username ) {
 
@@ -177,7 +172,7 @@ class rock_star_instagram_widget extends WP_Widget {
 
 			} else {
 				// filter for images only?
-				if ( $images_only = apply_filters( 'rock_star_images_only', FALSE ) ) {
+				if ( $images_only = apply_filters( 'rock_star_images_only', false ) ) {
 					$media_array = array_filter( $media_array, array( $this, 'images_only' ) );
 				}
 
@@ -185,18 +180,18 @@ class rock_star_instagram_widget extends WP_Widget {
 
 				<div class="instagram-image-wrapper columns <?php echo esc_attr( $layout ); ?>">
 				<?php
-					foreach ( $media_array as $item ) {
-						echo '
+				foreach ( $media_array as $item ) {
+					echo '
 						<figure class="hentry">
-                            <a href="'. esc_url( $item['link'] ) .'" target="'. esc_attr( $target ) .'">
-                            	<img src="'. esc_url( $item['img_src'] ) .'" alt="'. esc_attr( $item['description'] ) .'" title="'. esc_attr( $item['description'] ) .'">
+                            <a href="' . esc_url( $item['link'] ) . '" target="' . esc_attr( $target ) . '">
+                            	<img src="' . esc_url( $item['img_src'] ) . '" alt="' . esc_attr( $item['description'] ) . '" title="' . esc_attr( $item['description'] ) . '">
                             </a>
                         </figure>
 						';
-					}
+				}
 				?>
 				</div><!-- .instagram-image-wrapper -->
-			<?php
+				<?php
 			}
 		}
 
@@ -205,8 +200,8 @@ class rock_star_instagram_widget extends WP_Widget {
 		if ( '' != $link ) {
 			?>
 			<div class="view-more aligncenter <?php echo esc_attr( $linkclass ); ?>">
-                <a href="//instagram.com/<?php echo esc_attr( trim( $username ) ); ?>"  rel="me" target="<?php echo esc_attr( $target ); ?>"><?php echo wp_kses_post( $link ); ?></a>
-            </div>
+				<a href="//instagram.com/<?php echo esc_attr( trim( $username ) ); ?>"  rel="me" target="<?php echo esc_attr( $target ); ?>"><?php echo wp_kses_post( $link ); ?></a>
+			</div>
 			<?php
 		}
 
@@ -214,13 +209,12 @@ class rock_star_instagram_widget extends WP_Widget {
 
 		if ( '' != $instance['background-image'] ) {
 			echo '
-			<style type="text/css" rel="ct-widget-css '. esc_attr( $args['widget_id'] ) .'">
-				#'. esc_attr( $args['widget_id'] ) .' {
-					background-image: url('. esc_url( $instance['background-image'] ) .');
+			<style type="text/css" rel="ct-widget-css ' . esc_attr( $args['widget_id'] ) . '">
+				#' . esc_attr( $args['widget_id'] ) . ' {
+					background-image: url(' . esc_url( $instance['background-image'] ) . ');
 					background-position: 50% 50%;
 				}
-			</style>'
-			;
+			</style>';
 		}
 	}
 
@@ -229,9 +223,9 @@ class rock_star_instagram_widget extends WP_Widget {
 		$username = strtolower( $username );
 		$username = str_replace( '@', '', $username );
 
-		if ( false === ( $instagram = get_transient( 'instagram-a3-'.sanitize_title_with_dashes( $username ) ) ) ) {
+		if ( false === ( $instagram = get_transient( 'instagram-a3-' . sanitize_title_with_dashes( $username ) ) ) ) {
 
-			$remote = wp_remote_get( 'http://instagram.com/'.trim( $username ) );
+			$remote = wp_remote_get( 'http://instagram.com/' . trim( $username ) );
 
 			if ( is_wp_error( $remote ) ) {
 				return new WP_Error( 'site_down', esc_html__( 'Unable to communicate with Instagram.', 'rock-star' ) );
@@ -243,7 +237,7 @@ class rock_star_instagram_widget extends WP_Widget {
 
 			$shards      = explode( 'window._sharedData = ', $remote['body'] );
 			$insta_json  = explode( ';</script>', $shards[1] );
-			$insta_array = json_decode( $insta_json[0], TRUE );
+			$insta_array = json_decode( $insta_json[0], true );
 
 			if ( ! $insta_array ) {
 				return new WP_Error( 'bad_json', esc_html__( 'Instagram has returned invalid data.', 'rock-star' ) );
@@ -275,7 +269,7 @@ class rock_star_instagram_widget extends WP_Widget {
 					$index = 3;
 				}
 
-				$image['image_src'] = preg_replace('#^https?:#', '', isset( $image_unfiltered['thumbnail_resources'][ $index ]['src'] ) ? $image_unfiltered['thumbnail_resources'][ $index ]['src'] : $image['thumbnail_src'] );
+				$image['image_src'] = preg_replace( '#^https?:#', '', isset( $image_unfiltered['thumbnail_resources'][ $index ]['src'] ) ? $image_unfiltered['thumbnail_resources'][ $index ]['src'] : $image['thumbnail_src'] );
 
 				// Original image size is not in thumbnail_resources array, so we create a different condition here.
 				if ( 'original' === $size ) {
@@ -284,8 +278,7 @@ class rock_star_instagram_widget extends WP_Widget {
 
 				if ( $image_unfiltered['is_video'] == true ) {
 					$type = 'video';
-				}
-				else {
+				} else {
 					$type = 'image';
 				}
 
@@ -299,13 +292,13 @@ class rock_star_instagram_widget extends WP_Widget {
 					'description' => $caption,
 					'link'        => '//instagram.com/p/' . $image_unfiltered['shortcode'],
 					'img_src'     => $image['image_src'],
-					'type'        => $type
+					'type'        => $type,
 				);
 			}
 
 			// do not set an empty transient - should help catch private or empty accounts
 			if ( ! empty( $instagram ) ) {
-				set_transient( 'instagram-a3-'.sanitize_title_with_dashes( $username ), $instagram, apply_filters( 'rock_star_instagram_cache_time', HOUR_IN_SECONDS*2 ) );
+				set_transient( 'instagram-a3-' . sanitize_title_with_dashes( $username ), $instagram, apply_filters( 'rock_star_instagram_cache_time', HOUR_IN_SECONDS * 2 ) );
 			}
 		}
 

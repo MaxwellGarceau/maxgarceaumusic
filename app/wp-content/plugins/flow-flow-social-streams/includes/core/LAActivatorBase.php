@@ -3,15 +3,15 @@
 abstract class LAActivatorBase{
 	protected $context;
 	
-	private $cron_intervals = array();
+	private $cron_intervals = [];
 	
 	public function __construct($file){
 		$context = $this->initContext($file);
 		
 		$this->context = $context;
 		$main_file = $context['root'] . $context['slug'] . '.php';
-		register_activation_hook( $main_file, array( $this, 'activate' ) );
-		register_deactivation_hook( $main_file, array( $this, 'deactivate' ) );
+		register_activation_hook( $main_file, [ $this, 'activate' ] );
+		register_deactivation_hook( $main_file, [ $this, 'deactivate' ] );
 	}
 	
 	public final function slug(){
@@ -78,15 +78,16 @@ abstract class LAActivatorBase{
 	 * Hook 'plugins_loaded'
 	 */
 	public final function loadPlugin(){
-		
 		$this->beforePluginLoad();
-		
+
+		$this->registerShutdownActions();
+
 		if (defined('FF_USE_WP_CRON') && FF_USE_WP_CRON){
-			$this->registrationCronActions();
+			$this->registerCronActions();
 		}
 		
 		if (defined('DOING_AJAX') && DOING_AJAX){
-			$this->registrationAjaxActions();
+			$this->registerAjaxActions();
 		}
 		else {
 			if (is_admin()){
@@ -97,28 +98,40 @@ abstract class LAActivatorBase{
 				$this->renderPublicSide();
 			}
 		}
-		
 		$this->afterPluginLoad();
 	}
 
-    public final function getCronIntervals($schedules){
-        foreach( $this->cron_intervals as $interval => $schedule ){
-            $schedules[$interval] = $schedule;
-        }
-        return $schedules;
-    }
+	public function download_posts(){
+		status_header( 200 );
+
+		header("Content-type: text/csv");
+		header('Content-Disposition: attachment; filename=' . str_replace('https://', '', str_replace('http://', '', get_bloginfo( 'url' ) ) )  . '_stored_posts_' . time() . '.csv');
+		header("Pragma: no-cache");
+		header("Expires: 0");
+
+		echo "record1,record2,record3\n";
+		die;
+	}
+	
+	public final function getCronIntervals($schedules){
+		$schedules += $this->cron_intervals;
+		return $schedules;
+	}
 	
 	protected function beforePluginLoad(){
 		do_action('ff_addon_loaded', $this->context);
+
+        $domain = parse_url(get_option('siteurl'), PHP_URL_HOST);
+        $this->setContextValue('domain', $domain);
 	}
 
 	protected abstract function checkPlugin();
 	
 	protected abstract function initContext($file);
 	
-	protected abstract function registrationCronActions();
+	protected abstract function registerCronActions();
 	
-	protected abstract function registrationAjaxActions();
+	protected abstract function registerAjaxActions();
 	
 	protected abstract function renderAdminSide();
 	

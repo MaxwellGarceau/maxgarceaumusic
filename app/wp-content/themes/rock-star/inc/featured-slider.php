@@ -112,7 +112,7 @@ function rock_star_demo_slider( $options ) {
 	return '
 	<article class="post demo-image-1 hentry slides displayblock">
 		<figure class="slider-image">
-        	<img src="'.esc_url( get_template_directory_uri() ).'/images/gallery/slider-01-1920x1080.jpg" alt="banner-image" class="banner">
+        	<img src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x1080.jpg" alt="banner-image" class="banner">
         </figure><!-- .slider-image -->
         <div class="entry-container slider-contents slide-one">
             <header class="entry-header">
@@ -126,7 +126,7 @@ function rock_star_demo_slider( $options ) {
 
     <article class="post demo-image-2 hentry slides displaynone">
     	<figure class="slider-image">
-        	<img src="'.esc_url( get_template_directory_uri() ).'/images/gallery/slider-02-1920x1080.jpg" alt="banner-image" class="banner">
+        	<img src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x1080.jpg" alt="banner-image" class="banner">
         </figure><!-- .slider-image -->
         <div class="entry-container slider-contents slide-one">
             <header class="entry-header">
@@ -191,11 +191,11 @@ function rock_star_post_slider( $options ) {
 			<article class="'.$classes.'">
 				<figure class="slider-image">';
 					if ( has_post_thumbnail() ) {
-						$rock_star_post_slider .= get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class'	=> 'attached-post-image' ) );
+						$rock_star_post_slider .= get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-post-image', 'loading' => false ) );
 					}
 					else {
 						//Default value if there is no first image
-						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/gallery/no-featured-image-1920x800.jpg" >';
+						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x800.jpg" >';
 
 						//Get the first image in page, returns false if there is no image
 						$rock_star_first_image = rock_star_get_first_image( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-post-image' ) );
@@ -276,11 +276,11 @@ function rock_star_page_slider( $options ) {
 			<article class="'.$classes.'">
 				<figure class="slider-image">';
 					if ( has_post_thumbnail() ) {
-						$rock_star_page_slider .= get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class'	=> 'attached-page-image' ) );
+						$rock_star_page_slider .= get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-page-image', 'loading' => false ) );
 					}
 					else {
 						//Default value if there is no first image
-						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/gallery/no-featured-image-1920x800.jpg" >';
+						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x800.jpg" >';
 
 						//Get the first image in page, returns false if there is no image
 						$rock_star_first_image = rock_star_get_first_image( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-page-image' ) );
@@ -353,12 +353,12 @@ function rock_star_category_slider( $options ) {
 				<figure class="slider-image">';
 					if ( has_post_thumbnail() ) {
 						$rock_star_category_slider .= '<a title="' . $title_attribute . '" href="' . esc_url( get_permalink() ) . '">
-							'. get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class'	=> 'attached-post-image' ) ).'
+							'. get_the_post_thumbnail( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-post-image', 'loading' => false ) ).'
 						</a>';
 					}
 					else {
 						//Default value if there is no first image
-						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/gallery/no-featured-image-1920x800.jpg" >';
+						$rock_star_image = '<img class="pngfix wp-post-image" src="'.esc_url( get_template_directory_uri() ).'/images/no-thumb-1920x800.jpg" >';
 
 						//Get the first image in page, returns false if there is no image
 						$rock_star_first_image = rock_star_get_first_image( $post->ID, 'rock-star-slider', array( 'title' => $title_attribute, 'alt' => $title_attribute, 'class' => 'attached-post-image' ) );

@@ -1,7 +1,12 @@
 <?php namespace flow\cache;
 if ( ! defined( 'WPINC' ) ) die;
+if ( ! defined('FF_FACEBOOK_RATE_LIMIT')) define('FF_FACEBOOK_RATE_LIMIT', 200);
 
+use flow\db\FFDB;
+use flow\db\LADBManager;
+use flow\social\cache\LAFacebookCacheManager;
 use flow\social\FFFeedUtils;
+use flow\social\LASocialException;
 
 /**
  * Flow-Flow.
@@ -10,10 +15,10 @@ use flow\social\FFFeedUtils;
  * @author    Looks Awesome <email@looks-awesome.com>
 
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
-class FFFacebookCacheManager implements LAFacebookCacheManager{
-    protected static $postfix_at = 'la_facebook_access_token';
+class FFFacebookCacheManager implements LAFacebookCacheManager {
+	protected static $postfix_at = 'la_facebook_access_token';
 	protected static $postfix_at_expires = 'la_facebook_access_token_expires';
 
 	/** @var LADBManager  */
@@ -22,8 +27,14 @@ class FFFacebookCacheManager implements LAFacebookCacheManager{
 	private $error = null;
 	private $access_token = null;
 
+	private $hasHitLimit;
+	private $creationTime;
+	private $request_count;
+	private $global_request_count;
+	private $global_request_array;
+
     public function __construct($context) {
-	    $this->db = $context['db_manager'];
+		$this->db = $context['db_manager'];
     }
 
 	public function getError(){
@@ -39,28 +50,44 @@ class FFFacebookCacheManager implements LAFacebookCacheManager{
 	public function getAccessToken(){
 		if ($this->access_token != null) return $this->access_token;
 
+        if ($this->isExpiredToken()){
+            $this->error = [
+                'type'    => 'facebook',
+                'message' => 'Access token is expired. Please go to AUTH tab to generate new token.'
+            ];
+            return null;
+        }
+
 		$token = null;
 		if (false != ($token = $this->getStoredToken())){
-			if ($this->isExpiredToken($token)){
+			if ($this->isExpiresToken()){
 				list($token, $expires, $error) = $this->refreshToken($token);
-				if ($error == null) $this->save($token, $expires);
+                if ($error == null) {
+                    $this->save($token, $expires);
+                    $this->db->update_options();
+                }
 				$this->error = $error;
 			}
 			$this->access_token = $token;
 		}
 		else {
-			$this->error = array(
+			$this->error = [
 				'type'    => 'facebook',
-				'message' => 'Facebook access token is empty.'
-			);
+				'message' => 'Access token is not found. Please go to AUTH tab to generate token.'
+            ];
 		}
 		return $token;
 	}
 
-	protected function isExpiredToken( $token ) {
-		$expires = $this->getOption($this->getNameExtendedAccessToken(true));
-		return $expires === false || time() > ($expires - 2629743);
-	}
+    protected function isExpiresToken() {
+        $expires = $this->getOption($this->getNameExtendedAccessToken(true));
+        return $expires === false || time() > ($expires - 2629743);
+    }
+
+    protected function isExpiredToken() {
+        $expires = $this->getOption($this->getNameExtendedAccessToken(true));
+        return $expires === false || time() > $expires;
+    }
 
 	protected function getStoredToken() {
 		$at = $this->getNameExtendedAccessToken();
@@ -86,17 +113,19 @@ class FFFacebookCacheManager implements LAFacebookCacheManager{
 			$response = (array)json_decode($response);
 			$expires = (sizeof($response) > 2) ? (int)$response['expires_in'] : time() + 2629743*2;
 			$access_token = $response['access_token'];
-			return array($access_token, $expires, null);
+			return [ $access_token, $expires, null ];
 		}
 		else if (isset($response['errors'])) {
 			$error = $response['errors'][0];
-			return array(null, null, array(
+			return [
+                null, null, [
 				'type'    => 'facebook',
-				'message' => FFFeedUtils::filter_error_message($error['msg']),
+				'message' => $this->filter_error_message($error['msg']),
 				'url' => $token_url
-			));
+                ]
+            ];
 		}
-		return array(null, null, false);
+		return [ null, null, false ];
 	}
 
 	public function save($token, $expires){
@@ -136,5 +165,85 @@ class FFFacebookCacheManager implements LAFacebookCacheManager{
 
 	private function deleteOption($name){
 		FF_USE_WP ? delete_option($name) : $this->db->deleteOption($name);
+	}
+
+	private function filter_error_message($message){
+		if (is_array($message)){
+			if (sizeof($message) > 0 && isset($message[0]['msg'])){
+				return stripslashes(htmlspecialchars($message[0]['msg'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+			}
+			else {
+				return '';
+			}
+		}
+		return stripslashes(htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
+	}
+
+    /**
+     * @return bool
+     * @throws LASocialException
+     */
+    public function startCounter() {
+		$this->request_count = 0;
+		$this->hasHitLimit = false;
+		if (FFDB::beginTransaction()){
+			$limit = $this->db->getOption('fb_limit_counter', true, true);
+			if ($limit === false){
+				@$this->db->setOption('fb_limit_counter', [], true, false);
+				$limit = $this->db->getOption('fb_limit_counter', true, true);
+			}
+
+			if (!is_array($limit)){
+				FFDB::rollback();
+				throw new LASocialException('Can`t save `fb_limit_counter` option to mysql db.');
+			}
+
+			$this->creationTime = time();
+			$this->global_request_count = 0;
+			$limitTime = $this->creationTime - 3600;
+			$result = [];
+			foreach ( $limit as $time => $count ) {
+				if ($time > $limitTime) {
+					$result[$time] = $count;
+					$this->global_request_count += (int)$count;
+				}
+			}
+			$this->global_request_array = $result;
+
+			if ($this->global_request_count + 4 > FF_FACEBOOK_RATE_LIMIT) {
+				FFDB::rollback();
+				throw new LASocialException('Your site has hit the Facebook API rate limit. <a href="http://docs.social-streams.com/article/133-facebook-app-request-limit-reached" target="_blank">Troubleshooting</a>.');
+			}
+		}
+		else {
+			FFDB::rollback();
+			throw new LASocialException('Can`t get mysql transaction.');
+		}
+		return true;
+	}
+
+	public function stopCounter() {
+		if ($this->request_count > 0) {
+			$this->global_request_array[$this->creationTime] = $this->request_count;
+		}
+		$this->db->setOption('fb_limit_counter', $this->global_request_array, true, false);
+		FFDB::commit();
+	}
+
+	public function hasLimit() {
+		if ($this->hasHitLimit) return false;
+		if ($this->global_request_count + $this->request_count + 3 > FF_FACEBOOK_RATE_LIMIT) {
+			$this->hasHitLimit = true;
+			return false;
+		}
+		return true;
+	}
+
+	public function addRequest() {
+		$this->request_count++;
+	}
+
+	public function getIdPosts($feedId) {
+		return $this->db->getIdPosts($feedId);
 	}
 }

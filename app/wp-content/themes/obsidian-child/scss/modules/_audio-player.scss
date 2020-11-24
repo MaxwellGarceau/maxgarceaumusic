@@ -2,6 +2,8 @@
 
   .mejs-container {
     font-family: inherit;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
   }
   .cue-playlist {
     & .cue-tracks {

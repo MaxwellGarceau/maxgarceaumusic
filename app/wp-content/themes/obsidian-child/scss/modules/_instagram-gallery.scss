@@ -1,0 +1,59 @@
+.insta-gallery {
+  // Container for whole feed
+  &-feed {
+    font-family: inherit !important;
+
+    a {
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    // @include breakpoint(tablet) {
+    //   .insta-gallery-item {
+    //     &:hover {
+    //
+    //     }
+    //   }
+    // }
+  }
+
+  &-button,
+  &-button.follow {
+    border-radius: 50px !important;
+    background-color: $pure-white !important;
+    color: $pure-black !important;
+    box-shadow: unset !important;
+    border: 1px solid $pure-white !important;
+
+    &:hover {
+      background-color: $pure-black !important;
+      color: $pure-white !important;
+    }
+  }
+}
+
+// Add "Click to open Instagram" text to Instagram feed
+.insta-gallery-feed .insta-gallery-list .insta-gallery-item .insta-gallery-image-wrap .insta-gallery-image-mask-content {
+  // Center items
+  margin: 0 !important;
+  transform: translateY(-50%);
+
+  // Flex
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  // Spacing
+  padding: 0 15%;
+
+  // Text
+  &:after {
+    content: "Click to open in Instagram";
+    flex-basis: 100%; // Force onto new line
+    font-size: 14px;
+    font-style: italic;
+    color: #f2f2f2;
+  }
+}

@@ -1,4 +1,7 @@
 <?php namespace flow\social;
+use Exception;
+use stdClass;
+
 if ( ! defined( 'WPINC' ) ) die;
 /**
  * Flow-Flow.
@@ -10,8 +13,6 @@ if ( ! defined( 'WPINC' ) ) die;
  * @copyright 2014-2016 Looks Awesome
  */
 abstract class FFHttpRequestFeed extends FFBaseFeed{
-    private static $USER_AGENT = "Firefox (WindowsXP) - Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6";
-
 	private $header = false;
 	protected $url;
 
@@ -21,17 +22,13 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 
 	/**
 	 * @return array
+	 * @throws Exception
 	 */
 	protected function onePagePosts() {
-		$result = array();
+		$result = [];
 		$data = $this->getFeedData( $this->getUrl(), 200, $this->header );
 		if ( sizeof( $data['errors'] ) > 0 ) {
-			$this->errors[] = array(
-				'type'    => $this->getType(),
-				'message' => $this->filterErrorMessage($data['errors']),
-				'url' => $this->getUrl()
-			);
-			throw new \Exception();
+			throw new LASocialException( $data['errors'], [ 'type' => $this->getType(), 'url' => $this->getUrl() ] );
 		}
 		foreach ( $this->items( $data['response'] ) as $item ) {
 			$item = $this->prepareItem($item);
@@ -39,7 +36,7 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 				$post                   = $this->prepare( $item );
 				$post->id               = (string) $this->getId( $item );
 				$post->type             = $this->getType();
-				if ( $this->isNewPost($item) ) {
+				if ($this->isNewPost($item)) {
 					$post->header           = (string) $this->getHeader( $item );
 					$post->nickname         = '';
 					$post->screenname       = (string) $this->getScreenName( $item );
@@ -50,11 +47,10 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 					$post->permalink        = (string) $this->getPermalink( $item );
 					if ( $this->showImage( $item ) ) {
 						$post->img   = $this->getImage( $item );
-						$post->media = $this->getMedia( $item );
 					}
 				}
-				$post->additional = $this->getAdditionalInfo( $item );
-				
+				$post->additional       = $this->getAdditionalInfo( $item );
+
 				$post = $this->customize( $post, $item );
 				if ( $this->isSuitablePost( $post ) ) {
 					$result[$post->id] = $post;
@@ -80,7 +76,6 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 
     protected abstract function showImage($item);
     protected abstract function getImage($item);
-    protected abstract function getMedia($item);
 
 	/**
 	 * @param $item
@@ -90,29 +85,35 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 		return $item;
 	}
 
-    /**
-     * @param $item
-     * @return stdClass
-     */
-    protected function prepare($item){
-        $post = new \stdClass();
-	    $post->feed_id = $this->id();
-	    return $post;
-    }
-
 	/**
 	 * @param $item
-	 * @return array
-	 */
-	protected function getAdditionalInfo( $item ){
-		return array();
+	 *
+	 * @return stdClass
+     * @noinspection PhpUnusedParameterInspection
+     */
+	protected function prepare($item){
+		$post = new stdClass();
+		$post->feed_id = $this->id();
+		$post->smart_order = 0;
+		return $post;
 	}
 
 	/**
-     * @param \stdClass $post
+	 * @param $item
+	 *
+	 * @return array
+     * @noinspection PhpUnusedParameterInspection
+     */
+	protected function getAdditionalInfo( $item ){
+		return [];
+	}
+
+	/**
+     * @param stdClass $post
      * @param $item
      *
      * @return stdClass
+     * @noinspection PhpUnusedParameterInspection
      */
     protected function customize($post, $item){
         return $post;
@@ -127,26 +128,21 @@ abstract class FFHttpRequestFeed extends FFBaseFeed{
 
 	/**
 	 * @param $post
+	 *
 	 * @return bool
-	 */
+     * @noinspection PhpUnusedParameterInspection
+     */
 	protected function isSuitableOriginalPost( $post ) {
 		return true;
 	}
 
 	/**
 	 * @param $post
+	 *
 	 * @return bool
-	 */
+     * @noinspection PhpUnusedParameterInspection
+     */
 	protected function isNewPost( $post ) {
 		return true;
-	}
-
-
-	protected function getCarousel( $item ){
-		return array();
-	}
-	
-	protected function getComments( $item ){
-		return array();
 	}
 }

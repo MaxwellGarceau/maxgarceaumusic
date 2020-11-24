@@ -18,16 +18,17 @@ function rock_star_primary_menu() {
     <button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'rock-star' ); ?></button>
 
     <div id="site-header-menu" class="site-header-menu">
-        <nav aria-label="<?php esc_html_e( 'Primary Menu', 'rock-star' ); ?>" role="navigation" class="main-navigation" id="site-navigation">
+        <nav aria-label="<?php esc_attr_e( 'Primary Menu', 'rock-star' ); ?>" role="navigation" class="main-navigation" id="site-navigation">
             <div class="menu-main-menu-container">
                 <?php
                     if ( has_nav_menu( 'primary' ) ) {
-                        $rock_star_primary_menu_args = array(
-                            'theme_location'    => 'primary',
-                            'menu_class'        => 'menu nav-menu',
-                            'container'         => false
+                        wp_nav_menu( 
+                            array(
+                                'theme_location'    => 'primary',
+                                'menu_class'        => 'menu nav-menu',
+                                'container'         => false
+                            ) 
                         );
-                        wp_nav_menu( $rock_star_primary_menu_args );
                     }
                     else {
                         wp_page_menu( array( 'menu_class'  => 'menu nav-menu' ) );

@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,74 +79,521 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./admin/assets/js/wp-media.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = wp;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = _;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./admin/assets/js/controllers/playlists.js":
+/*!**************************************************!*\
+  !*** ./admin/assets/js/controllers/playlists.js ***!
+  \**************************************************/
+/*! exports provided: PlaylistsController */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlaylistsController", function() { return PlaylistsController; });
+/* harmony import */ var backbone__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! backbone */ "backbone");
+/* harmony import */ var backbone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(backbone__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var cue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! cue */ "./admin/assets/js/modules/application.js");
 
-var _ = __webpack_require__(1);
 
-function Application() {
-	var settings = {};
 
-	_.extend(this, {
-		controller: {},
-		l10n: {},
-		model: {},
-		view: {}
-	});
+var PlaylistsController = wp__WEBPACK_IMPORTED_MODULE_1___default.a.media.controller.State.extend({
+  defaults: {
+    id: 'cue-playlists',
+    title: cue__WEBPACK_IMPORTED_MODULE_2__["l10n"].insertPlaylist || 'Insert Playlist',
+    collection: null,
+    content: 'cue-playlist-browser',
+    menu: 'default',
+    menuItem: {
+      text: cue__WEBPACK_IMPORTED_MODULE_2__["l10n"].insertFromCue || 'Insert from Cue',
+      priority: 130
+    },
+    selection: null,
+    toolbar: 'cue-insert-playlist'
+  },
+  initialize: function initialize(options) {
+    var collection = options.collection || new backbone__WEBPACK_IMPORTED_MODULE_0___default.a.Collection();
+    var selection = options.selection || new backbone__WEBPACK_IMPORTED_MODULE_0___default.a.Collection();
+    this.set('attributes', new backbone__WEBPACK_IMPORTED_MODULE_0___default.a.Model({
+      id: null,
+      show_playlist: true
+    }));
+    this.set('collection', collection);
+    this.set('selection', selection);
+  }
+});
 
-	this.settings = function (options) {
-		if (options) {
-			_.extend(settings, options);
-		}
+/***/ }),
 
-		if (settings.l10n) {
-			this.l10n = _.extend(this.l10n, settings.l10n);
-			delete settings.l10n;
-		}
+/***/ "./admin/assets/js/modules/application.js":
+/*!************************************************!*\
+  !*** ./admin/assets/js/modules/application.js ***!
+  \************************************************/
+/*! exports provided: default, l10n, settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-		return settings || {};
-	};
-}
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l10n", function() { return l10n; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Application = /*#__PURE__*/function () {
+  function Application() {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Application);
+
+    this.l10n = {};
+    this.settings = {};
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Application, [{
+    key: "config",
+    value: function config(settings) {
+      if (settings.l10n) {
+        this.l10n = Object.assign(this.l10n, settings.l10n);
+        delete settings.l10n;
+      }
+
+      this.settings = Object.assign(this.settings, settings);
+    }
+  }]);
+
+  return Application;
+}();
 
 global.cue = global.cue || new Application();
-module.exports = global.cue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* harmony default export */ __webpack_exports__["default"] = (global.cue);
+var l10n = global.cue.l10n;
+var settings = global.cue.settings;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
-/* 3 */
+
+/***/ "./admin/assets/js/views/frame/content/browser/no-items.js":
+/*!*****************************************************************!*\
+  !*** ./admin/assets/js/views/frame/content/browser/no-items.js ***!
+  \*****************************************************************/
+/*! exports provided: NoItems */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoItems", function() { return NoItems; });
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+
+var NoItems = wp__WEBPACK_IMPORTED_MODULE_0___default.a.Backbone.View.extend({
+  className: 'cue-playlist-browser-empty',
+  tagName: 'div',
+  template: wp__WEBPACK_IMPORTED_MODULE_0___default.a.template('cue-playlist-browser-empty'),
+  initialize: function initialize(options) {
+    this.collection = this.collection;
+    this.listenTo(this.collection, 'add remove reset', this.toggleVisibility);
+  },
+  render: function render() {
+    this.$el.html(this.template());
+    return this;
+  },
+  toggleVisibility: function toggleVisibility() {
+    this.$el.toggleClass('is-visible', this.collection.length < 1);
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/content/browser/playlist.js":
+/*!*****************************************************************!*\
+  !*** ./admin/assets/js/views/frame/content/browser/playlist.js ***!
+  \*****************************************************************/
+/*! exports provided: Playlist */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Playlist", function() { return Playlist; });
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+
+var Playlist = wp__WEBPACK_IMPORTED_MODULE_0___default.a.Backbone.View.extend({
+  tagName: 'li',
+  className: 'cue-playlist-browser-list-item',
+  template: wp__WEBPACK_IMPORTED_MODULE_0___default.a.template('cue-playlist-browser-list-item'),
+  events: {
+    'click': 'resetSelection'
+  },
+  initialize: function initialize(options) {
+    this.controller = options.controller;
+    this.model = options.model;
+    this.selection = this.controller.state().get('selection');
+    this.listenTo(this.selection, 'add remove reset', this.updateSelectedClass);
+  },
+  render: function render() {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  },
+  resetSelection: function resetSelection() {
+    if (this.selection.contains(this.model)) {
+      this.selection.remove(this.model);
+    } else {
+      this.selection.reset(this.model);
+    }
+  },
+  updateSelectedClass: function updateSelectedClass() {
+    if (this.selection.findWhere({
+      id: this.model.get('id')
+    })) {
+      this.$el.addClass('is-selected');
+    } else {
+      this.$el.removeClass('is-selected');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/content/browser/playlists.js":
+/*!******************************************************************!*\
+  !*** ./admin/assets/js/views/frame/content/browser/playlists.js ***!
+  \******************************************************************/
+/*! exports provided: Playlists */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Playlists", function() { return Playlists; });
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _playlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./playlist */ "./admin/assets/js/views/frame/content/browser/playlist.js");
+
+
+var Playlists = wp__WEBPACK_IMPORTED_MODULE_0___default.a.Backbone.View.extend({
+  className: 'cue-playlist-browser-list',
+  tagName: 'ul',
+  initialize: function initialize(options) {
+    this.collection = options.controller.state().get('collection');
+    this.controller = options.controller;
+    this.listenTo(this.collection, 'add', this.addItem);
+    this.listenTo(this.collection, 'reset', this.render);
+  },
+  render: function render() {
+    this.collection.each(this.addItem, this);
+    return this;
+  },
+  addItem: function addItem(model) {
+    var view = new _playlist__WEBPACK_IMPORTED_MODULE_1__["Playlist"]({
+      controller: this.controller,
+      model: model
+    }).render();
+    this.$el.append(view.el);
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/content/browser/sidebar.js":
+/*!****************************************************************!*\
+  !*** ./admin/assets/js/views/frame/content/browser/sidebar.js ***!
+  \****************************************************************/
+/*! exports provided: Sidebar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sidebar", function() { return Sidebar; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var Sidebar = wp__WEBPACK_IMPORTED_MODULE_1___default.a.Backbone.View.extend({
+  className: 'cue-playlist-browser-sidebar media-sidebar',
+  template: wp__WEBPACK_IMPORTED_MODULE_1___default.a.template('cue-playlist-browser-sidebar'),
+  events: {
+    'change [data-setting]': 'updateAttribute'
+  },
+  initialize: function initialize(options) {
+    this.attributes = options.controller.state().get('attributes');
+  },
+  render: function render() {
+    this.$el.html(this.template());
+  },
+  updateAttribute: function updateAttribute(e) {
+    var $target = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target);
+    var attribute = $target.data('setting');
+    var value = e.target.value;
+
+    if ('checkbox' === e.target.type) {
+      value = !!$target.prop('checked');
+    }
+
+    this.attributes.set(attribute, value);
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/content/playlist-browser.js":
+/*!*****************************************************************!*\
+  !*** ./admin/assets/js/views/frame/content/playlist-browser.js ***!
+  \*****************************************************************/
+/*! exports provided: PlaylistBrowser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlaylistBrowser", function() { return PlaylistBrowser; });
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _browser_no_items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./browser/no-items */ "./admin/assets/js/views/frame/content/browser/no-items.js");
+/* harmony import */ var _browser_playlists__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./browser/playlists */ "./admin/assets/js/views/frame/content/browser/playlists.js");
+/* harmony import */ var _browser_sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./browser/sidebar */ "./admin/assets/js/views/frame/content/browser/sidebar.js");
+
+
+
+
+var PlaylistBrowser = wp__WEBPACK_IMPORTED_MODULE_0___default.a.Backbone.View.extend({
+  className: 'cue-playlist-browser',
+  initialize: function initialize(options) {
+    this.collection = options.controller.state().get('collection');
+    this.controller = options.controller;
+    this._paged = 1;
+    this._pending = false;
+    this.scroll = this.scroll.bind(this);
+    this.listenTo(this.collection, 'reset', this.render);
+
+    if (!this.collection.length) {
+      this.getPlaylists();
+    }
+  },
+  render: function render() {
+    this.$el.off('scroll').on('scroll', this.scroll);
+    this.views.add([new _browser_playlists__WEBPACK_IMPORTED_MODULE_2__["Playlists"]({
+      collection: this.collection,
+      controller: this.controller
+    }), new _browser_sidebar__WEBPACK_IMPORTED_MODULE_3__["Sidebar"]({
+      controller: this.controller
+    }), new _browser_no_items__WEBPACK_IMPORTED_MODULE_1__["NoItems"]({
+      collection: this.collection
+    })]);
+    return this;
+  },
+  scroll: function scroll() {
+    if (!this._pending && this.el.scrollHeight < this.el.scrollTop + this.el.clientHeight * 3) {
+      this._pending = true;
+      this.getPlaylists();
+    }
+  },
+  getPlaylists: function getPlaylists() {
+    var _this = this;
+
+    wp__WEBPACK_IMPORTED_MODULE_0___default.a.ajax.post('cue_get_playlists', {
+      paged: this._paged
+    }).done(function (response) {
+      _this.collection.add(response.playlists);
+
+      _this._paged++;
+
+      if (_this._paged <= response.maxNumPages) {
+        _this._pending = false;
+
+        _this.scroll();
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/insert-playlist.js":
+/*!********************************************************!*\
+  !*** ./admin/assets/js/views/frame/insert-playlist.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _toolbar_insert_playlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/insert-playlist */ "./admin/assets/js/views/frame/toolbar/insert-playlist.js");
+/* harmony import */ var _content_playlist_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./content/playlist-browser */ "./admin/assets/js/views/frame/content/playlist-browser.js");
+/* harmony import */ var _controllers_playlists__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../controllers/playlists */ "./admin/assets/js/controllers/playlists.js");
+
+
+
+
+var PostFrame = wp__WEBPACK_IMPORTED_MODULE_0___default.a.media.view.MediaFrame.Post;
+/* harmony default export */ __webpack_exports__["default"] = (PostFrame.extend({
+  createStates: function createStates() {
+    PostFrame.prototype.createStates.apply(this, arguments);
+    this.states.add(new _controllers_playlists__WEBPACK_IMPORTED_MODULE_3__["PlaylistsController"]({}));
+  },
+  bindHandlers: function bindHandlers() {
+    PostFrame.prototype.bindHandlers.apply(this, arguments);
+    this.on('content:create:cue-playlist-browser', this.createCueContent, this);
+    this.on('toolbar:create:cue-insert-playlist', this.createCueToolbar, this);
+  },
+  createCueContent: function createCueContent(content) {
+    content.view = new _content_playlist_browser__WEBPACK_IMPORTED_MODULE_2__["PlaylistBrowser"]({
+      controller: this
+    });
+  },
+  createCueToolbar: function createCueToolbar(toolbar) {
+    toolbar.view = new _toolbar_insert_playlist__WEBPACK_IMPORTED_MODULE_1__["InsertPlaylistToolbar"]({
+      controller: this
+    });
+  }
+}));
+
+/***/ }),
+
+/***/ "./admin/assets/js/views/frame/toolbar/insert-playlist.js":
+/*!****************************************************************!*\
+  !*** ./admin/assets/js/views/frame/toolbar/insert-playlist.js ***!
+  \****************************************************************/
+/*! exports provided: InsertPlaylistToolbar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InsertPlaylistToolbar", function() { return InsertPlaylistToolbar; });
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! underscore */ "underscore");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(underscore__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var _wp$media$view = wp__WEBPACK_IMPORTED_MODULE_1___default.a.media.view,
+    l10n = _wp$media$view.l10n,
+    Toolbar = _wp$media$view.Toolbar;
+var InsertPlaylistToolbar = Toolbar.extend({
+  initialize: function initialize(options) {
+    this.controller = options.controller;
+    this.insert = this.insert.bind(this); // This is a button.
+
+    this.options.items = underscore__WEBPACK_IMPORTED_MODULE_0___default.a.defaults(this.options.items || {}, {
+      insert: {
+        text: l10n.insertIntoPost || 'Insert into post',
+        style: 'primary',
+        priority: 80,
+        requires: {
+          selection: true
+        },
+        click: this.insert
+      }
+    });
+    Toolbar.prototype.initialize.apply(this, arguments);
+  },
+  insert: function insert() {
+    var state = this.controller.state();
+    var attributes = state.get('attributes').toJSON();
+    var selection = state.get('selection').first();
+    attributes.id = selection.get('id');
+
+    underscore__WEBPACK_IMPORTED_MODULE_0___default.a.pick(attributes, 'id', 'theme', 'width', 'show_playlist');
+
+    if (!attributes.show_playlist) {
+      attributes.show_playlist = '0';
+    } else {
+      delete attributes.show_playlist;
+    }
+
+    var html = wp__WEBPACK_IMPORTED_MODULE_1___default.a.shortcode.string({
+      tag: 'cue',
+      type: 'single',
+      attrs: attributes
+    });
+    wp__WEBPACK_IMPORTED_MODULE_1___default.a.media.editor.insert(html);
+    this.controller.close();
+  }
+});
+
+/***/ }),
+
+/***/ "./admin/assets/js/wp-media.js":
+/*!*************************************!*\
+  !*** ./admin/assets/js/wp-media.js ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! wp */ "wp");
+/* harmony import */ var wp__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(wp__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var cue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! cue */ "./admin/assets/js/modules/application.js");
+/* harmony import */ var _views_frame_insert_playlist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/frame/insert-playlist */ "./admin/assets/js/views/frame/insert-playlist.js");
+/* global _cueMediaSettings */
+
+
+
+cue__WEBPACK_IMPORTED_MODULE_1__["default"].config(_cueMediaSettings);
+wp__WEBPACK_IMPORTED_MODULE_0___default.a.media.view.MediaFrame.Post = _views_frame_insert_playlist__WEBPACK_IMPORTED_MODULE_2__["default"];
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = jQuery;
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
 
 /***/ }),
-/* 4 */
+
+/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = Backbone;
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
 
 /***/ }),
-/* 5 */,
-/* 6 */
+
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
 var g;
@@ -138,11 +605,10 @@ g = (function() {
 
 try {
 	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
+	g = g || new Function("return this")();
+} catch (e) {
 	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
+	if (typeof window === "object") g = window;
 }
 
 // g can still be undefined, but nothing to do about it...
@@ -153,433 +619,50 @@ module.exports = g;
 
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/***/ "backbone":
+/*!***************************!*\
+  !*** external "Backbone" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-
-/*global _cueMediaSettings:false, wp:false */
-
-(function (wp) {
-	'use strict';
-
-	var cue = __webpack_require__(2);
-
-	cue.settings(_cueMediaSettings);
-
-	wp.media.view.MediaFrame.Post = __webpack_require__(19);
-})(wp);
+module.exports = Backbone;
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-
-var InsertPlaylistFrame,
-    PlaylistBrowser = __webpack_require__(20),
-    PlaylistsController = __webpack_require__(25),
-    PlaylistToolbar = __webpack_require__(26),
-    wp = __webpack_require__(0),
-    PostFrame = wp.media.view.MediaFrame.Post;
-
-InsertPlaylistFrame = PostFrame.extend({
-	createStates: function createStates() {
-		PostFrame.prototype.createStates.apply(this, arguments);
-
-		this.states.add(new PlaylistsController({}));
-	},
-
-	bindHandlers: function bindHandlers() {
-		PostFrame.prototype.bindHandlers.apply(this, arguments);
-
-		//this.on( 'menu:create:default', this.createCueMenu, this );
-		this.on('content:create:cue-playlist-browser', this.createCueContent, this);
-		this.on('toolbar:create:cue-insert-playlist', this.createCueToolbar, this);
-	},
-
-	createCueMenu: function createCueMenu(menu) {
-		menu.view.set({
-			'cue-playlist-separator': new wp.media.View({
-				className: 'separator',
-				priority: 200
-			})
-		});
-	},
-
-	createCueContent: function createCueContent(content) {
-		content.view = new PlaylistBrowser({
-			controller: this
-		});
-	},
-
-	createCueToolbar: function createCueToolbar(toolbar) {
-		toolbar.view = new PlaylistToolbar({
-			controller: this
-		});
-	}
-});
-
-module.exports = InsertPlaylistFrame;
+module.exports = jQuery;
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/***/ "underscore":
+/*!********************!*\
+  !*** external "_" ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-
-var PlaylistBrowser,
-    _ = __webpack_require__(1),
-    PlaylistItems = __webpack_require__(21),
-    PlaylistNoItems = __webpack_require__(23),
-    PlaylistSidebar = __webpack_require__(24),
-    wp = __webpack_require__(0);
-
-PlaylistBrowser = wp.Backbone.View.extend({
-	className: 'cue-playlist-browser',
-
-	initialize: function initialize(options) {
-		this.collection = options.controller.state().get('collection');
-		this.controller = options.controller;
-
-		this._paged = 1;
-		this._pending = false;
-
-		_.bindAll(this, 'scroll');
-		this.listenTo(this.collection, 'reset', this.render);
-
-		if (!this.collection.length) {
-			this.getPlaylists();
-		}
-	},
-
-	render: function render() {
-		this.$el.off('scroll').on('scroll', this.scroll);
-
-		this.views.add([new PlaylistItems({
-			collection: this.collection,
-			controller: this.controller
-		}), new PlaylistSidebar({
-			controller: this.controller
-		}), new PlaylistNoItems({
-			collection: this.collection
-		})]);
-
-		return this;
-	},
-
-	scroll: function scroll() {
-		if (!this._pending && this.el.scrollHeight < this.el.scrollTop + this.el.clientHeight * 3) {
-			this._pending = true;
-			this.getPlaylists();
-		}
-	},
-
-	getPlaylists: function getPlaylists() {
-		var view = this;
-
-		wp.ajax.post('cue_get_playlists', {
-			paged: view._paged
-		}).done(function (response) {
-			view.collection.add(response.playlists);
-
-			view._paged++;
-
-			if (view._paged <= response.maxNumPages) {
-				view._pending = false;
-				view.scroll();
-			}
-		});
-	}
-});
-
-module.exports = PlaylistBrowser;
+module.exports = _;
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var PlaylistItems,
-    PlaylistItem = __webpack_require__(22),
-    wp = __webpack_require__(0);
-
-PlaylistItems = wp.Backbone.View.extend({
-	className: 'cue-playlist-browser-list',
-	tagName: 'ul',
-
-	initialize: function initialize(options) {
-		this.collection = options.controller.state().get('collection');
-		this.controller = options.controller;
-
-		this.listenTo(this.collection, 'add', this.addItem);
-		this.listenTo(this.collection, 'reset', this.render);
-	},
-
-	render: function render() {
-		this.collection.each(this.addItem, this);
-		return this;
-	},
-
-	addItem: function addItem(model) {
-		var view = new PlaylistItem({
-			controller: this.controller,
-			model: model
-		}).render();
-
-		this.$el.append(view.el);
-	}
-});
-
-module.exports = PlaylistItems;
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Playlist,
-    wp = __webpack_require__(0);
-
-Playlist = wp.Backbone.View.extend({
-	tagName: 'li',
-	className: 'cue-playlist-browser-list-item',
-	template: wp.template('cue-playlist-browser-list-item'),
-
-	events: {
-		'click': 'resetSelection'
-	},
-
-	initialize: function initialize(options) {
-		this.controller = options.controller;
-		this.model = options.model;
-		this.selection = this.controller.state().get('selection');
-
-		this.listenTo(this.selection, 'add remove reset', this.updateSelectedClass);
-	},
-
-	render: function render() {
-		this.$el.html(this.template(this.model.toJSON()));
-		return this;
-	},
-
-	resetSelection: function resetSelection(e) {
-		if (this.selection.contains(this.model)) {
-			this.selection.remove(this.model);
-		} else {
-			this.selection.reset(this.model);
-		}
-	},
-
-	updateSelectedClass: function updateSelectedClass() {
-		if (this.selection.contains(this.model)) {
-			this.$el.addClass('is-selected');
-		} else {
-			this.$el.removeClass('is-selected');
-		}
-	}
-});
-
-module.exports = Playlist;
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var PlaylistNoItems,
-    wp = __webpack_require__(0);
-
-PlaylistNoItems = wp.Backbone.View.extend({
-	className: 'cue-playlist-browser-empty',
-	tagName: 'div',
-	template: wp.template('cue-playlist-browser-empty'),
-
-	initialize: function initialize(options) {
-		this.collection = this.collection;
-
-		this.listenTo(this.collection, 'add remove reset', this.toggleVisibility);
-	},
-
-	render: function render() {
-		this.$el.html(this.template());
-		return this;
-	},
-
-	toggleVisibility: function toggleVisibility() {
-		this.$el.toggleClass('is-visible', this.collection.length < 1);
-	}
-});
-
-module.exports = PlaylistNoItems;
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var PlaylistSidebar,
-    $ = __webpack_require__(3),
-    wp = __webpack_require__(0);
-
-PlaylistSidebar = wp.Backbone.View.extend({
-	className: 'cue-playlist-browser-sidebar media-sidebar',
-	template: wp.template('cue-playlist-browser-sidebar'),
-
-	events: {
-		'change [data-setting]': 'updateAttribute'
-	},
-
-	initialize: function initialize(options) {
-		this.attributes = options.controller.state().get('attributes');
-	},
-
-	render: function render() {
-		this.$el.html(this.template());
-	},
-
-	updateAttribute: function updateAttribute(e) {
-		var $target = $(e.target),
-		    attribute = $target.data('setting'),
-		    value = e.target.value;
-
-		if ('checkbox' === e.target.type) {
-			value = !!$target.prop('checked');
-		}
-
-		this.attributes.set(attribute, value);
-	}
-});
-
-module.exports = PlaylistSidebar;
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Playlists,
-    Backbone = __webpack_require__(4),
-    l10n = __webpack_require__(2).l10n,
-    wp = __webpack_require__(0);
-
-Playlists = wp.media.controller.State.extend({
-	defaults: {
-		id: 'cue-playlists',
-		title: l10n.insertPlaylist || 'Insert Playlist',
-		collection: null,
-		content: 'cue-playlist-browser',
-		menu: 'default',
-		menuItem: {
-			text: l10n.insertFromCue || 'Insert from Cue',
-			priority: 130
-		},
-		selection: null,
-		toolbar: 'cue-insert-playlist'
-	},
-
-	initialize: function initialize(options) {
-		var collection = options.collection || new Backbone.Collection(),
-		    selection = options.selection || new Backbone.Collection();
-
-		this.set('attributes', new Backbone.Model({
-			id: null,
-			show_playlist: true
-		}));
-
-		this.set('collection', collection);
-		this.set('selection', selection);
-
-		this.listenTo(selection, 'remove', this.updateSelection);
-	}
-});
-
-module.exports = Playlists;
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var PlaylistToolbar,
-    _ = __webpack_require__(1),
-    wp = __webpack_require__(0);
-
-PlaylistToolbar = wp.media.view.Toolbar.extend({
-	initialize: function initialize(options) {
-		this.controller = options.controller;
-
-		_.bindAll(this, 'insertCueShortcode');
-
-		// This is a button.
-		this.options.items = _.defaults(this.options.items || {}, {
-			insert: {
-				text: wp.media.view.l10n.insertIntoPost || 'Insert into post',
-				style: 'primary',
-				priority: 80,
-				requires: {
-					selection: true
-				},
-				click: this.insertCueShortcode
-			}
-		});
-
-		wp.media.view.Toolbar.prototype.initialize.apply(this, arguments);
-	},
-
-	insertCueShortcode: function insertCueShortcode() {
-		var html,
-		    state = this.controller.state(),
-		    attributes = state.get('attributes').toJSON(),
-		    selection = state.get('selection').first();
-
-		attributes.id = selection.get('id');
-		_.pick(attributes, 'id', 'theme', 'width', 'show_playlist');
-
-		if (!attributes.show_playlist) {
-			attributes.show_playlist = '0';
-		} else {
-			delete attributes.show_playlist;
-		}
-
-		html = wp.shortcode.string({
-			tag: 'cue',
-			type: 'single',
-			attrs: attributes
-		});
-
-		wp.media.editor.insert(html);
-		this.controller.close();
-	}
-});
-
-module.exports = PlaylistToolbar;
+/***/ "wp":
+/*!*********************!*\
+  !*** external "wp" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = wp;
 
 /***/ })
-/******/ ]);
+
+/******/ });
+//# sourceMappingURL=wp-media.bundle.js.map

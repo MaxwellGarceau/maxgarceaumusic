@@ -5,7 +5,7 @@
  * @package Obsidian
  * @since 1.0.0
  */
- 
+
  // If it's the metal website
  $metal_home_page = 243;
  if ( is_page( $metal_home_page ) ) {
@@ -35,7 +35,7 @@
 
 <!-- Featured Message -->
 <?php
-
+  /*
   if ( get_field( 'featured_message' ) ) { ?>
   <div class="site-content featured-message">
     <h2>Latest News From Max</h2>
@@ -46,6 +46,7 @@
 
 <?php
   }
+  */
 ?>
 
 <!-- Featured Video -->

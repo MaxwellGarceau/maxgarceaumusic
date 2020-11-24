@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) die;
  * @author    Looks Awesome <email@looks-awesome.com>
  *
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
 class FFSourcesTab implements LATab {
 	public function __construct() {
@@ -30,16 +30,15 @@ class FFSourcesTab implements LATab {
 
 	public function includeOnce( $context ) {
 		?>
-		<script>
-			var feeds = <?php echo json_encode($context['sources'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
-			if (_.isArray(feeds)) feeds = {};
-		</script>
 		<div class="section-content" id="sources-cont" data-tab="sources-tab">
 			<div class="section-sources" id="sources-list" data-view-mode="sources-list">
 				<div class="section" id="feeds-list-section">
-					<h1 class="desc-following"><span>List of feeds</span> <span class="admin-button green-button button-add">Create feed</span></h1>
-					<p class="desc">Each feed can be connected to multiple streams. Cache for feed is being built immediately on creation. You can disable any feed and it will be disabled in all streams where it's connected. Feeds with errors are automatically disabled. <a class="ff-pseudo-link" href="#">Show only error feeds</a>.</p>
-					<div id="feeds-view">
+					<h1 class="desc-following contains-button"><span>List of feeds</span> <span class="admin-button green-button button-add">Create feed</span></h1>
+                    <p class="desc">Each feed can be placed in multiple <a class="ff-pseudo-link" href="#streams-tab">streams</a>. Cache for feed is being built immediately on creation. You can disable any feed and it will be disabled in all streams where it's connected. Feeds with errors are automatically disabled. <a class="ff-pseudo-link ff-toggle-display" href="#">Show only error feeds</a> or <a class="ff-pseudo-link ff-search-display" href="#">filter by name</a>.</p>
+					<div class="search-container">
+                        <input type="text" id="feeds-search" placeholder="Enter minimum 3 symbols"/>
+                    </div>
+                    <div id="feeds-view">
 						<table class="feeds-list">
 							<thead>
 							<tr>
@@ -52,96 +51,7 @@ class FFSourcesTab implements LATab {
 							</tr>
 							</thead>
 							<tbody id="feeds-list">
-							<?php
-
-							foreach ($context['sources'] as $feed) {
-								$id = $feed['id'];
-								$settings = '';
-
-								$settingArr = array();
-								if ($feed['type'] === 'rss') {
-									if (isset($feed['channel-name']) && !empty($feed['channel-name'])) {
-										$settingArr['content'] = $feed['channel-name'];
-									} else {
-										$settingArr['content'] = $feed['content'];
-									}
-								}
-								else if (isset($feed['content'])) {
-									$settingArr['content'] = $feed['content'];
-								} else {
-									if (isset($feed['category-name']) && !empty($feed['category-name'])) {
-										$settingArr['content'] = $feed['category-name'];
-									} else {
-										$settingArr['content'] = $feed['wordpress-type'];
-									}
-								}
-								if (isset($feed['timeline-type'])) $settingArr['timeline-type'] = $feed['timeline-type'];
-								if (isset($feed['mod']) && $feed['mod'] !== 'nope') $settingArr['mod'] = $feed['mod'];
-
-								foreach ($settingArr  as $key => $value ) {
-									if (!empty($value)) {
-										/*if (isset($_GET['debug'])){
-											ini_set('xdebug.var_display_max_depth', '5');
-											$value = is_array($value) ? print_r($value, true) : $value;
-											$settings .= '<span>' . $key . ':<span class="highlight">' . $value . '</span></span>';
-										}
-										else {*/
-
-											$v = str_replace('-', ' ', stripslashes($value));
-											$v = str_replace('_timeline', '', $v);
-											$v = str_replace('http://', '', $v);
-											$v = str_replace('https://', '', $v);
-											$k = str_replace('timeline-', '', $key);
-											$k = str_replace('-', ' ', ucfirst($k));
-											if ($key === 'mod') $v = 'moderated';
-
-											if ( strlen($v) > 20) {
-												$v = substr( $v , 0, 20 ) . '...';
-											}
-
-											$settings .= '<span><span class="highlight">' . $v . '</span></span>';
-//										}
-									}
-								}
-
-								// it will be done via JS
-								// $status = (isset($feed['status']) && $feed['status'] == 1) ? 'cache-status-ok' : 'cache-status-error';
-								//$last_update = $feed['last_update'] == 0 ? '' : FFFeedUtils::classicStyleDate($feed['last_update']);
-								$enabled = isset($feed['enabled']) ? ($feed['enabled'] === 'yep'? true : false) : true;
-
-								$fc = $feed['cache_lifetime'];
-								if ($fc == 5) {
-									$int = 'Every 5 min';
-								} else if ($fc == 30) {
-									$int = 'Every 30 min';
-								} else if ($fc == 60) {
-									$int = 'Every hour';
-								} else if ($fc == 360) {
-									$int = 'Every 6 hours';
-								} else if ($fc == 1440) {
-									$int = 'Once a day';
-								} else if ($fc == 10080) {
-									$int = 'Once a week';
-								}
-
-								$feed['last_update'] = $feed['last_update'] === 'N/A' ? $feed['last_update'] : $feed['last_update'] . ' (' . $int . ')';
-
-								echo
-									'<tr data-uid="' . $id . '" data-network="'. $feed['type'] .'" class="' . ( $enabled ? 'feed-enabled' : '' ) . '">
-										<td class="controls"><i class="flaticon-tool_more"></i><ul class="feed-dropdown-menu"><li data-action="filter">Filter feed</li><li data-action="cache">Rebuild cache</li></ul><i class="flaticon-tool_edit"></i> <i class="flaticon-copy"></i> <i class="flaticon-tool_delete"></i></td>
-										<td class="td-feed"><i class="flaticon-'. $feed['type'] .'"></i></td>
-										<td class="td-status"><span class="cache-status-' . ($feed['status'] == 1 ? 'ok' : 'error') . '"></span></td>
-										<td class="td-info">' . $settings . '</td>
-										<td class="td-last-update">' . $feed['last_update'] . '</td>
-										<td class="td-enabled"><label for="feed-enabled-' . $id .'"><input ' . ( $enabled ? 'checked' : '' ) . ' id="feed-enabled-' . $id .'" class="switcher" type="checkbox" name="feed-enabled-' . $id .'" value="yep"><div><div></div></div></label></td>
-									</tr>';
-							}
-
-							if (empty($context['sources'])) {
-								echo '<tr class="empty-row"><td class="empty-cell" colspan="6">Please add at least one feed</td></tr>';
-							}
-
-							?>
+                                <tr><td colspan="6"><div  class="anim-loader-wrapper"><div class="anim-loader"></div></div></td></tr>
 							</tbody>
 						</table>
 						<div class="holder"></div>
@@ -149,8 +59,7 @@ class FFSourcesTab implements LATab {
 							<div class="section">
 								<i class="popupclose flaticon-close-4"></i>
 								<div class="networks-choice add-feed-step">
-									<h1>Create feed to use in your streams.</h1>
-									<p class="desc">Choose source and then set up what content you want to load from it.</p>
+									<h1>Create new feed</h1>
 									<ul class="networks-list">
 										<li class="network-twitter"
 											data-network="twitter"
@@ -167,78 +76,72 @@ class FFSourcesTab implements LATab {
 											data-network-name="Instagram">
 											<i class="flaticon-instagram"></i>
 										</li>
-										<li class="network-pinterest"
-											data-network="pinterest"
-											data-network-name="Pinterest">
-											<i class="flaticon-pinterest"></i>
-										</li>
-                                        <li class="network-youtube locked"
-                                            data-network="youtube"
-                                            data-network-name="Locked">
-                                            <i class="flaticon-youtube"></i>
-                                            <i class="ff-icon-lock"></i>
+                                        <li class="network-pinterest"
+                                            data-network="pinterest"
+                                            data-network-name="Pinterest">
+                                            <i class="flaticon-pinterest"></i>
                                         </li>
-										<li class="network-linkedin locked"
+										<li class="network-youtube ff-feature"
+											data-network="youtube"
+											data-network-name="YouTube">
+											<i class="flaticon-youtube"></i>
+                                            <i class="ff-icon-lock"></i>
+										</li>
+										<li class="network-linkedin ff-feature"
 											data-network="linkedin"
-											data-network-name="Locked">
+											data-network-name="LinkedIn">
 											<i class="flaticon-linkedin"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
 
-										<li class="network-flickr locked"
+										<li class="network-flickr ff-feature"
 											data-network="flickr"
-											data-network-name="Locked">
+											data-network-name="Flickr" style="margin-right:0">
 											<i class="flaticon-flickr"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-tumblr locked"
-											data-network="tumblr"
-											data-network-name="Locked"
-											style="margin-right:0">
-											<i class="flaticon-tumblr"></i>
-                                            <i class="ff-icon-lock"></i>
-										</li>
+
 										<br>
 
-										<li class="network-google locked"
-											data-network="google"
-											data-network-name="Locked">
-											<i class="flaticon-google"></i>
+                                        <li class="network-tumblr ff-feature"
+                                            data-network="tumblr"
+                                            data-network-name="Tumblr">
+                                            <i class="flaticon-tumblr"></i>
                                             <i class="ff-icon-lock"></i>
-										</li>
-										<li class="network-vimeo locked"
+                                        </li>
+										<li class="network-vimeo ff-feature"
 											data-network="vimeo"
-											data-network-name="Locked">
+											data-network-name="Vimeo">
 											<i class="flaticon-vimeo"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-wordpress locked"
+										<li class="network-wordpress ff-feature"
 											data-network="wordpress"
-											data-network-name="Locked">
+											data-network-name="WordPress">
 											<i class="flaticon-wordpress"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-foursquare locked"
+										<li class="network-foursquare ff-feature"
 											data-network="foursquare"
-											data-network-name="Locked">
+											data-network-name="Foursquare">
 											<i class="flaticon-foursquare"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-soundcloud locked"
+										<li class="network-soundcloud ff-feature"
 											data-network="soundcloud"
-											data-network-name="Locked">
+											data-network-name="SoundCloud">
 											<i class="flaticon-soundcloud"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-dribbble locked"
+										<li class="network-dribbble ff-feature"
 											data-network="dribbble"
-											data-network-name="Locked">
+											data-network-name="Dribbble">
 											<i class="flaticon-dribbble"></i>
                                             <i class="ff-icon-lock"></i>
 										</li>
-										<li class="network-rss locked"
+										<li class="network-rss ff-feature"
 											data-network="rss"
-											data-network-name="Locked"
+											data-network-name="RSS"
 											style="margin-right:0">
 											<i class="flaticon-rss"></i>
                                             <i class="ff-icon-lock"></i>
@@ -250,7 +153,7 @@ class FFSourcesTab implements LATab {
 									<div id="filter-views"></div>
 									<p class="feed-popup-controls add">
 										<span id="feed-sbmt-1"
-											  class="admin-button green-button submit-button">Add feed</span>
+											  class="admin-button green-button submit-button">Create feed</span>
 										<span
 											  class="space"></span><span class="admin-button grey-button button-go-back">Back to first step</span>
 									</p>
@@ -268,7 +171,10 @@ class FFSourcesTab implements LATab {
 					</div>
 				</div>
 			</div>
-			<?php include($context['root']  . 'views/footer.php'); ?>
+			<?php
+				/** @noinspection PhpIncludeInspection */
+				include($context['root']  . 'views/footer.php');
+			?>
 		</div>
 	<?php
 	}

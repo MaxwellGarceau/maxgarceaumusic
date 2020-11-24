@@ -34,7 +34,7 @@ if ( ! function_exists( 'rock_star_custom_header' ) ) :
 		'default-text-color'     => $default_options['header_textcolor'],
 
 		// Header image default
-		'default-image'			=> trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/headers/header-1920x600.jpg',
+		'default-image'			=> trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/header-1920x600.jpg',
 
 		// Set height and width, with a maximum value for the width.
 		'height'                 => 600,
@@ -232,7 +232,7 @@ if ( ! function_exists( 'rock_star_featured_image' ) ) :
 		}
 		// Check Entire Site (Post/Page)
 		elseif ( 'entire-site-page-post' == $enable_header_image  ) {
-			if ( is_page() || is_single() ) {
+			if ( is_page() || is_single() || ! is_front_page() ) {
 				$image = rock_star_featured_page_post_image();
 			}
 			else {

@@ -17,3 +17,17 @@
     filter: brightness(125%);
   }
 }
+
+.featured-message {
+  color: $featured-message-color;
+  font-size: 21px;
+  font-size: 2.1rem;
+}
+
+.latest-news.featured-message {
+  margin-bottom: $xl-size;
+
+  & blockquote {
+    text-shadow: 0 0 40px rgba($pure-white, 0.3);
+  }
+}

@@ -21,10 +21,9 @@
     & .ff-name {
       color: $pure-white !important;
     }
-    & .ff-nickname {
-      color: $off-white !important;
-    }
-    & .ff-timestamp {
+    & .ff-nickname,
+    & .ff-timestamp,
+    .ff-instagram a {
       color: $off-white !important;
     }
     & .ff-instagram {
@@ -56,5 +55,6 @@
       text-transform: capitalize;
       letter-spacing: 0;
     }
+
   }
 }

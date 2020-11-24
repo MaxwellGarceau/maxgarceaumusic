@@ -1,0 +1,440 @@
+0000.000 (0) Opened log file at time: Tue, 24 Nov 2020 19:52:41 +0000 on https://music.maxgarceau.com
+0000.002 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.37 WP: 5.5.3 PHP: 7.3.23 (cgi-fcgi, Linux us156.siteground.us 3.12.18-clouder0 #1 SMP Tue Oct 9 18:14:47 EEST 2018 x86_64) MySQL: 5.6.40-84.0-log WPLANG: en_US Server: Apache safe_mode: 0 max_execution_time: 900 memory_limit: 768M (used: 11.4M | 12M) multisite: N openssl: OpenSSL 1.0.2r  26 Feb 2019 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.011 (0) Free space on disk containing Updraft's temporary directory: 253823.4 MB
+0000.015 (0) Tasks: Backup files: 1 (schedule: monthly) Backup DB: 1 (schedule: monthly)
+0000.018 (0) Semaphore (fd, mgmusic_options) being initialised
+0000.019 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.021 (0) Set semaphore last lock (fd) time to 2020-11-24 19:52:41
+0000.021 (0) Semaphore lock (fd) complete
+0000.024 (0) Backup run: resumption=0, nonce=b244da43ac58, file_nonce=b244da43ac58 begun at=1606247561 (0s ago), job type=backup
+0000.025 (0) Scheduling a resumption (1) after 300 seconds (1606247861) in case this run gets aborted
+0000.048 (0) Checking if we have a zip executable available
+0000.049 (0) Testing: /usr/bin/zip
+0000.057 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.059 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.060 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.067 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.069 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.076 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.077 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.080 (0) Working binary zip found: /usr/bin/zip
+0000.082 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.082 (0) Creation of backups of directories: beginning
+0000.084 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.176 (0) Total entities for the zip file: 1154 directories, 6732 files (0 skipped as non-modified), 100.9 MB
+0000.180 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.184 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.188 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.192 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.195 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.198 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 600 files added (on-disk size: 0 KB)
+0000.201 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 700 files added (on-disk size: 0 KB)
+0000.205 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 800 files added (on-disk size: 0 KB)
+0000.208 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 900 files added (on-disk size: 0 KB)
+0000.211 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1000 files added (on-disk size: 0 KB)
+0000.212 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (6.5 MB, 6732 files batched, 1001 (1001) added so far); re-opening (prior size: 0 KB)
+0000.508 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: size is now: 2.30 MB
+0000.513 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1100 files added (on-disk size: 2360.4 KB)
+0000.517 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1200 files added (on-disk size: 2360.4 KB)
+0000.521 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1300 files added (on-disk size: 2360.4 KB)
+0000.524 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1400 files added (on-disk size: 2360.4 KB)
+0000.528 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1500 files added (on-disk size: 2360.4 KB)
+0000.531 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1600 files added (on-disk size: 2360.4 KB)
+0000.535 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1700 files added (on-disk size: 2360.4 KB)
+0000.538 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1800 files added (on-disk size: 2360.4 KB)
+0000.540 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 6732 files batched, 835 (1836) added so far); re-opening (prior size: 2360.4 KB)
+0001.725 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: size is now: 10.50 MB
+0001.736 (0) A useful amount of data was added after this amount of zip processing: 1.6 s (normalised: 1.6 s, rate: 15911 KB/s)
+0001.737 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.6089959144592, normalised_time=1.6089455858085, max_time=1.7364869117737, data points known=1, old_max_bytes=26214400, new_max_bytes=97757439)
+0001.741 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 1900 files added (on-disk size: 10791.4 KB)
+0001.746 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2000 files added (on-disk size: 10791.4 KB)
+0001.751 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2100 files added (on-disk size: 10791.4 KB)
+0001.756 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2200 files added (on-disk size: 10791.4 KB)
+0001.761 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2300 files added (on-disk size: 10791.4 KB)
+0001.766 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2400 files added (on-disk size: 10791.4 KB)
+0001.771 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2500 files added (on-disk size: 10791.4 KB)
+0001.776 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2600 files added (on-disk size: 10791.4 KB)
+0001.781 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2700 files added (on-disk size: 10791.4 KB)
+0001.786 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2800 files added (on-disk size: 10791.4 KB)
+0001.789 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (15.6 MB, 6732 files batched, 1001 (2837) added so far); re-opening (prior size: 10791.4 KB)
+0002.342 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: size is now: 15.80 MB
+0002.346 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 2900 files added (on-disk size: 16134.2 KB)
+0002.350 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3000 files added (on-disk size: 16134.2 KB)
+0002.373 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3100 files added (on-disk size: 16134.2 KB)
+0002.377 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3200 files added (on-disk size: 16134.2 KB)
+0002.381 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3300 files added (on-disk size: 16134.2 KB)
+0002.387 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3400 files added (on-disk size: 16134.2 KB)
+0002.422 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3500 files added (on-disk size: 16134.2 KB)
+0002.428 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3600 files added (on-disk size: 16134.2 KB)
+0002.433 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3700 files added (on-disk size: 16134.2 KB)
+0002.437 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3800 files added (on-disk size: 16134.2 KB)
+0002.439 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (14.3 MB, 6732 files batched, 1001 (3838) added so far); re-opening (prior size: 16134.2 KB)
+0003.209 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: size is now: 23.60 MB
+0003.213 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 3900 files added (on-disk size: 24168.5 KB)
+0003.216 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4000 files added (on-disk size: 24168.5 KB)
+0003.219 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4100 files added (on-disk size: 24168.5 KB)
+0003.222 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4200 files added (on-disk size: 24168.5 KB)
+0003.225 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4300 files added (on-disk size: 24168.5 KB)
+0003.228 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4400 files added (on-disk size: 24168.5 KB)
+0003.231 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4500 files added (on-disk size: 24168.5 KB)
+0003.235 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4600 files added (on-disk size: 24168.5 KB)
+0003.238 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4700 files added (on-disk size: 24168.5 KB)
+0003.241 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4800 files added (on-disk size: 24168.5 KB)
+0003.243 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (7.1 MB, 6732 files batched, 1001 (4839) added so far); re-opening (prior size: 24168.5 KB)
+0003.556 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 4900 files added (on-disk size: 26350.5 KB)
+0003.560 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5000 files added (on-disk size: 26350.5 KB)
+0003.563 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5100 files added (on-disk size: 26350.5 KB)
+0003.567 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5200 files added (on-disk size: 26350.5 KB)
+0003.570 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5300 files added (on-disk size: 26350.5 KB)
+0003.573 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5400 files added (on-disk size: 26350.5 KB)
+0003.576 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5500 files added (on-disk size: 26350.5 KB)
+0003.579 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5600 files added (on-disk size: 26350.5 KB)
+0003.582 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5700 files added (on-disk size: 26350.5 KB)
+0003.585 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5800 files added (on-disk size: 26350.5 KB)
+0003.586 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 1000 files added on this batch (10.8 MB, 6732 files batched, 1001 (5840) added so far); re-opening (prior size: 26350.5 KB)
+0004.224 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 5900 files added (on-disk size: 29760.2 KB)
+0004.227 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6000 files added (on-disk size: 29760.2 KB)
+0004.231 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6100 files added (on-disk size: 29760.2 KB)
+0004.234 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6200 files added (on-disk size: 29760.2 KB)
+0004.237 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6300 files added (on-disk size: 29760.2 KB)
+0004.241 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6400 files added (on-disk size: 29760.2 KB)
+0004.244 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6500 files added (on-disk size: 29760.2 KB)
+0004.247 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6600 files added (on-disk size: 29760.2 KB)
+0004.251 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: 6700 files added (on-disk size: 29760.2 KB)
+0004.935 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip.tmp: size is now: 42.20 MB
+0005.338 (0) Created plugins zip (0) - 43180.5 KB in 5.2 s (8232 KB/s) (sha1: 986d285d7e1e9d0d8bb2ce0771ea597d622a947e, sha256: 52b2a15142f175b288fcf7b2c2994ae33725b30eab8caa7a1d22e9be37eac40d)
+0005.341 (0) Beginning creation of dump of themes (split every: 400 MB)
+0005.361 (0) Total entities for the zip file: 124 directories, 697 files (0 skipped as non-modified), 18.4 MB
+0005.364 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.367 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.371 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.373 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.377 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.380 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: 600 files added (on-disk size: 0 KB)
+0005.900 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip.tmp: size is now: 14.30 MB
+0006.057 (0) Created themes zip (0) - 14658.2 KB in 0.7 s (20776.7 KB/s) (sha1: 8790b8d134a0cc2c8efddbbd11b7e3319f27b07c, sha256: 87a0006d1db8ed4c1fb8ceebc5a7582c8226b7b36e9bd8357308022d3a4d8fc2)
+0006.058 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0006.059 (0) Looking for candidates to backup in: /home/songwr39/public_html/music/app/wp-content/uploads
+0006.059 (0) finding files: 2020: adding to list (1)
+0006.060 (0) finding files: siteground-optimizer-assets: adding to list (2)
+0006.060 (0) finding files: 2019: adding to list (3)
+0006.060 (0) finding files: audiotheme: adding to list (4)
+0006.061 (0) finding files: fbrfg: adding to list (5)
+0006.061 (0) finding files: 2018: adding to list (6)
+0006.061 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0006.074 (0) Total entities for the zip file: 34 directories, 106 files (0 skipped as non-modified), 13.5 MB
+0006.077 (0) Zip: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.142 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip.tmp: size is now: 13.50 MB
+0006.277 (0) Created uploads zip (0) - 13859.2 KB in 0.2 s (67084.7 KB/s) (sha1: c331ca01d19fa295515a8e5076f67367b20fbe38, sha256: 09c8bd1d362cb8d4f5c3da38621715f36d303335258d64c78111585262dd945c)
+0006.278 (0) Beginning backup of other directories found in the content directory (index: 0)
+0006.279 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0006.279 (0) Looking for candidates to backup in: /home/songwr39/public_html/music/app/wp-content
+0006.280 (0) finding files: updraft: skipping: this is the updraft directory
+0006.280 (0) finding files: .DS_Store: adding to list (1)
+0006.280 (0) finding files: upgrade: skipping: excluded by options
+0006.281 (0) finding files: cache: skipping: excluded by options
+0006.281 (0) finding files: index.php: adding to list (2)
+0006.281 (0) finding files: resources: adding to list (3)
+0006.282 (0) finding files: ai1wm-backups: skipping: excluded by options (glob)
+0006.282 (0) finding files: plugins: skipping: this is the plugins directory
+0006.282 (0) finding files: uploads: skipping: this is the uploads directory
+0006.282 (0) finding files: themes: skipping: this is the themes directory
+0006.293 (0) Total entities for the zip file: 3 directories, 3 files (0 skipped as non-modified), 0 MB
+0006.300 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip.tmp: size is now: 0.00 MB
+0006.305 (0) Created others zip (0) - 2.1 KB in 0 s (158.8 KB/s) (sha1: 943ec094045f0d93e798b3480a45e432383a2051, sha256: 2d497242f3a7d39e9b8ff13404b2ef78b6d3c33efe3f8b8920c650e06f73106a)
+0006.307 (0) Saving backup status to database (elements: 8)
+0006.309 (0) Beginning creation of database dump (WordPress DB)
+0006.309 (0) SQL compatibility mode is: NO_ENGINE_SUBSTITUTION
+0006.310 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0006.324 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `mgmusic_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */ (truncated - 1255 bytes total)
+0006.326 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0006.337 (0) Table mgmusic_options: Total expected rows (approximate): 562
+0006.428 (0) Table mgmusic_options: Rows added in this batch (next record: 754793): 572 (uncompressed bytes in this segment=739942) in 0.09 seconds
+0006.442 (0) Table mgmusic_options: finishing file(s) (2, 176.9 KB)
+0006.445 (0) Table mgmusic_users: Total expected rows (approximate): 0
+0006.450 (0) Table mgmusic_users: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=1381) in 0.00 seconds
+0006.453 (0) Table mgmusic_users: finishing file(s) (2, 0.6 KB)
+0006.457 (0) Table mgmusic_usermeta: Total expected rows (approximate): 33
+0006.460 (0) Table mgmusic_usermeta: Rows added in this batch (next record: 42): 35 (uncompressed bytes in this segment=13674) in 0.00 seconds
+0006.462 (0) Table mgmusic_usermeta: finishing file(s) (2, 3.1 KB)
+0006.464 (0) Table mgmusic_commentmeta: Total expected rows (approximate): 0
+0006.468 (0) Table mgmusic_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=703) in 0.00 seconds
+0006.470 (0) Table mgmusic_commentmeta: finishing file(s) (2, 0.4 KB)
+0006.473 (0) Table mgmusic_comments: Total expected rows (approximate): 0
+0006.477 (0) Table mgmusic_comments: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=2136) in 0.00 seconds
+0006.479 (0) Table mgmusic_comments: finishing file(s) (2, 0.7 KB)
+0006.482 (0) Table mgmusic_links: Total expected rows (approximate): 0
+0006.486 (0) Table mgmusic_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1300) in 0.00 seconds
+0006.488 (0) Table mgmusic_links: finishing file(s) (2, 0.5 KB)
+0006.491 (0) Table mgmusic_p2p: Total expected rows (approximate): 0
+0006.495 (0) Table mgmusic_p2p: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=652) in 0.00 seconds
+0006.496 (0) Table mgmusic_p2p: finishing file(s) (2, 0.4 KB)
+0006.499 (0) Table mgmusic_p2pmeta: Total expected rows (approximate): 0
+0006.503 (0) Table mgmusic_p2pmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=667) in 0.00 seconds
+0006.505 (0) Table mgmusic_p2pmeta: finishing file(s) (2, 0.4 KB)
+0006.507 (0) Table mgmusic_postmeta: Total expected rows (approximate): 492
+0006.530 (0) Table mgmusic_postmeta: Rows added in this batch (next record: 990): 687 (uncompressed bytes in this segment=150902) in 0.02 seconds
+0006.533 (0) Table mgmusic_postmeta: finishing file(s) (2, 29.6 KB)
+0006.535 (0) Table mgmusic_posts: Total expected rows (approximate): 319
+0006.576 (0) Table mgmusic_posts: Rows added in this batch (next record: 439): 316 (uncompressed bytes in this segment=369856) in 0.04 seconds
+0006.579 (0) Table mgmusic_posts: finishing file(s) (2, 43.1 KB)
+0006.582 (0) Table mgmusic_term_relationships: Total expected rows (approximate): 19
+0006.589 (0) Table mgmusic_term_relationships: Rows added in this batch (next record: 100000): 22 (uncompressed bytes in this segment=1019) in 0.01 seconds
+0006.593 (0) Table mgmusic_term_relationships: finishing file(s) (2, 0.4 KB)
+0006.596 (0) Table mgmusic_term_taxonomy: Total expected rows (approximate): 3
+0006.601 (0) Table mgmusic_term_taxonomy: Rows added in this batch (next record: 5): 5 (uncompressed bytes in this segment=1073) in 0.01 seconds
+0006.605 (0) Table mgmusic_term_taxonomy: finishing file(s) (2, 0.5 KB)
+0006.608 (0) Table mgmusic_termmeta: Total expected rows (approximate): 0
+0006.613 (0) Table mgmusic_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=676) in 0.00 seconds
+0006.617 (0) Table mgmusic_termmeta: finishing file(s) (2, 0.4 KB)
+0006.619 (0) Table mgmusic_terms: Total expected rows (approximate): 3
+0006.624 (0) Table mgmusic_terms: Rows added in this batch (next record: 5): 5 (uncompressed bytes in this segment=917) in 0.01 seconds
+0006.628 (0) Table mgmusic_terms: finishing file(s) (2, 0.5 KB)
+0006.630 (0) Table mgmusic_cue_events: Total expected rows (approximate): 412
+0006.792 (0) Table mgmusic_cue_events: Rows added in this batch (next record: 3865): 3865 (uncompressed bytes in this segment=1059836) in 0.16 seconds
+0006.795 (0) Table mgmusic_cue_events: finishing file(s) (2, 64.7 KB)
+0006.797 (0) Table mgmusic_ewwwio_images: Total expected rows (approximate): 0
+0006.803 (0) Table mgmusic_ewwwio_images: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1305) in 0.01 seconds
+0006.805 (0) Table mgmusic_ewwwio_images: finishing file(s) (2, 0.6 KB)
+0006.808 (0) Table mgmusic_ff_cache: Total expected rows (approximate): 1
+0006.813 (0) Table mgmusic_ff_cache: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=1445) in 0.00 seconds
+0006.816 (0) Table mgmusic_ff_cache: finishing file(s) (2, 0.7 KB)
+0006.818 (0) Table mgmusic_ff_comments: Total expected rows (approximate): 0
+0006.820 (0) Table mgmusic_ff_comments: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=542) in 0.00 seconds
+0006.822 (0) Table mgmusic_ff_comments: finishing file(s) (2, 0.3 KB)
+0006.825 (0) Table mgmusic_ff_image_cache: Total expected rows (approximate): 0
+0006.827 (0) Table mgmusic_ff_image_cache: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=589) in 0.00 seconds
+0006.830 (0) Table mgmusic_ff_image_cache: finishing file(s) (2, 0.3 KB)
+0006.833 (0) Table mgmusic_ff_options: Total expected rows (approximate): 3
+0006.839 (0) Table mgmusic_ff_options: Rows added in this batch (next record: 1000): 3 (uncompressed bytes in this segment=2009) in 0.00 seconds
+0006.843 (0) Table mgmusic_ff_options: finishing file(s) (2, 0.8 KB)
+0006.846 (0) Table mgmusic_ff_post_media: Total expected rows (approximate): 0
+0006.856 (0) Table mgmusic_ff_post_media: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=662) in 0.01 seconds
+0006.859 (0) Table mgmusic_ff_post_media: finishing file(s) (2, 0.3 KB)
+0006.862 (0) Table mgmusic_ff_posts: Total expected rows (approximate): 0
+0006.867 (0) Table mgmusic_ff_posts: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=1531) in 0.00 seconds
+0006.871 (0) Table mgmusic_ff_posts: finishing file(s) (2, 0.5 KB)
+0006.875 (0) Table mgmusic_ff_snapshots: Total expected rows (approximate): 0
+0006.880 (0) Table mgmusic_ff_snapshots: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=640) in 0.00 seconds
+0006.883 (0) Table mgmusic_ff_snapshots: finishing file(s) (2, 0.4 KB)
+0006.885 (0) Table mgmusic_ff_streams: Total expected rows (approximate): 0
+0006.894 (0) Table mgmusic_ff_streams: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=6128) in 0.01 seconds
+0006.899 (0) Table mgmusic_ff_streams: finishing file(s) (2, 1.5 KB)
+0006.902 (0) Table mgmusic_ff_streams_sources: Total expected rows (approximate): 1
+0006.907 (0) Table mgmusic_ff_streams_sources: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=557) in 0.00 seconds
+0006.913 (0) Table mgmusic_ff_streams_sources: finishing file(s) (2, 0.3 KB)
+0006.917 (0) Table mgmusic_smush_dir_images: Total expected rows (approximate): 0
+0006.925 (0) Table mgmusic_smush_dir_images: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1095) in 0.01 seconds
+0006.928 (0) Table mgmusic_smush_dir_images: finishing file(s) (2, 0.5 KB)
+0006.931 (0) Table mgmusic_yoast_indexable: Total expected rows (approximate): 37
+0006.946 (0) Table mgmusic_yoast_indexable: Rows added in this batch (next record: 49): 37 (uncompressed bytes in this segment=18723) in 0.01 seconds
+0006.950 (0) Table mgmusic_yoast_indexable: finishing file(s) (2, 3.1 KB)
+0006.953 (0) Table mgmusic_yoast_indexable_hierarchy: Total expected rows (approximate): 6
+0006.958 (0) Table mgmusic_yoast_indexable_hierarchy: Rows added in this batch (next record: 1000): 6 (uncompressed bytes in this segment=961) in 0.00 seconds
+0006.960 (0) Table mgmusic_yoast_indexable_hierarchy: finishing file(s) (2, 0.4 KB)
+0006.962 (0) Table mgmusic_yoast_migrations: Total expected rows (approximate): 17
+0006.967 (0) Table mgmusic_yoast_migrations: Rows added in this batch (next record: 18): 18 (uncompressed bytes in this segment=1118) in 0.00 seconds
+0006.971 (0) Table mgmusic_yoast_migrations: finishing file(s) (2, 0.6 KB)
+0006.973 (0) Table mgmusic_yoast_primary_term: Total expected rows (approximate): 0
+0006.978 (0) Table mgmusic_yoast_primary_term: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=892) in 0.00 seconds
+0006.980 (0) Table mgmusic_yoast_primary_term: finishing file(s) (2, 0.4 KB)
+0006.983 (0) Table mgmusic_yoast_seo_links: Total expected rows (approximate): 30
+0006.987 (0) Table mgmusic_yoast_seo_links: Rows added in this batch (next record: 255): 30 (uncompressed bytes in this segment=5403) in 0.00 seconds
+0006.990 (0) Table mgmusic_yoast_seo_links: finishing file(s) (2, 1 KB)
+0006.993 (0) Table mgmusic_yoast_seo_meta: Total expected rows (approximate): 67
+0006.997 (0) Table mgmusic_yoast_seo_meta: Rows added in this batch (next record: 422): 130 (uncompressed bytes in this segment=2424) in 0.00 seconds
+0007.001 (0) Table mgmusic_yoast_seo_meta: finishing file(s) (2, 0.7 KB)
+0007.002 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_options.table.tmpr754794.gz (1/32): adding to final database dump
+0007.033 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_options.table.gz (2/32): adding to final database dump
+0007.034 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_users.table.tmpr2.gz (3/32): adding to final database dump
+0007.035 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_users.table.gz (4/32): adding to final database dump
+0007.035 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_usermeta.table.tmpr43.gz (5/32): adding to final database dump
+0007.037 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_usermeta.table.gz (6/32): adding to final database dump
+0007.037 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_commentmeta.table.tmpr0.gz (7/32): adding to final database dump
+0007.038 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_commentmeta.table.gz (8/32): adding to final database dump
+0007.038 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_comments.table.tmpr2.gz (9/32): adding to final database dump
+0007.038 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_comments.table.gz (10/32): adding to final database dump
+0007.039 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_links.table.tmpr0.gz (11/32): adding to final database dump
+0007.040 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_links.table.gz (12/32): adding to final database dump
+0007.040 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_p2p.table.tmpr0.gz (13/32): adding to final database dump
+0007.040 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_p2p.table.gz (14/32): adding to final database dump
+0007.041 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_p2pmeta.table.tmpr0.gz (15/32): adding to final database dump
+0007.041 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_p2pmeta.table.gz (16/32): adding to final database dump
+0007.042 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_postmeta.table.tmpr991.gz (17/32): adding to final database dump
+0007.047 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_postmeta.table.gz (18/32): adding to final database dump
+0007.048 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_posts.table.tmpr440.gz (19/32): adding to final database dump
+0007.057 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_posts.table.gz (20/32): adding to final database dump
+0007.058 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_term_relationships.table.tmpr100001.gz (21/32): adding to final database dump
+0007.058 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_term_relationships.table.gz (22/32): adding to final database dump
+0007.059 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_term_taxonomy.table.tmpr6.gz (23/32): adding to final database dump
+0007.060 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_term_taxonomy.table.gz (24/32): adding to final database dump
+0007.061 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_termmeta.table.tmpr0.gz (25/32): adding to final database dump
+0007.061 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_termmeta.table.gz (26/32): adding to final database dump
+0007.062 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_terms.table.tmpr6.gz (27/32): adding to final database dump
+0007.063 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_terms.table.gz (28/32): adding to final database dump
+0007.063 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_cue_events.table.tmpr3866.gz (29/32): adding to final database dump
+0007.088 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_cue_events.table.gz (30/32): adding to final database dump
+0007.089 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ewwwio_images.table.tmpr0.gz (31/32): adding to final database dump
+0007.090 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ewwwio_images.table.gz (32/32): adding to final database dump
+0007.091 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_cache.table.tmpr1001.gz (33/32): adding to final database dump
+0007.091 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_cache.table.gz (34/32): adding to final database dump
+0007.092 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_comments.table.tmpr1.gz (35/32): adding to final database dump
+0007.093 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_comments.table.gz (36/32): adding to final database dump
+0007.093 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_image_cache.table.tmpr1.gz (37/32): adding to final database dump
+0007.094 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_image_cache.table.gz (38/32): adding to final database dump
+0007.095 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_options.table.tmpr1001.gz (39/32): adding to final database dump
+0007.095 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_options.table.gz (40/32): adding to final database dump
+0007.096 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_post_media.table.tmpr0.gz (41/32): adding to final database dump
+0007.097 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_post_media.table.gz (42/32): adding to final database dump
+0007.097 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_posts.table.tmpr1.gz (43/32): adding to final database dump
+0007.098 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_posts.table.gz (44/32): adding to final database dump
+0007.098 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_snapshots.table.tmpr0.gz (45/32): adding to final database dump
+0007.098 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_snapshots.table.gz (46/32): adding to final database dump
+0007.099 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_streams.table.tmpr2.gz (47/32): adding to final database dump
+0007.100 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_streams.table.gz (48/32): adding to final database dump
+0007.101 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_streams_sources.table.tmpr1001.gz (49/32): adding to final database dump
+0007.101 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_ff_streams_sources.table.gz (50/32): adding to final database dump
+0007.102 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_smush_dir_images.table.tmpr0.gz (51/32): adding to final database dump
+0007.102 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_smush_dir_images.table.gz (52/32): adding to final database dump
+0007.103 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_indexable.table.tmpr50.gz (53/32): adding to final database dump
+0007.104 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_indexable.table.gz (54/32): adding to final database dump
+0007.105 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_indexable_hierarchy.table.tmpr1001.gz (55/32): adding to final database dump
+0007.105 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_indexable_hierarchy.table.gz (56/32): adding to final database dump
+0007.106 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_migrations.table.tmpr19.gz (57/32): adding to final database dump
+0007.106 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_migrations.table.gz (58/32): adding to final database dump
+0007.108 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_primary_term.table.tmpr0.gz (59/32): adding to final database dump
+0007.108 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_primary_term.table.gz (60/32): adding to final database dump
+0007.109 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_seo_links.table.tmpr256.gz (61/32): adding to final database dump
+0007.109 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_seo_links.table.gz (62/32): adding to final database dump
+0007.110 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_seo_meta.table.tmpr423.gz (63/32): adding to final database dump
+0007.110 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db-table-mgmusic_yoast_seo_meta.table.gz (64/32): adding to final database dump
+0007.115 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz: finished writing out complete database file (304 KB)
+0007.124 (0) Total database tables backed up: 32 (backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz, size: 333954, sha1: 589da76c203da483c7c65d197e0f51f64ce6e275, sha256: 8b7cf3f8f30a5abff88bceea459cd8e800dc02a5bb9e6a113bf0458f62143260)
+0007.133 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0007.133 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0007.134 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0007.134 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip: others: This file has not yet been successfully uploaded: will queue
+0007.134 (0) backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz: db: This file has not yet been successfully uploaded: will queue
+0007.135 (0) Saving backup history. Total backup size: 70.3 MB
+0007.137 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0007.138 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)
+0007.140 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-2f5ce0c0acc6646151b738758838c0f6)
+0007.702 (0) Google Drive: quota usage: used=9179.2 MB, total=15360 MB, available=6180.8 MB
+0007.703 (0) Google Drive: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip: Attempting to upload to Google Drive (into folder id: 1UC8VidEjGbTxecavUyvi28kL4vl0-HOs)
+0008.058 (0) Googledrive chunked upload: 2.4 % uploaded (1048576)
+0008.184 (0) Googledrive chunked upload: 4.7 % uploaded (2097152)
+0008.316 (0) Googledrive chunked upload: 7.1 % uploaded (3145728)
+0008.451 (0) Googledrive chunked upload: 9.5 % uploaded (4194304)
+0008.594 (0) Googledrive chunked upload: 11.9 % uploaded (5242880)
+0008.722 (0) Googledrive chunked upload: 14.2 % uploaded (6291456)
+0008.866 (0) Googledrive chunked upload: 16.6 % uploaded (7340032)
+0008.981 (0) Googledrive chunked upload: 19 % uploaded (8388608)
+0009.068 (0) Googledrive chunked upload: 21.3 % uploaded (9437184)
+0009.205 (0) Googledrive chunked upload: 23.7 % uploaded (10485760)
+0009.343 (0) Googledrive chunked upload: 26.1 % uploaded (11534336)
+0009.512 (0) Googledrive chunked upload: 28.5 % uploaded (12582912)
+0009.650 (0) Googledrive chunked upload: 30.8 % uploaded (13631488)
+0009.761 (0) Googledrive chunked upload: 33.2 % uploaded (14680064)
+0009.883 (0) Googledrive chunked upload: 35.6 % uploaded (15728640)
+0010.019 (0) Googledrive chunked upload: 37.9 % uploaded (16777216)
+0010.121 (0) Googledrive chunked upload: 40.3 % uploaded (17825792)
+0010.223 (0) Googledrive chunked upload: 42.7 % uploaded (18874368)
+0010.317 (0) Googledrive chunked upload: 45.1 % uploaded (19922944)
+0010.469 (0) Googledrive chunked upload: 47.4 % uploaded (20971520)
+0010.549 (0) Googledrive chunked upload: 49.8 % uploaded (22020096)
+0010.636 (0) Googledrive chunked upload: 52.2 % uploaded (23068672)
+0010.762 (0) Googledrive chunked upload: 54.5 % uploaded (24117248)
+0010.841 (0) Googledrive chunked upload: 56.9 % uploaded (25165824)
+0010.941 (0) Googledrive chunked upload: 59.3 % uploaded (26214400)
+0011.053 (0) Googledrive chunked upload: 61.7 % uploaded (27262976)
+0011.231 (0) Googledrive chunked upload: 64 % uploaded (28311552)
+0011.355 (0) Googledrive chunked upload: 66.4 % uploaded (29360128)
+0011.446 (0) Googledrive chunked upload: 68.8 % uploaded (30408704)
+0011.538 (0) Googledrive chunked upload: 71.1 % uploaded (31457280)
+0011.684 (0) Googledrive chunked upload: 73.5 % uploaded (32505856)
+0011.829 (0) Googledrive chunked upload: 75.9 % uploaded (33554432)
+0011.927 (0) Googledrive chunked upload: 78.3 % uploaded (34603008)
+0012.046 (0) Googledrive chunked upload: 80.6 % uploaded (35651584)
+0012.203 (0) Googledrive chunked upload: 83 % uploaded (36700160)
+0012.315 (0) Googledrive chunked upload: 85.4 % uploaded (37748736)
+0012.496 (0) Googledrive chunked upload: 87.7 % uploaded (38797312)
+0012.635 (0) Googledrive chunked upload: 90.1 % uploaded (39845888)
+0012.790 (0) Googledrive chunked upload: 92.5 % uploaded (40894464)
+0012.884 (0) Googledrive chunked upload: 94.9 % uploaded (41943040)
+0012.973 (0) Googledrive chunked upload: 97.2 % uploaded (42991616)
+0013.057 (0) Googledrive chunked upload: 99.6 % uploaded (44040192)
+0014.287 (0) Googledrive chunked upload: 100 % uploaded (44040192)
+0014.290 (0) Google Drive: OK: Archive backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip uploaded in 6.59 seconds
+0014.290 (0) Recording as successfully uploaded: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip
+0014.299 (0) Deleting local file: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-plugins.zip: OK
+0014.441 (0) Google Drive: quota usage: used=9179.2 MB, total=15360 MB, available=6180.8 MB
+0014.442 (0) Google Drive: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip: Attempting to upload to Google Drive (into folder id: 1UC8VidEjGbTxecavUyvi28kL4vl0-HOs)
+0014.799 (0) Googledrive chunked upload: 7 % uploaded (1048576)
+0014.930 (0) Googledrive chunked upload: 14 % uploaded (2097152)
+0015.063 (0) Googledrive chunked upload: 21 % uploaded (3145728)
+0015.147 (0) Googledrive chunked upload: 27.9 % uploaded (4194304)
+0015.273 (0) Googledrive chunked upload: 34.9 % uploaded (5242880)
+0015.383 (0) Googledrive chunked upload: 41.9 % uploaded (6291456)
+0015.562 (0) Googledrive chunked upload: 48.9 % uploaded (7340032)
+0015.675 (0) Googledrive chunked upload: 55.9 % uploaded (8388608)
+0015.890 (0) Googledrive chunked upload: 62.9 % uploaded (9437184)
+0015.978 (0) Googledrive chunked upload: 69.9 % uploaded (10485760)
+0016.100 (0) Googledrive chunked upload: 76.8 % uploaded (11534336)
+0016.243 (0) Googledrive chunked upload: 83.8 % uploaded (12582912)
+0016.358 (0) Googledrive chunked upload: 90.8 % uploaded (13631488)
+0016.568 (0) Googledrive chunked upload: 97.8 % uploaded (14680064)
+0017.615 (0) Googledrive chunked upload: 100 % uploaded (14680064)
+0017.618 (0) Google Drive: OK: Archive backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip uploaded in 3.17 seconds
+0017.620 (0) Recording as successfully uploaded: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip
+0017.625 (0) Deleting local file: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-themes.zip: OK
+0017.776 (0) Google Drive: quota usage: used=9235.7 MB, total=15360 MB, available=6124.3 MB
+0017.777 (0) Google Drive: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip: Attempting to upload to Google Drive (into folder id: 1UC8VidEjGbTxecavUyvi28kL4vl0-HOs)
+0018.144 (0) Googledrive chunked upload: 7.4 % uploaded (1048576)
+0018.355 (0) Googledrive chunked upload: 14.8 % uploaded (2097152)
+0018.512 (0) Googledrive chunked upload: 22.2 % uploaded (3145728)
+0018.914 (0) Googledrive chunked upload: 29.6 % uploaded (4194304)
+0019.012 (0) Googledrive chunked upload: 36.9 % uploaded (5242880)
+0019.125 (0) Googledrive chunked upload: 44.3 % uploaded (6291456)
+0019.281 (0) Googledrive chunked upload: 51.7 % uploaded (7340032)
+0019.375 (0) Googledrive chunked upload: 59.1 % uploaded (8388608)
+0019.480 (0) Googledrive chunked upload: 66.5 % uploaded (9437184)
+0019.572 (0) Googledrive chunked upload: 73.9 % uploaded (10485760)
+0019.710 (0) Googledrive chunked upload: 81.3 % uploaded (11534336)
+0019.860 (0) Googledrive chunked upload: 88.7 % uploaded (12582912)
+0020.002 (0) Googledrive chunked upload: 96.1 % uploaded (13631488)
+0021.004 (0) Googledrive chunked upload: 100 % uploaded (13631488)
+0021.007 (0) Google Drive: OK: Archive backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip uploaded in 3.23 seconds
+0021.010 (0) Recording as successfully uploaded: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip
+0021.013 (0) Deleting local file: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-uploads.zip: OK
+0021.312 (0) Google Drive: quota usage: used=9249.3 MB, total=15360 MB, available=6110.7 MB
+0021.313 (0) Google Drive: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip: Attempting to upload to Google Drive (into folder id: 1UC8VidEjGbTxecavUyvi28kL4vl0-HOs)
+0022.418 (0) Googledrive chunked upload: 100 % uploaded
+0022.421 (0) Google Drive: OK: Archive backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip uploaded in 1.11 seconds
+0022.422 (0) Recording as successfully uploaded: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip
+0022.423 (0) Deleting local file: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-others.zip: OK
+0022.588 (0) Google Drive: quota usage: used=9249.3 MB, total=15360 MB, available=6110.7 MB
+0022.599 (0) Google Drive: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz: Attempting to upload to Google Drive (into folder id: 1UC8VidEjGbTxecavUyvi28kL4vl0-HOs)
+0023.799 (0) Googledrive chunked upload: 100 % uploaded
+0023.803 (0) Google Drive: OK: Archive backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz uploaded in 1.2 seconds
+0023.804 (0) Recording as successfully uploaded: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz
+0023.807 (0) Deleting local file: backup_2020-11-24-1952_Max_Garceau_Music_b244da43ac58-db.gz: OK
+0023.810 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=5, retain_db=5
+0023.811 (0) Number of backup sets in history: 1; groups (db): 1
+0023.811 (0) Examining (for databases) backup set with group_id=0, nonce=b244da43ac58, datestamp=1606247561 (Nov 24 2020 19:52:41)
+0023.812 (0) This backup set is the backup set just made, so will not be deleted.
+0023.813 (0) Number of backup sets in history: 1; groups (files): 1
+0023.814 (0) Examining (for files) backup set with nonce=b244da43ac58, datestamp=1606247561 (Nov 24 2020 19:52:41)
+0023.814 (0) This backup set is the backup set just made, so will not be deleted.
+0023.814 (0) This backup set is the backup set just made, so will not be deleted.
+0023.814 (0) This backup set is the backup set just made, so will not be deleted.
+0023.814 (0) This backup set is the backup set just made, so will not be deleted.
+0023.814 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0023.815 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0023.817 (0) Resume backup (b244da43ac58, 0): finish run
+0023.818 (0) Decremented the semaphore (fd) by 1
+0023.819 (0) Semaphore (fd) unlocked
+0023.819 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0023.821 (0) Fetching RSS news feed
+0023.914 (0) Fetched RSS news feed; result is a: SimplePie
+0023.933 (0) Sending email ('Files and database (Full backup)') report (attachments: 0, size: 0 KB) to: maxwe...
+0024.003 (0) The backup apparently succeeded and is now complete

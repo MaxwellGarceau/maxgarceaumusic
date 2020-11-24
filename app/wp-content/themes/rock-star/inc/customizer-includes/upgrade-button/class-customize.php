@@ -62,7 +62,7 @@ final class rock_star_upgrade_pro_customize {
 	public function sections( $manager ) {
 
 		// Load custom sections.
-		require_once( trailingslashit( get_template_directory() ) . 'inc/customizer-includes/upgrade-button/section-pro.php' );
+		require get_parent_theme_file_path( 'inc/customizer-includes/upgrade-button/section-pro.php' );
 
 		// Register custom section types.
 		$manager->register_section_type( 'rock_star_upgrade_pro_customize_section_pro' );

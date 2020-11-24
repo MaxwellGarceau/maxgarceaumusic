@@ -1,17 +1,16 @@
-/*global _:false, jQuery:false, wp:false */
+/*global _, _cueMceView, jQuery, wp */
 
 (function( $, wp ) {
 	'use strict';
 
-	var extend,
-		postID = $( '#post_ID' ).val() || 0;
+	const settings = _cueMceView;
 
-	extend = {
+	let extend = {
 		action: 'cue_parse_shortcode',
 		state: [ 'cue-playlists' ],
 
 		initialize: function() {
-			var self = this;
+			let self = this;
 
 			if ( this.url ) {
 				this.loader = false;
@@ -21,8 +20,7 @@
 			}
 
 			wp.ajax.post( this.action, {
-				post_ID: postID,
-				type: this.shortcode.tag,
+				_ajax_nonce: settings.parseNonce,
 				shortcode: this.shortcode.string()
 			} )
 			.done( function( response ) {
@@ -43,14 +41,9 @@
 			} );
 		},
 
-		edit: function( text, update ) {
-			// var state = wp.media.editor.open().setState( 'cue-playlists' ),
-			// shortcode = wp.shortcode.next( 'cue', text ).shortcode;
-		},
-
 		pausePlayers: function() {
 			this.getNodes( function( editor, node, content ) {
-				var win = $( 'iframe.wpview-sandbox', content ).get( 0 );
+				let win = $( 'iframe.wpview-sandbox', content ).get( 0 );
 
 				if ( win && ( win = win.contentWindow ) && win.mejs ) {
 					_.each( win.mejs.players, function( player ) {

@@ -107,7 +107,7 @@ function rock_star_news_ticker_display_position() {
 
 	$news_ticker_position = $options['news_ticker_position'];
 
-	if ( 'below-slider-header-image' == $news_ticker_position ) {
+	if ( 'below-menu' == $news_ticker_position ) {
 		add_action( 'rock_star_header', 'rock_star_news_ticker_display', 150 );
 	} else {
 		add_action( 'rock_star_before_content', 'rock_star_news_ticker_display', 50 );

@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) die;
  * @author    Looks Awesome <email@looks-awesome.com>
  *
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
 
 class FFAddonsTab implements LATab{
@@ -26,10 +26,11 @@ class FFAddonsTab implements LATab{
 	}
 
 	public function title() {
-		return 'Extensions';
+		return 'Extra';
 	}
 
 	public function includeOnce( $context ) {
+		/** @noinspection PhpIncludeInspection */
 		include_once($context['root']  . 'views/addons.php');
 	}
 }

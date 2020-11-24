@@ -271,7 +271,7 @@ class Favicon_By_RealFaviconGenerator_Admin extends Favicon_By_RealFaviconGenera
 			return NULL;
 		}
 		else {
-			$preview_file_name = 'preview_' . md5( 'RFB stuff here ' . rand() . microtime() ) . '.png';
+			$preview_file_name = 'preview_' . hash( 'sha256', 'RFB stuff here ' . rand() . microtime() ) . '.png';
 		}
 
 		if ( ! file_exists( dirname( $this->get_preview_path( $preview_file_name ) ) ) ) {
@@ -489,8 +489,8 @@ class Favicon_By_RealFaviconGenerator_Admin extends Favicon_By_RealFaviconGenera
 
         if ( isset( $_REQUEST[Favicon_By_RealFaviconGenerator_Admin::DISMISS_UPDATE_NOTIICATION] ) &&
         		'0' == $_REQUEST[Favicon_By_RealFaviconGenerator_Admin::DISMISS_UPDATE_NOTIICATION] ) {
-        	$this->log_info( 'Disable manual update notice for ' . $this->get_latest_version_available() );
-            $this->set_boolean_user_option( Favicon_By_RealFaviconGenerator_Common::META_NO_UPDATE_NOTICE_FOR_VERSION . $this->get_latest_version_available(), true );
+        	$this->log_info( 'Disable manual update notice for ' . $this->get_latest_manual_available_update() );
+            $this->set_boolean_user_option( Favicon_By_RealFaviconGenerator_Common::META_NO_UPDATE_NOTICE_FOR_VERSION . $this->get_latest_manual_available_update(), true );
 	    }
 
         if ( isset( $_REQUEST[Favicon_By_RealFaviconGenerator_Admin::DISMISS_AUTOMATIC_UPDATE_NOTIICATION] ) &&

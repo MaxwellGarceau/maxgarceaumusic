@@ -176,10 +176,10 @@ add_action( 'customize_save_after', 'rock_star_reset_data' );
 
 
 // Active callbacks for customizer.
-require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/active-callbacks.php';
+require get_parent_theme_file_path( 'inc/customizer-includes/active-callbacks.php' );
 
 // Sanitize functions for customizer.
-require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/sanitize-functions.php';
+require get_parent_theme_file_path( 'inc/customizer-includes/sanitize-functions.php' );
 
 // Add Upgrade to Pro Button.
-require_once( trailingslashit( get_template_directory() ) . 'inc/customizer-includes/upgrade-button/class-customize.php' );
+require get_parent_theme_file_path( 'inc/customizer-includes/upgrade-button/class-customize.php' );

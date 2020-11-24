@@ -10,6 +10,9 @@
  Tags: child theme
  Text Domain: obsidian-child
  */
+html {
+  scroll-behavior: smooth;
+}
 a {
   -webkit-transition: color 0.1s ease-in, opacity 0.1s ease-in;
   -moz-transition: color 0.1s ease-in, opacity 0.1s ease-in;
@@ -99,10 +102,7 @@ a {
 #content .ff-stream .ff-name, #content #ff-stream-1 .ff-name {
   color: #fff !important;
 }
-#content .ff-stream .ff-nickname, #content #ff-stream-1 .ff-nickname {
-  color: #dcdcdc !important;
-}
-#content .ff-stream .ff-timestamp, #content #ff-stream-1 .ff-timestamp {
+#content .ff-stream .ff-nickname, #content #ff-stream-1 .ff-nickname, #content .ff-stream .ff-timestamp, #content #ff-stream-1 .ff-timestamp, #content .ff-stream .ff-instagram a, #content #ff-stream-1 .ff-instagram a {
   color: #dcdcdc !important;
 }
 #content .ff-stream .ff-instagram .ff-icon-inner, #content #ff-stream-1 .ff-instagram .ff-icon-inner {
@@ -132,6 +132,8 @@ a {
 }
 .cue-playlist-container .mejs-container {
   font-family: inherit;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 .cue-playlist-container .cue-playlist .cue-tracks {
   border: none;
@@ -195,6 +197,17 @@ iframe.spotify-playlist #main .a2.d.cf.cg.ch.ci {
 }
 .info-message.brighter {
   filter: brightness(125%);
+}
+.featured-message {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 21px;
+  font-size: 2.1rem;
+}
+.latest-news.featured-message {
+  margin-bottom: 4.8rem;
+}
+.latest-news.featured-message blockquote {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 .wp-block-column {
   padding: 1.6rem;
@@ -279,23 +292,96 @@ iframe.spotify-playlist #main .a2.d.cf.cg.ch.ci {
   margin-bottom: 1.6rem;
   font-weight: 400;
 }
+.insta-gallery-feed {
+  font-family: inherit !important;
+}
+.insta-gallery-feed a:hover {
+  opacity: 1;
+}
+.insta-gallery-button, .insta-gallery-button.follow {
+  border-radius: 50px !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  box-shadow: unset !important;
+  border: 1px solid #fff !important;
+}
+.insta-gallery-button:hover, .insta-gallery-button.follow:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.insta-gallery-feed .insta-gallery-list .insta-gallery-item .insta-gallery-image-wrap .insta-gallery-image-mask-content {
+  margin: 0 !important;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 15%;
+}
+.insta-gallery-feed .insta-gallery-list .insta-gallery-item .insta-gallery-image-wrap .insta-gallery-image-mask-content:after {
+  content: "Click to open in Instagram";
+  flex-basis: 100%;
+  font-size: 14px;
+  font-style: italic;
+  color: #f2f2f2;
+}
+/*--------------------------------------------------------------
+ ## Return to top
+ ## https://codepen.io/rdallaire/pen/apoyx
+ --------------------------------------------------------------*/
+#return-to-top {
+  position: fixed;
+  bottom: 65px;
+  right: 20px;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #fff;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 99999;
+}
+#return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 13px;
+  top: 12px;
+  font-size: 25px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#return-to-top:hover {
+  background-color: #fff;
+}
+#return-to-top:hover i {
+  color: #000;
+  top: 6px;
+}
+@media (max-width: 1023px) {
+  .social-navigation {
+    padding-bottom: 3.5625em;
+  }
+}
 .home__subtitle-container {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .home__subtitle-container .home__subtitle {
   text-align: left;
 }
-.home__subtitle {
-  text-align: center;
-}
 .home .recent-posts-archive-link {
   text-decoration: none;
-}
-.featured-message {
-  margin-bottom: 4.8rem;
-}
-.featured-message blockquote {
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 .featured {
   display: flex;
@@ -346,5 +432,14 @@ iframe.spotify-playlist #main .a2.d.cf.cg.ch.ci {
 }
 body.metal.background-cover .obsidian-background-overlay {
   background-image: url('/wp-content/themes/obsidian/images/meditator.jpg');
+}
+.featured__videos {
+  display: none;
+}
+.featured__songs {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 750px;
 }
 /*# sourceMappingURL=style.css.map */

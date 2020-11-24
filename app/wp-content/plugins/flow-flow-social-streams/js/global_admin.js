@@ -212,50 +212,135 @@
 
       var defer = $.Deferred();
 
-      if (!sessionCookie || (sessionCookie && sessionCookie !== 'no_data' && sessionCookie !== 'seen' && location.href.indexOf('page=flow-flow') !== -1)) {
+      if ( /*Cookie.get( 'ff_first_time' ) &&*/ ( ! sessionCookie ) || ( sessionCookie && sessionCookie !== 'no_data' && sessionCookie !== 'seen' && location.href.indexOf('page=flow-flow') !== -1 ) ) {
 
         setEvents();
-
-        makeRequest().done(function (news) {
-
-          if (news && $.isArray(news)) {
-            var latest = news && news[0], found;
-
-            if (!latest) return;
-            
-
-            Cookie.set('ff_news_session', latest.id);
-
-            if (isSuitableToShow(latest.id)) {
-              model = new TickerModel(latest);
-              view = new TickerView({model: model});
-
-              defer.resolve(view);
-
-            } else {
-              defer.reject('not suitable');
-            }
-          }
-        }).fail(function (error) {
-//          console.log(error.statusText);
-          defer.reject('request failed');
-        });
-
-        if (!sessionCookie) Cookie.set('ff_news_session', 'no_data');
+        
+        var passthrough, s, f, curr;
+	    var cloudStreamsLength;
+	    var layouts = {
+            'masonry': 0,
+            'grid': 0,
+            'justified': 0,
+            'list': 0,
+            'carousel': 0
+        }
+        var types = {
+          'instagram': 0,
+          'facebook': 0,
+          'twitter': 0,
+          'youtube': 0,
+          'pinterest': 0,
+          'flickr': 0,
+          'tumblr': 0,
+          'vimeo': 0,
+          'wordpress': 0,
+          'rss': 0,
+          'soundcloud': 0,
+        }
+        
+        //if (!sessionCookie) Cookie.set('ff_news_session', 'no_data');
+	
+	      if ( window.FlowFlowApp ) {
+        
+	        $( document ).on( 'feeds-loaded', function ( event, feeds ) {
+	          
+	            try {
+	             
+		            s = '';
+		            cloudStreamsLength = 0;
+		            
+		            for (var i = 0, len = FlowFlowApp.Model.StreamRow.collection.models.length; i < len; i++) {
+		              curr = FlowFlowApp.Model.StreamRow.collection.models[ i ];
+		              layouts[ curr.get('layout') ] += 1;
+		              if ( curr.get('cloud') == 'yep' ) {
+			             cloudStreamsLength++;
+                      }
+                    }
+		
+		            s = 'cloud:' + cloudStreamsLength + ';';
+		
+		
+		            for (var layout in layouts) {
+                       if ( layouts[ layout ] ) s += layout + ':' + layouts[ layout ] + ';'
+                    }
+                    
+                    s = s.replace( /\;$/, '' );
+                    
+                    //
+                    
+                    f = '';
+		
+		            for (var feed in feeds) {
+			            types[ feeds[ feed ].type ] += 1;
+		            }
+		
+		            for (var type in types) {
+			            if ( types[ type ] ) f += type + ':' + types[ type ] + ';'
+		            }
+		
+		            f = f.replace( /\;$/, '' );
+		            
+                } catch (e) {
+                    console.log( e.message )
+	            }
+	            
+		        passthrough =
+			        'host=' + location.host + '&' +
+			        'ver=' + window.plugin_ver  + '&' +
+			        's=' + s  + '&' +
+			        'f=' + f;
+		
+		        doStuff( passthrough );
+	        })
+         
+        } else {
+          doStuff()
+        }
 
       } else {
-        defer.reject('one time for session');
+        defer.reject('only one time in session');
+      }
+	
+      function doStuff( passthrough ) {
+       
+	      return makeRequest( passthrough ).done( function (news) {
+		
+		      if ( news && $.isArray( news ) ) {
+			
+			      var latest = news && news[0], found;
+			
+			      if (!latest) return;
+			
+			      Cookie.set('ff_news_session', latest.id);
+			
+			      if (isSuitableToShow(latest.id)) {
+				      model = new TickerModel(latest);
+				      view = new TickerView({model: model});
+				
+				      defer.resolve(view);
+				
+			      } else {
+				      defer.reject('not suitable');
+			      }
+		      }
+	      }).fail(function (error) {
+		      //          console.log(error.statusText);
+		      defer.reject('request failed');
+	      });
+	
       }
 
       return defer.promise();
     }
 
-    function makeRequest () {
+    function makeRequest ( passthrough ) {
+      console.log('REQUESTING NOTIFICATIONS')
       var defer = $.ajax({
         type: 'GET',
-        url: 'http://flow.looks-awesome.com/service/news',
+        url: 'https://flow.looks-awesome.com/service/news',
         data: {
-          field: 'test'
+	       passthrough: passthrough
         },
         dataType: 'jsonp',
         crossDomain: true
@@ -273,13 +358,14 @@
       id = parseInt(id) ? id : parseInt(Cookie.get('ff_news_session'));
       if (isNaN(id)) return;
 
-      found = _.find(seen, function (num) {return num === id.toString()});
-      if (!found) {
+      found = _.find( seen, function (num) {return num === id.toString()});
+      if ( ! found )  {
         $item = $('#toplevel_page_flow-flow');
         str = '<span class="update-plugins count-1"><span class="plugin-count">1</span></span>';
         $item.find('.wp-menu-name').append(str);
         $item.find('.wp-submenu li:eq(2)').prepend(str)
       }
+
     }
 
     function isSuitableToShow (id) {
@@ -318,6 +404,7 @@
       })
     }
 
+    // showing popup in Flow admin on resolved init() only
     function injectView (view) {
      
       var $form = $('#flow_flow_form');
@@ -335,7 +422,7 @@
 
         // set news cookie
         seen = cookieJSON.seen.toString().split('+');
-        found = _.find(seen, function (num) {return num === view.model.id.toString()});
+        found = _.find( seen, function (num) {return num === view.model.id.toString()}) ;
         if (!found) {
           cookieJSON.seen = view.model.id.toString() + '+' + cookieJSON.seen;
         }
@@ -353,20 +440,45 @@
       tryToAddNotification: tryToAddNotification
     }
   })();
+	
+  $( document ).one('html_ready', doStuffOnReady)
+  $( function () {
+	  doStuffOnReady();
+  });
+  
+  function doStuffOnReady() {
+    
+      if (processed) return false;
+      processed = true;
+      
+      /* plugins page notice */
+      // works only if notice is present
+	  var $notice = $( '#ff-boost-pro-notice' );
+	  
+	  if ( $notice.length ) {
+		
+		  $notice.find( '.button' ).click( function () {
+			  $notice.find( '.notice-dismiss' ).click()
+		  })
+	   
+		  $notice.find( '#ff-boost-notice-dismiss' ).change( function () {
+              if ( this.checked ) {
+	              Cookie.set( 'ff_notice_dismissed', 1, { expires: 60 } )
+              } else {
+	              Cookie.remove( 'ff_notice_dismissed' )
+              }
+		  });
+		  
+      }
+      
+      /**/
+      
+      TickerController.init()
+          .then( TickerController.injectView )
+          .always( TickerController.tryToAddNotification )
+          .fail( function (msg) {
+              //console.log(msg)
+          });
+  }
 
-
-  $(document).one('html_ready ready', function () {
-    if (processed) return false;
-    processed = true;
-
-    TickerController.init()
-      .then( TickerController.injectView )
-      .always( TickerController.tryToAddNotification )
-      .fail( function (msg) {
-//      console.log(msg)
-      });
-
-  })
-
-
-})(window.jQuery, window.FF_Cookie)
+})( window.jQuery, window.FF_Cookie )

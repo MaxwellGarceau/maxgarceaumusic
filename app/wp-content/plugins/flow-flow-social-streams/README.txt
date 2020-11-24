@@ -3,16 +3,18 @@ Contributors: looks_awesome, awesomeoman
 Donate link: http://looks-awesome.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: facebook, facebook feed, pinterest, pinterest feed, facebook posts, grid, hashtag, instagram feed, instagram posts, social, social board, social feed, social grid, social hub, social wall, social stream, stream, twitter, twitter feed, tweets, masonry grid, social wall, social media wall, social feed, social media feed, social media aggregator
+Tags: facebook feed, instagram feed, twitter feed, hashtag feed, social media wall, custom instagram feed, instagram posts, facebook feed, pinterest, pinterest feed, facebook posts, grid, hashtag, social, social board, social feed, social grid, social hub, social wall, social stream, stream, twitter, twitter feed, tweets, masonry grid, social wall, social media wall, social feed, social media feed, social media aggregator
 Requires at least: 3.6
-Tested up to: 4.9
-Stable tag: 3.0.66
+Tested up to: 5.5
+Stable tag: 4.6.11
 
 WordPress Social Stream lets you aggregate and stream social feeds in a beautiful responsive social media walls on your WordPress website.
 
 == Description ==
 
 WordPress Social Stream lets you aggregate and stream social feeds in a beautiful responsive social media walls on your WordPress website. Make any combinations of social feeds with Flow-Flow! Display social media posts from multiple sources on any page of your WordPress website. For example, you can have 5 Facebook feeds, 7 Twitter feeds and 3 Instagram feeds in the same grid. Visitors to your website will be able to observe all of your latest posts from Facebook, Twitter, Instagram and Pinterest in one social flow! Social streaming plugin for WordPress is a great way to engage your audience and grow your social capital.
+
+[Check out Live demo](https://social-streams.com/flow/demo/ "Flow-Flow Pro Demo")
 
 = Features =
 
@@ -33,7 +35,7 @@ WordPress Social Stream lets you aggregate and stream social feeds in a beautifu
 * Networks sorting and search bar on top of your stream
 * Loading more posts to grid via AJAX
 * Exclude posts by words, usernames or URLs
-* Drag&Drop grid card builder
+* Drag & Drop grid card builder
 * Powerful plugin extensions
 * Translate ready
 * Multisite compatible
@@ -47,9 +49,9 @@ Looking for other sources like other social networks, WordPress posts and RSS? M
 * More sources to stream. In total 14 networks including Google+, YouTube, LinkedIn, Tumblr, Soundcloud, Vine, Dribbble, Flickr and others + WordPress posts and RSS feeds. [Full list of sources](https://social-streams.com/flow/#socialfeeds "Flow-Flow Social Feeds")
 * Fast professional support for premium users
 * Additional stream layouts: boxed/justified galleries, fixed-height grid
-* Smart & beautiful lightbox with comments loading for Facebook, Instagram, Youtube. Available on mobiles also
+* Smart & beautiful lightbox with comments for Facebook, Instagram, Youtube. Classic popup and infinite feed. Available on mobiles also
 * Pre-moderation posts approval system
-* Inclusion filters for feeds (include only by words, usernames, URLs)
+* Filters for feeds (include and exclude only by words, usernames, URLs)
 * Lightbox galleries for multi image post
 * Networks sorting and search bar on top of your stream
 * Database snapshots
@@ -101,7 +103,6 @@ In the search field type "Flow-Flow" and click Search Plugins. Once you have fou
 The WordPress codex contains [instructions on how to install a WordPress plugin](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 
-
 = Updating =
 
 You can use automatic update to update the plugin safely.
@@ -133,6 +134,319 @@ Flow-Flow Lite edition is distributed "as is" and doesn't contain support servic
 4. Adding source popup
 
 == Changelog ==
+
+= Version 4.6.11 =
+* Fix: Instagram carousel images in hashtag feeds
+
+= Version 4.6.10 =
+* Change: Deactivation fix
+
+= Version 4.6.9 =
+* Update: Official Instagram API support
+* Feature: BOOSTS cloud service
+* Change: Grid design and performance improvements
+* Change: Admin page design and performance improvements
+
+= Version 3.1.66 =
+* Change: Code cleanup
+
+= Version 3.1.65 =
+* Change: WP supported versions updated
+
+= Version 3.1.64 =
+* Change: PHP error catch handler
+
+= Version 3.1.63 =
+* Change: PHP notices removal
+
+= Version 3.1.62 =
+* Change: Admin links
+
+= Version 3.1.61 =
+* Change: API update for Instagram login
+
+= Version 3.1.60 =
+* Change: Admin text
+
+= Version 3.1.59 =
+* Change: Minor CSS tweaks
+
+= Version 3.1.58 =
+* Change: Minor CSS changes
+
+= Version 3.1.57 =
+* Change: Minor CSS changes
+
+= Version 3.1.56 =
+* Change: CSS tweak
+
+= Version 3.1.55 =
+* Change: Facebook API change
+
+= Version 3.1.54 =
+* Change: CSS tweak
+
+= Version 3.1.53 =
+* Change: Redundant CSS removal
+
+= Version 3.1.52 =
+* Change: Renamed Facebook group feed to Page with restrictions feed
+
+= Version 3.1.51 =
+* Change: Facebook groups feed
+
+= Version 3.1.50 =
+* Change: Small change for compliance with PHP 7.4
+
+= Version 3.1.49 =
+* Change: Google+ removal
+
+= Version 3.1.48 =
+* Change: CSS tweaks
+
+= Version 3.1.47 =
+* Change: Redundant CSS
+
+= Version 3.1.46 =
+* Change: Code timestamps updated
+
+= Version 3.1.45 =
+* Change: Redundant CSS
+
+= Version 3.1.44 =
+* Change: Public page CSS
+
+= Version 3.1.43 =
+* Change: Admin page CSS
+
+= Version 3.1.42 =
+* Change: Admin page CSS
+
+= Version 3.1.41 =
+* Change: PHP minumum version to 5.6.20
+
+= Version 3.1.40 =
+* Change: Session folder correct path
+
+= Version 3.1.39 =
+* Change: Feeds Boost URL
+
+= Version 3.1.38 =
+* Change: Admin Subscription URL
+
+= Version 3.1.37 =
+* Change: Error handling
+
+= Version 3.1.36 =
+* Change: CSS optimization
+
+= Version 3.1.35 =
+* Change: Redundant CSS removal
+
+= Version 3.1.34 =
+* Change: CSS optimization
+
+= Version 3.1.33 =
+* Change: Admin text edit
+
+= Version 3.1.32 =
+* Change: Redundant CSS removal
+
+= Version 3.1.31 =
+* Change: Version fix
+
+= Version 3.1.30 =
+* Change: Plugin description
+
+= Version 3.1.29 =
+* Change: Deactivation popup
+
+= Version 3.1.28 =
+* Change: Code formatting
+
+= Version 3.1.27 =
+* Change: Error handling
+
+= Version 3.1.26 =
+* Change: Admin text
+
+= Version 3.1.25 =
+* Change: Deactivation popup improvement
+
+= Version 3.1.24 =
+* Change: Instagram authorization flow
+
+= Version 3.1.23 =
+* Change: cUrl installation guide URL
+
+= Version 3.1.22 =
+* Change: Facebook API update for multiphoto posts
+
+= Version 3.1.21 =
+* Change: Debug file added
+
+= Version 3.1.20 =
+* Change: Facebook code tweak
+
+= Version 3.1.19 =
+* Change: Support email title
+
+= Version 3.1.18 =
+* Change: FAQ address update
+
+= Version 3.1.17 =
+* Change: code comments
+
+= Version 3.1.16 =
+* Change: Update for Facebook Graph API version (credit to @responsemf and @vlaios users)
+
+= Version 3.1.15 =
+* Change: Cron event name
+
+= Version 3.1.14 =
+* Change: Requirement message
+
+= Version 3.1.13 =
+* Change: Instagram API constants
+
+= Version 3.1.12 =
+* Change: update for Instagram comments changes
+
+= Version 3.1.11 =
+* Change: admin tooltip
+
+= Version 3.1.10 =
+* Change: admin CSS
+
+= Version 3.1.9 =
+* Change: sorting function preparation
+
+= Version 3.1.8 =
+* Change: Pinterest profile image fix
+
+= Version 3.1.7 =
+* Change: Log file destination variable
+
+= Version 3.1.6 =
+* Change: suggestions tab removed from lite version
+
+= Version 3.1.5 =
+* Change: Pinterest user feeds removed (API retired)
+
+= Version 3.1.4 =
+* Change: Fix for Instagram hashtags with special symbols
+
+= Version 3.1.3 =
+* Change: new Facebook app, please regenerate token in auth settings
+
+= Version 3.1.2 =
+* Change: correct version & code formatting
+
+= Version 3.1.1 =
+* Change: admin CSS
+
+= Version 3.1.0 =
+* Change: Required PHP version changed to 5.6+
+
+= Version 3.0.99 =
+* Change: Composer constant added
+
+= Version 3.0.98 =
+* Change: WordPress 5.1 support
+
+= Version 3.0.97 =
+* Change: default database encoding
+* Change: fixed compatibility of lite version with advertising addon
+
+= Version 3.0.96 =
+* Change: code typos
+
+= Version 3.0.95 =
+* Change: Removed warning for Composer constant already defined
+
+= Version 3.0.94 =
+* Change: Additional accessibility improvements
+
+= Version 3.0.93 =
+* Change: Some accessibility improvements
+
+= Version 3.0.92 =
+* Change: Composer variable added
+
+= Version 3.0.91 =
+* Change: API library update
+
+= Version 3.0.90 =
+* Change: fix for empty feeds case
+
+= Version 3.0.89 =
+* Change: some code formatting
+
+= Version 3.0.88 =
+* Change: update for Instagram API changes and location feeds
+
+= Version 3.0.87 =
+* Change: admin JS small change
+
+= Version 3.0.86 =
+* Change: Instagram API wrapper small tweak
+
+= Version 3.0.85 =
+* Change: admin JS small optimization
+
+= Version 3.0.84 =
+* Change: admin links
+
+= Version 3.0.83 =
+* Fix: Deactivation popup
+
+= Version 3.0.82 =
+* Fix: With browser cache and streams not loading on page refresh (clear browser cache after update)
+
+= Version 3.0.81 =
+* Support: Wordpress 5.0
+
+= Version 3.0.80 =
+* Fix: JS code for Load more
+
+= Version 3.0.79 =
+* Fix: Code typo
+
+= Version 3.0.78 =
+* Change: PHP notice removal
+
+= Version 3.0.77 =
+* Fix: for feeds creation
+
+= Version 3.0.76 =
+* Change: Fix for stream preview
+
+= Version 3.0.75 =
+* Change: Fix for stream setting saving
+
+= Version 3.0.74 =
+* Change: Further improving of security and sanitization
+
+= Version 3.0.73 =
+* Change: Further improving of security and sanitization
+
+= Version 3.0.72 =
+* Change: Improved security and sanitization
+
+= Version 3.0.71 =
+* Change: 'Data too long' error
+
+= Version 3.0.70 =
+* Change: composer warnings
+
+= Version 3.0.69 =
+* Change: admin JS small change
+
+= Version 3.0.68 =
+* Change: fixed JS errors
+
+= Version 3.0.67 =
+* Change: removed console logs
 
 = Version 3.0.66 =
 * Change: pro demo links

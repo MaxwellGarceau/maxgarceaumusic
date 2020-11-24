@@ -9,7 +9,7 @@ if ( ! defined( 'WPINC' ) ) die;
  * @author    Looks Awesome <email@looks-awesome.com>
  *
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
 class LAGeneralTab implements LATab {
 	private $prefix;
@@ -27,10 +27,11 @@ class LAGeneralTab implements LATab {
 	}
 
 	public function title() {
-		return 'Settings';
+		return 'General';
 	}
 
 	public function includeOnce( $context ) {
+		/** @noinspection PhpIncludeInspection */
 		include_once($context['root']  . 'views/general.php');
 	}
 }

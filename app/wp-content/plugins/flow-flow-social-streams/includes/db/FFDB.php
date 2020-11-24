@@ -1,5 +1,5 @@
 <?php namespace flow\db;
-use flow\social\FFFeedUtils;
+use flow\settings\FFSettingsUtils;
 
 if ( ! defined( 'WPINC' ) ) die;
 
@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) die;
  * @author    Looks Awesome <email@looks-awesome.com>
 
  * @link      http://looks-awesome.com
- *@copyright 2014-2016 Looks Awesome
+ *@copyright Looks Awesome
  */
 class FFDB {
 	/** @var SafeMySQL $db */
@@ -97,8 +97,9 @@ class FFDB {
 	 * @return bool
 	 */
 	public static function rollback(){
-		return self::conn()->conn->rollback();
+		$result = self::conn()->conn->rollback();
 		self::$db->conn->autocommit(true);
+		return $result;
 	}
 
 	/**
@@ -128,12 +129,15 @@ class FFDB {
 
 	private static $cache = array();
 
-	public static function getOption($table_name, $option_name, $serialized = false, $lock_row = false){
-		if ($lock_row || !isset(self::$cache[$option_name])){
+	public static function getOption($table_name, $option_name, $serialized = false, $lock_row = false, $without_cache = false){
+		if ($lock_row  || $without_cache || !isset(self::$cache[$option_name])){
 			$q = 'select `value` from ?n where `id`=?s';
 			if ($lock_row) $q .= ' for update';
 			$options = self::conn()->getOne($q, $table_name, $option_name);
 			if ($options == false || $options == null ) return false;
+			if ($without_cache){
+				return $serialized ? unserialize($options) : $options;
+			}
 			self::$cache[$option_name] = $serialized ? unserialize($options) : $options;
 		}
 		return self::$cache[$option_name];
@@ -164,72 +168,79 @@ class FFDB {
 	}
 
 	/**
-	 * @param FFDBManager $dbm
+	 * @param $cache_table_name
+	 * @param $streams_sources_table_name
 	 * @param string $stream
 	 * @param bool $only_enable
-	 * @return array|array
+	 *
+	 * @return array
 	 */
 	public static function sources($cache_table_name, $streams_sources_table_name, $stream = null, $only_enable = false){
 		$sql_part = '';
 		if ($only_enable && $stream == null)  $sql_part = self::conn()->parse('WHERE `enabled` = 1');
 		if ($stream != null) $sql_part = self::conn()->parse('inner join ?n `conn` on `cach`.`feed_id` = `conn`.`feed_id` WHERE `enabled` = 1 and `conn`.`stream_id` = ?s', $streams_sources_table_name, $stream);
-		$sql = self::conn()->parse('SELECT  `cach`.`feed_id` as `id`, `settings`, `errors`, `status`, `enabled`, `last_update`, `cach`.cache_lifetime, `cach`.system_enabled FROM ?n `cach` ?p ORDER BY `changed_time` DESC', $cache_table_name, $sql_part);
+		$sql = self::conn()->parse('SELECT  `cach`.`feed_id` as `id`, `settings`, `errors`, `status`, `enabled`, `last_update`, `cach`.cache_lifetime, `cach`.system_enabled, `cach`.boosted FROM ?n `cach` ?p ORDER BY `changed_time` DESC', $cache_table_name, $sql_part);
 		if (false !== ($result = self::conn()->getInd('id', $sql))){
 			foreach ( $result as &$source ) {
-				if (isset($source['settings'])){
-					$settings = unserialize($source['settings']);
-					if (is_object($settings)) {
-						$source = array_merge($source, (array) $settings);
-						unset($source['settings']);
-					}
-				}
-
-				$source['enabled'] = $source['system_enabled'] == 1 ? ($source['enabled'] == 1 ? 'yep' : 'nope') : 'nope';
-				$offset = get_option('gmt_offset', 0);
-				$date = $source['last_update'] + $offset * 3600;
-				$source['last_update'] = $source['last_update'] == 0 ? 'N/A' : FFFeedUtils::classicStyleDate($date);
-				if (!isset($source['errors']) || is_null($source['errors'])) {
-					$source['errors'] = array();
-				}
-				if (!empty($source['errors'])){
-					if (false !== ($errors = unserialize($source['errors']))){
-						if (is_array($errors)){
-							$escape = array("'");
-							$replacements = array(" ");
-							foreach ( $errors as &$error ) {
-								if (isset($error['message'])){
-									if (is_array($error['message'])){
-										for ( $i = 0; $i < sizeof($error['message']); $i ++ ) {
-											$error['message'][$i]['msg'] = str_replace($escape, $replacements, $error['message'][$i]['msg']);
-										}
-									}
-									else {
-										$error['message'] = str_replace($escape, $replacements, $error['message']);
-									}
-									continue;
-								}
-
-								//TODO delete
-								if (is_array($error) && isset($error[0])){
-									$error['message'] = $error[0];
-									unset($error[0]);
-								}
-								if (is_array($error) && isset($error['msg'])){
-									$error['message'] = $error['msg'];
-									unset($error['msg']);
-								}
-							}
-							$source['errors'] = $errors;
-						}
-					}
-				}
-				if ((empty($source['errors']) || is_string($source['errors'])) && $source['status'] === '0') {
-					$source['errors'] = array( array( 'type' => $source['type'], 'message' => 'Feed cache has not been built. Try to manually rebuild cache using three dots menu on the left.' ) );
-				}
+				self::prepareSource($source);
 			}
 			return $result;
 		}
 		return array();
+	}
+
+	public static function prepareSource(&$source){
+		if (isset($source['settings'])){
+			$settings = unserialize($source['settings']);
+			if (is_object($settings)) {
+				$source = array_merge($source, (array) $settings);
+				unset($source['settings']);
+			}
+		}
+
+		$source['enabled'] = $source['system_enabled'] == 1 ? (($source['enabled'] == 1 || $source['enabled'] == FFSettingsUtils::YEP) ? FFSettingsUtils::YEP : FFSettingsUtils::NOPE) : FFSettingsUtils::NOPE;
+		$offset = get_option('gmt_offset', 0);
+		$date = $source['last_update'] + $offset * 3600;
+		$source['last_update'] = $source['last_update'] == 0 ? 'N/A' : FFSettingsUtils::classicStyleDate($date);
+		if (!isset($source['errors']) || is_null($source['errors'])) {
+			$source['errors'] = array();
+		}
+		if (!empty($source['errors'])){
+			$errors = is_string($source['errors']) ? unserialize($source['errors']) : $source['errors'];
+			if (false !== $errors){
+				if (is_array($errors)){
+					$escape = array("'");
+					$replacements = array(" ");
+					foreach ( $errors as &$error ) {
+						if (isset($error['message'])){
+							if (is_array($error['message'])){
+								for ( $i = 0; $i < sizeof($error['message']); $i ++ ) {
+									$error['message'][$i]['msg'] = str_replace($escape, $replacements, $error['message'][$i]['msg']);
+								}
+							}
+							else {
+								$error['message'] = str_replace($escape, $replacements, $error['message']);
+							}
+							continue;
+						}
+
+						//TODO delete
+						if (is_array($error) && isset($error[0])){
+							$error['message'] = $error[0];
+							unset($error[0]);
+						}
+						if (is_array($error) && isset($error['msg'])){
+							$error['message'] = $error['msg'];
+							unset($error['msg']);
+						}
+					}
+					$source['errors'] = $errors;
+				}
+			}
+		}
+		if ((empty($source['errors']) || is_string($source['errors'])) && $source['status'] === '0') {
+			$source['errors'] = array( array( 'type' => $source['type'], 'message' => 'Feed cache has not been built. Try to manually rebuild cache using three dots menu on the left.' ) );
+		}
 	}
 
 	/**
@@ -289,7 +300,7 @@ class FFDB {
 	}
 
 	public static function getError($cache_table_name, $streams_sources_table_name, $streamId, $format = true){
-        $result = array();
+		$result = '';
 		$errors = FFDB::conn()->getInd('feed_id', 'select `cach`.`errors`, `cach`.`feed_id` from ?n `cach` inner join ?n `src` on `cach`.`feed_id` = `src`.`feed_id` where `src`.`stream_id` = ?s and `cach`.`enabled` = 1', $cache_table_name, $streams_sources_table_name, $streamId);
 		foreach ( $errors as $feed => $error ) {
 			unset($error['feed_id']);
@@ -297,9 +308,10 @@ class FFDB {
 				foreach ( $error as $str ) {
 					$value = unserialize($str);
 					if (!empty($value)){
-						if (is_array($value) && sizeof($value) == 1){
+						if (is_array($value) && sizeof($value) > 0){
 							$value = $value[0];
 						}
+						if (!is_array($result)) $result = [];
 						$result[$feed] = $value;
 					}
 
@@ -318,7 +330,7 @@ class FFDB {
 
 	public static function setStream($streams_table_name, $streams_sources_table_name, $id, $stream){
 		self::$cache[$id] = clone $stream;
-		$name = $stream->name;
+		$name = @$stream->name;
 		$originalFeed = $stream->feeds;
 		if (is_string($stream->feeds)){
 			$feeds = stripslashes($stream->feeds);
@@ -327,8 +339,6 @@ class FFDB {
 		else{
 			$feeds = (array)$stream->feeds;
 		}
-		//$feeds = (is_array($stream->feeds) || is_object($stream->feeds)) ? serialize($stream->feeds) : stripslashes($stream->feeds);
-		//$feeds = json_decode($feeds);
 		unset($stream->feeds);
 		$serialized = serialize($stream);
 
@@ -356,8 +366,12 @@ class FFDB {
 				throw new \Exception();
 			}
 		}
-		if ( false === self::conn()->query( 'DELETE FROM ?n WHERE `feed_id` NOT IN (?a) AND `stream_id`=?s',
-				$streams_sources_table_name, $feed_ids, $id ) ) {
+        $sql_part = '';
+        if (!empty($feed_ids)) {
+            $sql_part = self::conn()->parse(' AND `feed_id` NOT IN (?a)', $feed_ids);
+        }
+		if ( false === self::conn()->query( 'DELETE FROM ?n WHERE `stream_id`=?s ?p',
+				$streams_sources_table_name, $id, $sql_part ) ) {
 			throw new \Exception();
 		}
 
@@ -373,5 +387,10 @@ class FFDB {
 			return new \Exception();
 		}
 		return true;
+	}
+
+	public static function saveFeed($cache_table_name, $feed_id, $values){
+		$sql = FFDB::conn()->parse('UPDATE ?n SET ?u WHERE `feed_id` = ?s', $cache_table_name, $values, $feed_id);
+		return FFDB::conn()->query($sql);
 	}
 }

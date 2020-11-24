@@ -95,6 +95,7 @@ class rock_star_tours_widget extends WP_Widget {
 			$tours_link_text_3 =  isset( $instance['tours_link_text_3' . '_' .  $i] ) ? $instance['tours_link_text_3' . '_' .  $i] : '';
 			$tours_link_4      =  isset( $instance['tours_link_4' . '_' .  $i] ) ? $instance['tours_link_4' . '_' .  $i] : '';
 			$tours_link_text_4 =  isset( $instance['tours_link_text_4' . '_' .  $i] ) ? $instance['tours_link_text_4' . '_' .  $i] : '';
+			$tours_links_target =  isset( $instance['tours_links_target' . '_' .  $i] ) ? $instance['tours_links_target' . '_' .  $i] : '';
 		?>
 		<h2> <?php printf( esc_html__( '%1s. Tour Details', 'rock-star' ), $i ); ?> </h2>
 		<p>
@@ -207,6 +208,12 @@ class rock_star_tours_widget extends WP_Widget {
         	<input type="text" class="widefat" name="<?php echo $this->get_field_name('tours_link_text_4' . '_' .  $i ); ?>" id="<?php echo $this->get_field_id('tours_link_text_4' . '_' .  $i ); ?>" value="<?php echo esc_attr( $tours_link_text_4 ); ?>">
         </p>
 
+        <p>
+            <input class="checkbox" type="checkbox" <?php checked($tours_links_target, true) ?> id="<?php echo $this->get_field_id( 'tours_links_target' . '_' .  $i ); ?>" name="<?php echo $this->get_field_name( 'tours_links_target' . '_' .  $i ); ?>" />
+        	<label for="<?php echo $this->get_field_id('tours_links_target' . '_' .  $i); ?>"><?php esc_html_e( 'Check to open link in new tab/window', 'rock-star' ); ?></label><br />
+        </p>
+
+
         </div><!-- .ct-tour-box -->
 
 
@@ -285,6 +292,8 @@ class rock_star_tours_widget extends WP_Widget {
 				= esc_url_raw( $new_instance['tours_link_4' . '_' .  $i] );
 			$instance['tours_link_text_4' . '_' .  $i]
 				= sanitize_text_field( $new_instance['tours_link_text_4' . '_' .  $i] );
+			$instance['tours_links_target' . '_' .  $i]
+				= rock_star_sanitize_checkbox( $new_instance['tours_links_target' . '_' .  $i] );
 		}
 
 		return $instance;
@@ -326,44 +335,48 @@ class rock_star_tours_widget extends WP_Widget {
 				$tours_link_text_3 =  isset( $instance['tours_link_text_3' . '_' .  $i] ) ? $instance['tours_link_text_3' . '_' .  $i] : '';
 				$tours_link_4      =  isset( $instance['tours_link_4' . '_' .  $i] ) ? $instance['tours_link_4' . '_' .  $i] : '';
 				$tours_link_text_4 =  isset( $instance['tours_link_text_4' . '_' .  $i] ) ? $instance['tours_link_text_4' . '_' .  $i] : '';
+				$links_target =  isset( $instance['tours_links_target' . '_' .  $i] ) ? $instance['tours_links_target' . '_' .  $i] : '';
+				
+
 
 				echo '<ul class="slide-one">
 	                    <li>' . $tours_date . '</li>
 	                    <li>' . $tours_title . '</li>
 	                    <li>' . $tours_address . '</li>';
 
+
+
 	                    if ( '' != $tours_link_1 || '' != $tours_link_2 || '' != $tours_link_3 || '' != $tours_link_4 ) {
 	                    	echo '<li class="tour-links">';
 
+	                    				$tours_links_target = '_self';
+
+	                    				if ( $links_target ) {
+	                    		        	$tours_links_target = '_blank';
+	                    		        }
+
+
 			                   	if ( '' != $tours_link_1 && '' != $tours_link_text_1 ) {
 			                   		echo '
-			                   		<a href="' . esc_url( $tours_link_1 ) . '" class="'. sanitize_title( $tours_link_text_1 ) .'">
-			                   			<span>' . esc_html( $tours_link_text_1 ) . '</span>
-			                   		</a>
+			                   		<a href="' . esc_url( $tours_link_1 ) . '" target="' . $tours_links_target . '"><span>' . esc_html( $tours_link_text_1 ) . '</span></a>
 			                   		';
 			                   	}
 
 			                   	if ( '' != $tours_link_2 && '' != $tours_link_text_2 ) {
 			                   		echo '
-			                   		<a href="' . esc_url( $tours_link_2 ) . '" class="'. sanitize_title( $tours_link_text_2 ) .'">
-			                   			<span>' . esc_html( $tours_link_text_2 ) . '</span>
-			                   		</a>
+			                   		<a href="' . esc_url( $tours_link_2 ) . '" target="' . $tours_links_target . '"><span>' . esc_html( $tours_link_text_2 ) . '</span></a>
 			                   		';
 			                   	}
 
 			                   	if ( '' != $tours_link_3 && '' != $tours_link_text_3 ) {
 			                   		echo '
-			                   		<a href="' . esc_url( $tours_link_3 ) . '" class="'. sanitize_title( $tours_link_text_3 ) .'">
-			                   			<span>' . esc_html( $tours_link_text_3 ) . '</span>
-			                   		</a>
+			                   		<a href="' . esc_url( $tours_link_3 ) . '" target="' . $tours_links_target . '"><span>' . esc_html( $tours_link_text_3 ) . '</span></a>
 			                   		';
 			                   	}
 
 			                   	if ( '' != $tours_link_4 && '' != $tours_link_text_4 ) {
 			                   		echo '
-			                   		<a href="' . esc_url( $tours_link_4 ) . '" class="'. sanitize_title( $tours_link_text_4 ) .'">
-			                   			<span>' . esc_html( $tours_link_text_4 ) . '</span>
-			                   		</a>
+			                   		<a href="' . esc_url( $tours_link_4 ) . '" target="' . $tours_links_target . '"><span>' . esc_html( $tours_link_text_4 ) . '</span></a>
 			                   		';
 			                   	}
 			                echo '</li><!-- .tour-links -->';

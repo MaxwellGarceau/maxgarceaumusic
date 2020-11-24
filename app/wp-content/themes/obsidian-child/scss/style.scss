@@ -30,9 +30,19 @@ Text Domain: obsidian-child
 @import './modules/page';
 @import './modules/navigation';
 @import './modules/rss-blog';
+@import './modules/instagram-gallery';
+@import './modules/return-to-top';
+@import './modules/footer';
 
 // Page Specific
 @import './page-specific/home-page';
 @import './page-specific/bio';
 @import './page-specific/no-sidebar';
 @import './page-specific/metal';
+
+// Temporary
+@import './temporary';
+
+// .refresh {
+//
+// }

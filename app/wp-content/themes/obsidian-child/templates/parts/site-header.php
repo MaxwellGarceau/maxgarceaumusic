@@ -11,7 +11,16 @@
 
   <?php do_action( 'obsidian_header_top' ); ?>
 
-  <?php obsidian_site_branding(); ?>
+  <?php
+    if ( is_front_page() ) {
+      $additional_output = array(
+        'after_site_title' => '<div class="featured-message">' . get_field( 'featured_message' ) . '</div>'
+      );
+      max_obsidian_site_branding( $additional_output );
+    } else {
+      obsidian_site_branding();
+    }
+  ?>
 
   <nav id="site-navigation" class="site-navigation" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
@@ -45,3 +54,5 @@
   <?php do_action( 'obsidian_header_bottom' ); ?>
 
 </header>
+
+<?php red_display_return_to_top_arrow(); ?>

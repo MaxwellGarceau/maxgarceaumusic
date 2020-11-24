@@ -9,7 +9,7 @@ if ( ! defined( 'WPINC' ) ) die;
  * @author    Looks Awesome <email@looks-awesome.com>
  *
  * @link      http://looks-awesome.com
- * @copyright 2014-2016 Looks Awesome
+ * @copyright Looks Awesome
  */
 class FFMigration_2_1 implements ILADBMigration{
 
@@ -46,7 +46,7 @@ class FFMigration_2_1 implements ILADBMigration{
 		if (!isset($options['foursquare_client_secret'])) $options['foursquare_client_secret'] = '';
 		if (!isset($options['general-settings-date-format'])) $options['general-settings-date-format'] = 'agoStyleDate';
 		if (!isset($options['general-settings-open-links-in-new-window'])) $options['general-settings-open-links-in-new-window'] = 'nope';
-		if (!isset($options['general-settings-disable-proxy-server'])) $options['general-settings-disable-proxy-server'] = 'nope';
+		if (!isset($options['general-settings-disable-proxy-server'])) $options['general-settings-disable-proxy-server'] = 'yep';
 		if (!isset($options['general-settings-disable-follow-location'])) $options['general-settings-disable-follow-location'] = 'nope';
 //		if (!array_key_exists('general-settings-seo-mode', $options)) $options['general-settings-seo-mode'] = 'yep';
 		return $options;

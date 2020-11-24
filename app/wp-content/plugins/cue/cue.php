@@ -10,7 +10,7 @@
  * Plugin Name: Cue
  * Plugin URI:  https://audiotheme.com/view/cue/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-plugin-uri&utm_campaign=plugins
  * Description: Create beautiful, fully responsive audio playlists.
- * Version:     2.3.3
+ * Version:     2.4.0
  * Author:      AudioTheme
  * Author URI:  https://audiotheme.com/?utm_source=wordpress-plugin&utm_medium=link&utm_content=cue-author-uri&utm_campaign=plugins
  * License:     GPL-2.0+
@@ -32,7 +32,7 @@ function cue_autoloader( $class ) {
 		return;
 	}
 
-	$file  = dirname( __FILE__ ) . '/classes/';
+	$file  = dirname( __FILE__ ) . '/php/';
 	$file .= str_replace( array( 'Cue_', '_' ), array( '', '/' ), $class );
 	$file .= '.php';
 
@@ -68,6 +68,7 @@ $GLOBALS['cue'] = cue()
 	->register_hooks( new Cue_Provider_I18n() )
 	->register_hooks( new Cue_Provider_Customize() )
 	->register_hooks( new Cue_PostType_Playlist() )
+	->register_hooks( new Cue_Provider_Editor() )
 	->register_hooks( new Cue_Provider_Assets() )
 	->register_hooks( new Cue_Provider_Shortcode() )
 	->register_hooks( new Cue_Provider_Media() );

@@ -27,7 +27,7 @@ $songwriting_page_id = 23;
 
 <!-- Featured Message -->
 <?php
-
+/*
   if ( get_field( 'featured_message' ) ) { ?>
   <div class="site-content featured-message">
     <h2>Latest News From Max</h2>
@@ -38,14 +38,21 @@ $songwriting_page_id = 23;
 
 <?php
   }
+*/
 ?>
+
+<!-- Social Media Feed -->
+  <div id="lately">
+    <h2 class="home__subtitle">What I've Been Doing Lately</h2>
+    <?php echo do_shortcode('[insta-gallery id="0"]'); ?>
+  </div>
 
 <!-- Featured Video -->
 
 <!-- Videos -->
 <div class="featured">
 
-  <div class="featured__videos featured__col">
+  <div id="videos" class="featured__videos featured__col">
 
     <section class="widget widget_recent_posts block-grid-item widget-1">
       <div class="home__subtitle-container recent-posts-wrapper">
@@ -63,10 +70,10 @@ $songwriting_page_id = 23;
 
   <div class="featured__songs featured__col">
 
-    <section class="widget widget_recent_posts block-grid-item widget-1">
+    <section id="songs" class="widget widget_recent_posts block-grid-item widget-1">
       <div class="home__subtitle-container recent-posts-wrapper">
         <h2 class="home__subtitle widget-title">Recent Songs</h2>
-        <span class="recent-posts-links"><a class="recent-posts-archive-link" target="_blank" href="<?php echo get_permalink( $songwriting_page_id ); ?>">All Songs</a></span>
+        <!-- <span class="recent-posts-links"><a class="recent-posts-archive-link" target="_blank" href="<?php echo get_permalink( $songwriting_page_id ); ?>">All Songs</a></span> -->
       </div>
     </section>
 
@@ -77,10 +84,6 @@ $songwriting_page_id = 23;
   </div>
 
 </div>
-
-<!-- Social Media Feed -->
-  <h2 class="home__subtitle">What I've Been Doing Lately</h2>
-  <?php echo do_shortcode('[ff id="1"]'); ?>
 
     <?php the_content(); ?>
     <?php obsidian_page_links(); ?>
